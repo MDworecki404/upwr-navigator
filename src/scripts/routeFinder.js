@@ -12,7 +12,7 @@ const routeFinder = () => {
 
     const positions = path.map(coord => Cesium.Cartesian3.fromDegrees(coord[0], coord[1]));
 
-    viewer.entities.add({
+    const route = viewer.entities.add({
         polyline: {
             positions: positions,
             width: 3,
