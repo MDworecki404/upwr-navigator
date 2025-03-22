@@ -1,0 +1,463 @@
+{
+    "buildings": {
+      "A": [
+        {
+          "code": "A1",
+          "name": "Skłodowskiej-Curie 42 – sale Z",
+          "facilities": [
+            "Akademicki Inkubator Przedsiębiorczości",
+            "Biuro Rzecznika Patentowego",
+            "Centrum Badawczo-Rozwojowe",
+            "Centrum Inwestycji",
+            "Centrum Realizacji i Rozliczania Projektów",
+            "Centrum Spraw Studenckich",
+            "Dział Współpracy z Zagranicą",
+            "Kancelaria Informacji Niejawnych",
+            "Katedra Fizyki i Biofizyki",
+            "Prorektor ds. studenckich i edukacji",
+            "Samodzielne stanowisko ds. monitoringu i ewaluacji",
+            "Samorząd Doktorantów",
+            "Samorząd Studencki",
+            "Szkoła Doktorska",
+            "Zespół ds. Obronnych"
+          ]
+        },
+        {
+          "code": "A2",
+          "name": "Norwida 25 – sale R",
+          "facilities": [
+            "Biuro Kontrolingu",
+            "Biuro Kwestora",
+            "Biuro Organizacyjne",
+            "Biuro Radców Prawnych",
+            "Biuro Rektora",
+            "Biuro Rozwoju i Organizacji Uczelni",
+            "Centrum Eksploatacji i Remontów Obiektów Budowlanych",
+            "Centrum Spraw Studenckich",
+            "Centrum Zamówień Publicznych i Zakupów",
+            "Centrum Zarządzania Budynkami",
+            "Dział Bezpieczeństwa i Higieny Pracy oraz Ochrony Przeciwpożarowej",
+            "Dział Kadr i Płac",
+            "Dział Międzynarodowych Projektów Badawczych",
+            "Dział Nauki",
+            "Kanclerz",
+            "Zastępca Kanclerza ds. administarcyjno-gospodarczych",
+            "Zastępca Kanclerza ds. inwestycji",
+            "Katedra Fizyki i Biofizyki",
+            "Kwestor",
+            "Kwestura-Dział Ewidencji Majątkowej",
+            "Kwestura-Dział Finansowy",
+            "Kwestura-Dział Księgowości Ogólnej",
+            "Pełnomocnik Rektora ds. \"Zielona Dolina\"",
+            "Prorektor ds. nauki",
+            "Prorektor ds. orgaznizacji i rozwoju uczelni",
+            "Prorektor ds. umiędzynarodowienia",
+            "Rada Byłych Rektorów",
+            "Rektor",
+            "Samodzielne Stanowisko Audytora Wewnętrznego",
+            "Uczelniane Centrum Informatyzacji",
+            "Zastępca Kwestora ds. księgowości",
+            "Zastępca Kwestora ds. planowania i finansów"
+          ]
+        },
+        {
+          "code": "A3",
+          "name": "Norwida 31 – sale W",
+          "facilities": [
+            "Dziekanat Wydziału Medycyny Weterynaryjnej",
+            "Katedra Biochemii i Biologii Molekularnej",
+            "Katedra Biostruktury i Fizjologii Zwierząt",
+            "Katedra Chorób Wewnętrznych z Kliniką Koni, Psów i Kotów",
+            "Katedra Farmakologii i Toksykologii",
+            "Katedra Higieny Żywności Ochrony Zdrowia Konsumenta",
+            "Katedra Immunologii, Patofizjologii i Prewencji Weterynaryjnej",
+            "Katedra Patologii"
+          ]
+        },
+        {
+          "code": "A4",
+          "name": "Norwida 25",
+          "facilities": [
+            "Biblioteka Główna"
+          ]
+        },
+        {
+          "code": "A5",
+          "name": "Norwida 27",
+          "facilities": [
+            "Centrum Eksploatacji i Remontów Obiektów Budowlanych",
+            "Centrum Zamówień Publicznych i Zakupów",
+            "Centrum Zarządzania Budynkami",
+            "Dział Ewidencji Majątkowej – Sekcja Inwentaryzacji",
+            "Dział Promocji",
+            "NSZZ Solidarność",
+            "Stowarzyszenie Absolwentów UP",
+            "Związek Nauczycielstwa Polskiego"
+          ]
+        },
+        {
+          "code": "A6",
+          "name": "Norwida 27A",
+          "facilities": [
+            "Centrum Eksploatacji i Remontów Obiektów Budowlanych – Sekcja eksploatacji"
+          ]
+        },
+        {
+          "code": "A7",
+          "name": "Norwida 27B",
+          "facilities": [
+            "Katedra Biologii Eksperymentalnej"
+          ]
+        },
+        {
+          "code": "A8",
+          "name": "Norwida 27D",
+          "facilities": [
+            "Katedra Biostruktury i Fizjologii Zwierząt",
+            "Katedra Immunologii, Patofizjologii i Prewencji Weterynaryjnej"
+          ]
+        },
+        {
+          "code": "A12",
+          "name": "Norwida 27C",
+          "facilities": [
+            "Centrum Innowacji i Transferu Technologii",
+            "Centrum Zasobów i Wsparcia Dydaktyki",
+            "Katedra Biologii Eksperymentalnej"
+          ]
+        }
+      ],
+      "B": [
+        {
+          "code": "B1",
+          "name": "pl. Grunwaldzki 45 – sale W",
+          "facilities": [
+            "Katedra Epizootiologii z Kliniką Ptaków i Zwierząt Egzotycznych"
+          ]
+        },
+        {
+          "code": "B2",
+          "name": "pl. Grunwaldzki 47 – sale W",
+          "facilities": [
+            "Katedra Chorób Wewnętrznych z Kliniką Koni, Psów i Kotów"
+          ]
+        },
+        {
+          "code": "B3",
+          "name": "pl. Grunwaldzki 49 – sale W",
+          "facilities": [
+            "Centrum Zarządzania Budynkami",
+            "Katedra Rozrodu z Kliniką Zwierząt Gospodarskich"
+          ]
+        },
+        {
+          "code": "B4",
+          "name": "pl. Grunwaldzki 51 – sale W",
+          "facilities": [
+            "Katedra i Klinika Chirurgii"
+          ]
+        },
+        {
+          "code": "B5",
+          "name": "pl. Grunwaldzki 51A",
+          "facilities": [
+            "Dział Transportu"
+          ]
+        },
+        {
+          "code": "B6",
+          "name": "pl. Grunwaldzki 49A",
+          "facilities": [
+            "Katedra Biochemii i Biologii Molekularnej"
+          ]
+        },
+        {
+          "code": "B7",
+          "name": "Mikulicza-Radeckiego 6",
+          "facilities": [
+            "Brama wjazdowa"
+          ]
+        },
+        {
+          "code": "B8",
+          "name": "Mikulicza-Radeckiego 6",
+          "facilities": [
+            "Studium Języków Obcych i Nauk Humanistyczno-Społecznych"
+          ]
+        },
+        {
+          "code": "B9",
+          "name": "pl. Grunwaldzki 47A",
+          "facilities": [
+            "Katedra Chorób Wewnętrznych z Kliniką Koni, Psów i Kotów",
+            "Katedra i Klinika Chirurgii"
+          ]
+        }
+      ],
+      "C": [
+        {
+          "code": "C1",
+          "name": "Grunwaldzka 53 – sale G",
+          "facilities": [
+            "Instytut Geodezji i Geoinformatyki",
+            "Instytut Nauk o Glebie, Żywienia Roślin i Ochrony Środowiska",
+            "Katedra Ochrony Roślin",
+            "Katedra Zastosowań Matematyki"
+          ]
+        },
+        {
+          "code": "C2",
+          "name": "pl. Grunwaldzki 24 – sale M",
+          "facilities": [
+            "Centrum Zasobów i Wparcia Dydaktyki",
+            "Instytut Inżynierii Środowiska",
+            "Instytut Kształtowania i Ochrony Środowiska",
+            "Katedra Architektury Krajobrazu",
+            "Katedra Budownictwa",
+            "Samorząd Studencki"
+          ]
+        },
+        {
+          "code": "C3",
+          "name": "pl. Grunwaldzki 24A – sale C",
+          "description": "Centrum Dydaktyczno-Naukowe",
+          "facilities": [
+            "Centrum Wsparcia i Dostępności",
+            "Centrum Zasobów i Wsparcia Dydaktyki",
+            "Dziekanat Wydziału Przyrodniczo-Technologicznego",
+            "Instytut Agroekologii i Produkcji Roślinnej",
+            "Instytut Nauk o Glebie, Żywienia Roślin i Ochrony Środowiska",
+            "Katedra Botaniki i Ekologii Roślin",
+            "Katedra Ekonomii Stosowanej",
+            "Katedra Genetyki, Hodowli Roślin i Nasiennictwa",
+            "Katedra Ochrony Roślin",
+            "Katedra Ogrodnictwa"
+          ]
+        },
+        {
+          "code": "C4",
+          "name": "pl. Grunwaldzki 24 – sale G, M",
+          "facilities": [
+            "Centrum Zarządzania Budynkami",
+            "Instytut Geodezji i Geoinformatyki",
+            "Instytut Inżynierii Środowiska",
+            "Katedra Budownictwa"
+          ]
+        },
+        {
+          "code": "C5",
+          "name": "ul. Grunwaldzka 55 – sale H",
+          "facilities": [
+            "Dziekanat Wydziału Inżynierii Kształtowania Środowiska i Geodezji",
+            "Instytut Geodezji i Geoinformatyki",
+            "Instytut Gospodarki Przestrzennej",
+            "Instytut Inżynierii Środowiska",
+            "Instytut Kształtowania i Ochrony Środowiska",
+            "Katedra Architektury Krajobrazu"
+          ]
+        }
+      ],
+      "E": [
+        {
+          "code": "E1",
+          "name": "Kożuchowska 1",
+          "facilities": [
+            "Katedra Biostruktury i Fizjologii Zwierząt"
+          ]
+        },
+        {
+          "code": "E2",
+          "name": "Kożuchowska 5B",
+          "facilities": [
+            "Instytut Biologii",
+            "Instytut Hodowli Zwierząt",
+            "Katedra Genetyki",
+            "Pracownia Mikroskopii Elektronowej"
+          ]
+        },
+        {
+          "code": "E3",
+          "name": "Kożuchowska 5 – sale W",
+          "facilities": [
+            "Instytut Biologii Środowiskowej"
+          ]
+        },
+        {
+          "code": "E4",
+          "name": "Kożuchowska 7A",
+          "facilities": [
+            "Instytut Biologii"
+          ]
+        },
+        {
+          "code": "E5",
+          "name": "Kożuchowska 7",
+          "facilities": [
+            "Katedra Genetyki",
+            "Uczelniane Centrum Informatyzacji"
+          ]
+        },
+        {
+          "code": "E6",
+          "name": "Kożuchowska 5A",
+          "facilities": [
+            "Instytut Hodowli Zwierząt"
+          ]
+        },
+        {
+          "code": "E9",
+          "name": "Kożuchowska 5C",
+          "facilities": [
+            "Katedra Biostruktury i Fizjologii Zwierząt – chłodnia"
+          ]
+        },
+        {
+          "code": "E10",
+          "name": "Kożuchowska 7",
+          "facilities": [
+            "Instytut Hodowli Zwierząt – Wiwarium Wydziałowe"
+          ]
+        },
+        {
+          "code": "E11",
+          "name": "Chełmońskiego 38D",
+          "facilities": [
+            "Instytut Hodowli Zwierząt",
+            "Katedra Żywienia Zwierząt i Paszoznawstwa",
+            "Muzeum Bioróżnorodności"
+          ]
+        },
+        {
+          "code": "E12",
+          "name": "Chełmońskiego 38C – sale AZ, AB",
+          "facilities": [
+            "Dziekanat Wydziału Biologii i Hodowli Zwierząt",
+            "Biblioteka Wydziału BiHZ",
+            "Wydziałowe Biuro Obsługi Projektów Unijnych"
+          ]
+        },
+        {
+          "code": "E13",
+          "name": "Chełmońskiego 38E",
+          "facilities": [
+            "Instytut Hodowli Zwierząt",
+            "Katedra Higieny Środowiska i Dobrostanu Zwierząt"
+          ]
+        }
+      ],
+      "F": [
+        {
+          "code": "F1",
+          "name": "Chełmońskiego 37B – sale MR",
+          "facilities": [
+            "Instytut Inżynierii Rolniczej",
+            "Otwarty Uniwersytet Trzeciego Wieku"
+          ]
+        },
+        {
+          "code": "F2",
+          "name": "Chełmońskiego 37",
+          "facilities": [
+            "Instytut Inżynierii Rolniczej - hala maszyn"
+          ]
+        },
+        {
+          "code": "F3",
+          "name": "Chełmońskiego 39A",
+          "facilities": [
+            "Instytut Inżynierii Rolniczej",
+            "Centrum Odnawialnych Źródeł Energii"
+          ]
+        },
+        {
+          "code": "F4",
+          "name": "Chełmońskiego 41",
+          "facilities": [
+            "Instytut Inżynierii Rolniczej",
+            "Warsztaty Wydziału Przyrodniczo-Technologicznego"
+          ]
+        },
+        {
+          "code": "F5",
+          "name": "Chełmońskiego 39",
+          "facilities": [
+            "Instytut Inżynierii Rolniczej",
+            "Warsztaty Wydziału Przyrodniczo-Technologicznego"
+          ]
+        },
+        {
+          "code": "F8",
+          "name": "Chełmońskiego 37A",
+          "description": "Centrum Bioinżynierii",
+          "facilities": [
+            "Instytut Inżynierii Rolniczej",
+            "Katedra Biogospodarki Stosowanej"
+          ]
+        },
+        {
+          "code": "F11",
+          "name": "Chełmońskiego 43A",
+          "facilities": [
+            "Kryta Pływalnia"
+          ]
+        },
+        {
+          "code": "F12",
+          "name": "Chełmońskiego 43",
+          "facilities": [
+            "Studium Wychowania Fizycznego i Sportu",
+            "Hala Sportowa"
+          ]
+        },
+        {
+          "code": "F13",
+          "name": "Chełmońskiego 37",
+          "description": "Centrum Nauk o Żywności i Żywieniu",
+          "facilities": [
+            "Dziekanat Wydziału Biotechnologii i Nauk o Żywności",
+            "Katedra Biotechnologii i Mikrobiologii Żywności",
+            "Katedra Rozwoju Funkcjonalnych Produktów Żywnościowych",
+            "Katedra Technologii i Fermantacji Zbóż",
+            "Katedra Technologii Owoców i Warzyw Nutraceutyków Roślinnych",
+            "Katedra Technologii Rolnej i Przechowalnictwa",
+            "Katedra Żywienia Człowieka"
+          ]
+        }
+      ],
+      "DS": [
+        {
+          "code": "DS1",
+          "name": "Arka, Olszewskiego 25",
+          "facilities": []
+        },
+        {
+          "code": "DS2",
+          "name": "Centaur, ul. Grunwaldzka 65",
+          "facilities": []
+        },
+        {
+          "code": "DS3",
+          "name": "„Labirynt, Sopocka 23",
+          "facilities": [
+            "Wydawnictwo Uniwersytetu Przyrodniczego we Wrocławiu",
+            "Archiwum"
+          ]
+        },
+        {
+          "code": "DS4",
+          "name": "Talizman, ul. Grunwaldzka 63",
+          "facilities": []
+        },
+        {
+          "code": "DS5",
+          "name": "Zodiak, Grunwaldzka 106A",
+          "facilities": []
+        },
+        {
+          "code": "DS6",
+          "name": "Raj, Pautscha 5/7",
+          "facilities": []
+        }
+      ]
+    }
+  }
