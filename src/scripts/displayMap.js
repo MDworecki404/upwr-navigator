@@ -14,7 +14,7 @@ export async function initCesium(containerId) {
         timeline: false,
         shouldAnimate: false,
         
-        //geocoder: Cesium.IonGeocodeProviderType.GOOGLE,
+        geocoder: Cesium.IonGeocodeProviderType.GOOGLE,
         
     });  
     //const osmBuildingsTileset = await Cesium.createOsmBuildingsAsync();

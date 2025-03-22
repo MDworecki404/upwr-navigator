@@ -6,6 +6,7 @@
     import UniversityBuildings from '../data/universityBuildings.json'
     import { ref } from "vue";
     import routeFinder from "../scripts/routeFinder";
+    import { show3DBuildingsGoogle, show3DBuildingsOSM } from "../scripts/layers";
 
     export default {
         setup() {
@@ -67,7 +68,9 @@
                     gsap.to('#navigationPanel', {visibility: 'hidden', duration: 0, delay: 0.1, ease: 'linear'})
                 }
             },
-            routeFinder
+            routeFinder,
+            show3DBuildingsGoogle,
+            show3DBuildingsOSM
         }
     };
     
@@ -79,6 +82,14 @@
         <img src="../assets/layers-svgrepo-com.svg">
     </div>
     <div id="layerPanel">
+        <div class="layerContainer">
+            <input type="checkbox" id="3DBuildingsGoogle" @click="show3DBuildingsGoogle">
+            <span>Budynki 3D Google</span>
+        </div>
+        <div class="layerContainer">
+            <input type="checkbox" id="3DBuildingsOSM" @click="show3DBuildingsOSM">
+            <span>Budynki 3D OpenStreetMap</span>
+        </div>
     </div>
     <div id="navigationPicker" @click="panelVisibility('navigation')">
         <img src="../assets/route-svgrepo-com.svg">
@@ -163,6 +174,26 @@
         background-color: rgba(38, 38, 38, 0.75);
         border-radius: 10px;
         visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+
+        .layerContainer{
+            text-align: left;
+            margin-left: 10px;
+            margin-top: 10px;
+            color: white;
+            font-family: sans-serif;
+
+            
+            
+            span{
+                margin-left: 10px;
+            }
+        }
     }
     #navigationPicker{
         position: absolute;
