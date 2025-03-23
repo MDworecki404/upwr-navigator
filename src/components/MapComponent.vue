@@ -83,7 +83,7 @@
     </div>
     <div id="layerPanel">
         <div class="layerContainer">
-            <input type="checkbox" id="3DBuildingsGoogle" @click="show3DBuildingsGoogle">
+            <input type="checkbox"  id="3DBuildingsGoogle" @click="show3DBuildingsGoogle">
             <span>Budynki 3D Google</span>
         </div>
         <div class="layerContainer">
@@ -105,7 +105,7 @@
                     :key="building.code" 
                     :value="building.code"
                 >
-                {{ building.code }}: {{ building.name }}
+                {{ building.code }}
                 </option>
                     </optgroup>
                 </select>
@@ -121,7 +121,7 @@
                     :key="building.code" 
                     :value="building.code"
                 >
-                {{ building.code }}: {{ building.name }}
+                {{ building.code }}
                 </option>
                     </optgroup>
                 </select>
@@ -244,7 +244,19 @@
             width: 100%;
             text-align: center;
             color: white;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            align-content: flex-start;
             
+            
+            select{
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+            }
             span{
                 width: 100%;
                 text-align: center;
