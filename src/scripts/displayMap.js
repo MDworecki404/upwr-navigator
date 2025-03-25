@@ -5,7 +5,6 @@ Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOi
 
 let viewer
 
-// Funkcja inicjalizująca mapę
 export async function initCesium(containerId) {
 
     viewer = new Cesium.Viewer('cesiumContainer', {
@@ -17,15 +16,6 @@ export async function initCesium(containerId) {
         geocoder: Cesium.IonGeocodeProviderType.GOOGLE,
         
     });  
-    //const osmBuildingsTileset = await Cesium.createOsmBuildingsAsync();
-    //viewer.scene.primitives.add(osmBuildingsTileset);
-
-    //try {
-    //    const tileset = await Cesium.createGooglePhotorealistic3DTileset();
-    //    viewer.scene.primitives.add(tileset);
-    //} catch (error) {
-    //    console.log(`Failed to load tileset: ${error}`);
-    //}
 
     viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function (e) {
         e.cancel = true; // Zapobiega domyślnemu zachowaniu
@@ -40,7 +30,6 @@ export async function initCesium(containerId) {
         });
     });
   
-      // Fly the camera to San Francisco at the given longitude, latitude, and height.
     viewer.camera.setView({
         destination: Cesium.Cartesian3.fromDegrees(17.086280982133945, 51.10719852112475, 5000),
         orientation: {
