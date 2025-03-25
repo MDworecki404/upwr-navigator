@@ -268,6 +268,11 @@
             text-align: center;
             color: white;
             
+            select{
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+            }
             span{
                 width: 100%;
                 text-align: center;
