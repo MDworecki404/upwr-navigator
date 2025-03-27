@@ -41,8 +41,8 @@ const routeFinder = () => {
     const route = viewer.entities.add({
         polyline: {
             positions: positions,
-            width: 3,
-            material: Cesium.Color.CORAL,
+            width: 5,
+            material: Cesium.Color.YELLOW,
             clampToGround: true
         }
     });
