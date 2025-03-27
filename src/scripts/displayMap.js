@@ -29,7 +29,11 @@ export async function initCesium(containerId) {
           duration: 2, // Czas animacji w sekundach
         });
     });
-  
+
+    //viewer.scene.primitives.add(
+    //    await Cesium.Cesium3DTileset.fromIonAssetId(3258014),
+    //);
+
     viewer.camera.setView({
         destination: Cesium.Cartesian3.fromDegrees(17.086280982133945, 51.10719852112475, 5000),
         orientation: {
@@ -38,9 +42,9 @@ export async function initCesium(containerId) {
         }
     });
 
-    
+
 
 }
 
 export {viewer}
-  
+
