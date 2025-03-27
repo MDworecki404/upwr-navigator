@@ -2,7 +2,7 @@ import Network from '../../layers/Network_with_roads.json'; // Importowanie dany
 
 // Funkcja budująca graf na podstawie danych GeoJSON
 export const buildGraph = () => {
-    console.log('Rozpoczęcie budowy grafu');
+    //console.log('Rozpoczęcie budowy grafu');
 
     let nodes = new Set();
     let edges = new Map();
@@ -33,9 +33,9 @@ export const buildGraph = () => {
         }
     });
 
-    console.log('Liczba tras pieszych:', pedestrianPaths);
-    console.log('Liczba węzłów:', nodes.size);
-    console.log('Liczba połączeń:', edges.size);
+    //console.log('Liczba tras pieszych:', pedestrianPaths);
+    //console.log('Liczba węzłów:', nodes.size);
+    //console.log('Liczba połączeń:', edges.size);
     
     return { nodes: Array.from(nodes).map(JSON.parse), edges };
     

@@ -10,7 +10,7 @@
 
     export default {
         setup() {
-        const buildings = ref(UniversityBuildings.buildings); // Używamy danych z importowanego JSON
+        const buildings = ref(UniversityBuildings.buildings.flat()); // Używamy danych z importowanego JSON
         const selectedStartBuilding = ref('');
         const selectedEndBuilding = ref('');
         onMounted(() => {
@@ -99,32 +99,28 @@
             <span>Wybierz punkt początkowy</span>
             <select class="startChoice" v-model="selectedStartBuilding">
                 <option value="">Wybierz budynek</option>
-                    <optgroup v-for="category in Object.keys(buildings)" :key="category" :label="'Budynki ' + category">
                 <option 
-                    v-for="building in buildings[category]" 
+                    v-for="building in buildings" 
                     :key="building.code" 
                     :value="building.code"
                 >
-                {{ building.code }}
+                    {{ building.code }}
                 </option>
-                    </optgroup>
-                </select>
+            </select>
                 <br><br>
         </div>
         <div id="endBuilding">
             <span>Wybierz punkt końcowy</span>
             <select class="endChoice" v-model="selectedEndBuilding">
                 <option value="">Wybierz budynek</option>
-                    <optgroup v-for="category in Object.keys(buildings)" :key="category" :label="'Budynki ' + category">
                 <option 
-                    v-for="building in buildings[category]" 
+                    v-for="building in buildings" 
                     :key="building.code" 
                     :value="building.code"
                 >
-                {{ building.code }}
+                    {{ building.code }}
                 </option>
-                    </optgroup>
-                </select>
+            </select>
         </div>
         <div id="buttonDiv">
             <button @click="routeFinder" type="button">Sprawdź trasę</button>
