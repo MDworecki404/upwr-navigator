@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "cesium": "^1.127.0",
     "gsap": "^3.12.7",
     "vite-plugin-cesium": "^1.2.23",

@@ -7,6 +7,8 @@
     import { ref } from "vue";
     import routeFinder from "../scripts/routeFinder";
     import { show3DBuildingsGoogle, show3DBuildingsOSM } from "../scripts/layers";
+    import 'bootstrap/dist/css/bootstrap.min.css';
+    import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
     export default {
         setup() {
@@ -83,11 +85,11 @@
     </div>
     <div id="layerPanel">
         <div class="layerContainer">
-            <input type="checkbox"  id="3DBuildingsGoogle" @click="show3DBuildingsGoogle">
+            <input type="checkbox" class="form-check-input"  id="3DBuildingsGoogle" @click="show3DBuildingsGoogle">
             <span>Budynki 3D Google</span>
         </div>
         <div class="layerContainer">
-            <input type="checkbox" id="3DBuildingsOSM" @click="show3DBuildingsOSM">
+            <input type="checkbox" class="form-check-input" id="3DBuildingsOSM" @click="show3DBuildingsOSM">
             <span>Budynki 3D OpenStreetMap</span>
         </div>
     </div>
@@ -96,8 +98,8 @@
     </div>
     <div id="navigationPanel">
         <div id="startingBuilding">
-            <span>Wybierz punkt początkowy</span>
-            <select class="startChoice" v-model="selectedStartBuilding">
+            <span class="lead">Wybierz punkt początkowy</span>
+            <select class="form-select-sm mb-1 startChoice" v-model="selectedStartBuilding">
                 <option value="">Wybierz budynek</option>
                 <option 
                     v-for="building in buildings" 
@@ -110,8 +112,8 @@
                 <br><br>
         </div>
         <div id="endBuilding">
-            <span>Wybierz punkt końcowy</span>
-            <select class="endChoice" v-model="selectedEndBuilding">
+            <span class="lead">Wybierz punkt końcowy</span>
+            <select class="form-select-sm mb-1 endChoice" v-model="selectedEndBuilding">
                 <option value="">Wybierz budynek</option>
                 <option 
                     v-for="building in buildings" 
@@ -123,12 +125,20 @@
             </select>
         </div>
         <div id="buttonDiv">
-            <button @click="routeFinder" type="button">Sprawdź trasę</button>
+            <button class="btn btn-secondary" @click="routeFinder" type="button">Sprawdź trasę</button>
         </div>
     </div>
 </template>
 
 <style lang="scss">
+
+    @font-face {
+        font-family: Roboto;
+        src: url(../assets/Roboto/Roboto-VariableFont_wdthwght.ttf);
+    }
+    *{
+        font-family: Roboto;
+    }
 
     #cesiumContainer{
         width: 100vw;
@@ -249,7 +259,7 @@
             
             
             select{
-                width: 50%;
+                width: 75%;
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -265,7 +275,7 @@
             color: white;
             
             select{
-                width: 50%;
+                width: 75%;
                 margin-left: auto;
                 margin-right: auto;
             }
