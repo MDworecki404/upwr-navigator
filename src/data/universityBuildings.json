@@ -64,7 +64,7 @@
     [{
       "code": "A3",
       "name": "Norwida 31 – sale W",
-      "node": [],
+      "node": [17.064604, 51.112096],
       "facilities": [
         "Dziekanat Wydziału Medycyny Weterynaryjnej",
         "Katedra Biochemii i Biologii Molekularnej",
@@ -87,7 +87,7 @@
     [{
       "code": "A5",
       "name": "Norwida 27",
-      "node": [],
+      "node": [17.064283021501208, 51.11095743714971],
       "facilities": [
         "Centrum Eksploatacji i Remontów Obiektów Budowlanych",
         "Centrum Zamówień Publicznych i Zakupów",
@@ -102,7 +102,7 @@
     [{
       "code": "A6",
       "name": "Norwida 27A",
-      "node": [],
+      "node": [17.064652437232642, 51.11102107435144],
       "facilities": [
         "Centrum Eksploatacji i Remontów Obiektów Budowlanych – Sekcja eksploatacji"
       ]
@@ -110,7 +110,7 @@
     [{
       "code": "A7",
       "name": "Norwida 27B",
-      "node": [],
+      "node": [ 17.06498913793134, 51.11135348388887],
       "facilities": [
         "Katedra Biologii Eksperymentalnej"
       ]
@@ -118,7 +118,7 @@
     [{
       "code": "A8",
       "name": "Norwida 27D",
-      "node": [],
+      "node": [ 17.06530655066009,51.111489023120136],
       "facilities": [
         "Katedra Biostruktury i Fizjologii Zwierząt",
         "Katedra Immunologii, Patofizjologii i Prewencji Weterynaryjnej"
@@ -127,7 +127,7 @@
     [{
       "code": "A12",
       "name": "Norwida 27C",
-      "node": [],
+      "node": [17.06511308335793,51.11149775923509],
       "facilities": [
         "Centrum Innowacji i Transferu Technologii",
         "Centrum Zasobów i Wsparcia Dydaktyki",
@@ -137,7 +137,7 @@
     [{
       "code": "B1",
       "name": "pl. Grunwaldzki 45 – sale W",
-      "node": [],
+      "node": [17.06583040935705,51.112424509790344],
       "facilities": [
         "Katedra Epizootiologii z Kliniką Ptaków i Zwierząt Egzotycznych"
       ]
@@ -145,7 +145,7 @@
     [{
       "code": "B2",
       "name": "pl. Grunwaldzki 47 – sale W",
-      "node": [],
+      "node": [ 17.06675032389177, 51.1126635651544],
       "facilities": [
         "Katedra Chorób Wewnętrznych z Kliniką Koni, Psów i Kotów"
       ]
@@ -153,7 +153,7 @@
     [{
       "code": "B3",
       "name": "pl. Grunwaldzki 49 – sale W",
-      "node": [],
+      "node": [17.06783406477118, 51.11300329624157],
       "facilities": [
         "Centrum Zarządzania Budynkami",
         "Katedra Rozrodu z Kliniką Zwierząt Gospodarskich"
@@ -162,7 +162,7 @@
     [{
       "code": "B4",
       "name": "pl. Grunwaldzki 51 – sale W",
-      "node": [],
+      "node": [17.068576297922096, 51.11324720377045],
       "facilities": [
         "Katedra i Klinika Chirurgii"
       ]
@@ -170,7 +170,7 @@
     [{
       "code": "B5",
       "name": "pl. Grunwaldzki 51A",
-      "node": [],
+      "node": [17.06937277464994,51.11379997858459],
       "facilities": [
         "Dział Transportu"
       ]
@@ -178,7 +178,7 @@
     [{
       "code": "B6",
       "name": "pl. Grunwaldzki 49A",
-      "node": [],
+      "node": [17.06783406477118, 51.11300329624157],
       "facilities": [
         "Katedra Biochemii i Biologii Molekularnej"
       ]
@@ -186,7 +186,7 @@
     [{
       "code": "B7",
       "name": "Mikulicza-Radeckiego 6",
-      "node": [],
+      "node": [17.06698664834253, 51.112235724925895],
       "facilities": [
         "Brama wjazdowa"
       ]
@@ -194,7 +194,7 @@
     [{
       "code": "B8",
       "name": "Mikulicza-Radeckiego 6",
-      "node": [],
+      "node": [17.06698664834253, 51.112235724925895],
       "facilities": [
         "Studium Języków Obcych i Nauk Humanistyczno-Społecznych"
       ]
@@ -202,7 +202,7 @@
     [{
       "code": "B9",
       "name": "pl. Grunwaldzki 47A",
-      "node": [],
+      "node": [17.066355650239235,51.11244649272854],
       "facilities": [
         "Katedra Chorób Wewnętrznych z Kliniką Koni, Psów i Kotów",
         "Katedra i Klinika Chirurgii"
@@ -277,7 +277,7 @@
     [{
       "code": "E1",
       "name": "Kożuchowska 1",
-      "node": [],
+      "node": [17.094530932776276, 51.098789212472404],
       "facilities": [
         "Katedra Biostruktury i Fizjologii Zwierząt"
       ]
@@ -285,7 +285,7 @@
     [{
       "code": "E2",
       "name": "Kożuchowska 5B",
-      "node": [],
+      "node": [17.094865369274114, 51.09826315321833],
       "facilities": [
         "Instytut Biologii",
         "Instytut Hodowli Zwierząt",
@@ -296,7 +296,7 @@
     [{
       "code": "E3",
       "name": "Kożuchowska 5 – sale W",
-      "node": [],
+      "node": [17.09524094693864, 51.09800520537005],
       "facilities": [
         "Instytut Biologii Środowiskowej"
       ]
@@ -304,7 +304,7 @@
     [{
       "code": "E4",
       "name": "Kożuchowska 7A",
-      "node": [],
+      "node": [17.095756674472295, 51.097572990059135],
       "facilities": [
         "Instytut Biologii"
       ]
@@ -312,7 +312,7 @@
     [{
       "code": "E5",
       "name": "Kożuchowska 7",
-      "node": [],
+      "node": [17.096391955967892, 51.09762076704766],
       "facilities": [
         "Katedra Genetyki",
         "Uczelniane Centrum Informatyzacji"
@@ -321,7 +321,7 @@
     [{
       "code": "E6",
       "name": "Kożuchowska 5A",
-      "node": [],
+      "node": [17.095551861197432, 51.098064035553236],
       "facilities": [
         "Instytut Hodowli Zwierząt"
       ]
@@ -329,7 +329,7 @@
     [{
       "code": "E9",
       "name": "Kożuchowska 5C",
-      "node": [],
+      "node": [17.095400036302905,51.09827062805471],
       "facilities": [
         "Katedra Biostruktury i Fizjologii Zwierząt – chłodnia"
       ]
@@ -337,7 +337,7 @@
     [{
       "code": "E10",
       "name": "Kożuchowska 7",
-      "node": [],
+      "node": [17.096391955967892, 51.09762076704766],
       "facilities": [
         "Instytut Hodowli Zwierząt – Wiwarium Wydziałowe"
       ]
@@ -345,7 +345,7 @@
     [{
       "code": "E11",
       "name": "Chełmońskiego 38D",
-      "node": [],
+      "node": [17.095885622971796, 51.09864202580639],
       "facilities": [
         "Instytut Hodowli Zwierząt",
         "Katedra Żywienia Zwierząt i Paszoznawstwa",
@@ -355,7 +355,7 @@
     [{
       "code": "E12",
       "name": "Chełmońskiego 38C – sale AZ, AB",
-      "node": [],
+      "node": [17.095699010805042,51.09915965530978],
       "facilities": [
         "Dziekanat Wydziału Biologii i Hodowli Zwierząt",
         "Biblioteka Wydziału BiHZ",
@@ -365,7 +365,7 @@
     [{
       "code": "E13",
       "name": "Chełmońskiego 38E",
-      "node": [],
+      "node": [17.095425938082627, 51.0989669203411],
       "facilities": [
         "Instytut Hodowli Zwierząt",
         "Katedra Higieny Środowiska i Dobrostanu Zwierząt"
@@ -374,7 +374,7 @@
     [{
       "code": "F1",
       "name": "Chełmońskiego 37B – sale MR",
-      "node": [],
+      "node": [17.095747224156163, 51.10001420306182],
       "facilities": [
         "Instytut Inżynierii Rolniczej",
         "Otwarty Uniwersytet Trzeciego Wieku"
@@ -383,7 +383,7 @@
     [{
       "code": "F2",
       "name": "Chełmońskiego 37",
-      "node": [],
+      "node": [17.09510418277508,51.09979852184301],
       "facilities": [
         "Instytut Inżynierii Rolniczej - hala maszyn"
       ]
@@ -391,7 +391,7 @@
     [{
       "code": "F3",
       "name": "Chełmońskiego 39A",
-      "node": [],
+      "node": [17.096157588049557, 51.100381807200726],
       "facilities": [
         "Instytut Inżynierii Rolniczej",
         "Centrum Odnawialnych Źródeł Energii"
@@ -400,7 +400,7 @@
     [{
       "code": "F4",
       "name": "Chełmońskiego 41",
-      "node": [],
+      "node": [17.09694988806828, 51.09989987596563],
       "facilities": [
         "Instytut Inżynierii Rolniczej",
         "Warsztaty Wydziału Przyrodniczo-Technologicznego"
@@ -409,7 +409,7 @@
     [{
       "code": "F5",
       "name": "Chełmońskiego 39",
-      "node": [],
+      "node": [17.094451644541106,51.099583698102734],
       "facilities": [
         "Instytut Inżynierii Rolniczej",
         "Warsztaty Wydziału Przyrodniczo-Technologicznego"
@@ -418,7 +418,7 @@
     [{
       "code": "F8",
       "name": "Chełmońskiego 37A",
-      "node": [],
+      "node": [17.095245532456453, 51.10000763521657],
       "description": "Centrum Bioinżynierii",
       "facilities": [
         "Instytut Inżynierii Rolniczej",
@@ -428,7 +428,7 @@
     [{
       "code": "F11",
       "name": "Chełmońskiego 43A",
-      "node": [],
+      "node": [17.0977082690503, 51.099673244000506],
       "facilities": [
         "Kryta Pływalnia"
       ]
@@ -436,7 +436,7 @@
     [{
       "code": "F12",
       "name": "Chełmońskiego 43",
-      "node": [],
+      "node": [17.09786981785803, 51.10050794442924],
       "facilities": [
         "Studium Wychowania Fizycznego i Sportu",
         "Hala Sportowa"
@@ -445,7 +445,7 @@
     [{
       "code": "F13",
       "name": "Chełmońskiego 37",
-      "node": [],
+      "node": [17.095146650058982, 51.09975215313782],
       "description": "Centrum Nauk o Żywności i Żywieniu",
       "facilities": [
         "Dziekanat Wydziału Biotechnologii i Nauk o Żywności",
@@ -460,19 +460,19 @@
     [{
       "code": "DS1",
       "name": "Arka, Olszewskiego 25",
-      "node": [],
+      "node": [17.09753279511348,51.102007244118866],
       "facilities": []
     }],
     [{
       "code": "DS2",
       "name": "Centaur, ul. Grunwaldzka 65",
-      "node": [],
+      "node": [17.06592714463912, 51.11431723838492],
       "facilities": []
     }],
     [{
       "code": "DS3",
       "name": "„Labirynt, Sopocka 23",
-      "node": [],
+      "node": [17.070443100356755, 51.116040667024244],
       "facilities": [
         "Wydawnictwo Uniwersytetu Przyrodniczego we Wrocławiu",
         "Archiwum"
@@ -481,20 +481,20 @@
     [{
       "code": "DS4",
       "name": "Talizman, ul. Grunwaldzka 63",
-      "node": [],
+      "node": [17.06531258633075, 51.114184511091395],
       "facilities": []
     }],
     [{
       "code": "DS5",
       "name": "Zodiak, Grunwaldzka 106A",
-      "node": [],
+      "node": [17.070874972652234, 51.11496761249595],
       "facilities": []
     }],
     [{
       "code": "DS6",
       "name": "Raj, Pautscha 5/7",
-      "node": [],
-      "facilities": []
+      "node": [17.09974827969338,51.10120837929988],
+      "facilities": [] 
     }]
   ]
 }

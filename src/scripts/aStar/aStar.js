@@ -1,9 +1,9 @@
-import Network from '../../layers/Network_with_roads.json'; // Importowanie danych o sieci drogowej w formacie GeoJSON
+import Network from '../../layers/osm_wroclaw_roads.json'; // Importowanie danych o sieci drogowej w formacie GeoJSON
 
 // Funkcja budująca graf na podstawie danych GeoJSON
 export const buildGraph = () => {
     //console.log('Rozpoczęcie budowy grafu');
-
+    
     let nodes = new Set();
     let edges = new Map();
     let pedestrianPaths = 0; // Licznik tras dla pieszych
@@ -34,8 +34,8 @@ export const buildGraph = () => {
     });
 
     //console.log('Liczba tras pieszych:', pedestrianPaths);
-    //console.log('Liczba węzłów:', nodes.size);
-    //console.log('Liczba połączeń:', edges.size);
+    console.log('Liczba węzłów:', nodes.size);
+    console.log('Liczba połączeń:', edges.size);
     
     return { nodes: Array.from(nodes).map(JSON.parse), edges };
     
