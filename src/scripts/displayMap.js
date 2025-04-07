@@ -13,8 +13,7 @@ export async function initCesium(containerId) {
         animation: false,
         timeline: false,
         shouldAnimate: false,
-        
-        geocoder: Cesium.IonGeocodeProviderType.GOOGLE,
+        geocoder: true
         
     });  
 

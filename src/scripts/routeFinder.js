@@ -2,6 +2,7 @@ import { viewer } from "./displayMap";
 import { buildGraph, aStar } from "./aStar/aStar";
 import * as Cesium from 'cesium'
 import BuildingData from '../data/universityBuildings.json'
+import markerPNG from '../assets/marker.png'
 
 const routeFinder = () => {
 
@@ -69,6 +70,17 @@ const routeFinder = () => {
             material: Cesium.Color.YELLOW,
             clampToGround: true
         }
+    });
+
+    const destination = viewer.entities.add({
+        position: Cesium.Cartesian3.fromDegrees(endNode[0], endNode[1]), 
+        billboard: {
+            image: markerPNG,
+            width: 64,
+            height: 64,
+            heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+        },
+        
     });
 }
 
