@@ -9,7 +9,7 @@ export const buildGraph = () => {
     let pedestrianPaths = 0; // Licznik tras dla pieszych
 
     Network.features.forEach(feature => {
-        const allowedClasses = ["footway", "pedestrian", "path", "cycleway", "steps"];
+        const allowedClasses = ["footway", "pedestrian", "path", "cycleway", "steps", "service"];
         if (!allowedClasses.includes(feature.properties.fclass)) {
             return;
         }
