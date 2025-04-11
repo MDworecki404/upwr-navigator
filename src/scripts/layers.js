@@ -53,6 +53,12 @@ const show3DBuildingsOSM = async () => {
             }
         }
     }
+    
 }
+
+//Do dodania
+//const tileset = viewer.scene.primitives.add(
+//    await Cesium.Cesium3DTileset.fromIonAssetId(3294785),
+//);
 
 export {show3DBuildingsGoogle, show3DBuildingsOSM}

@@ -77,6 +77,8 @@ export async function initCesium(containerId) {
         }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
     //Koniec pobierania współrzędnych
+
+    
 }
 
 export {viewer}
