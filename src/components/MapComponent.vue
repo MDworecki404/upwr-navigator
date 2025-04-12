@@ -81,7 +81,8 @@
 
 <template>
     <div id="cesiumContainer" @click="hidePanel"></div>
-    <div id="layerPicker" @click="panelVisibility('layer')">
+    <div id="otherContainer">
+        <div id="layerPicker" @click="panelVisibility('layer')">
         <img src="../assets/layers-svgrepo-com.svg">
     </div>
     <div id="layerPanel">
@@ -133,6 +134,7 @@
             <button class="btn btn-secondary" @click="routeFinder" type="button">Sprawdź trasę</button>
         </div>
     </div>
+    </div>
 </template>
 
 <style lang="scss">
@@ -148,7 +150,21 @@
     #cesiumContainer{
         width: 100vw;
         height: 100vh;
+        position: fixed;
     }
+    #otherContainer{
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+    }
+    #otherContainer {
+        pointer-events: none;
+    }
+
+    #otherContainer > * {
+        pointer-events: auto;
+    }
+    
     #layerPicker{
         position: absolute;
         right: 5px;
@@ -178,7 +194,8 @@
         position: absolute;
         top: 45px;
         right: 5px;
-        width: 20vw;
+        width: 300px;
+        max-width: 90vw;
         min-height: 200px;
         max-height: 801px;
         opacity: 0;
@@ -235,7 +252,8 @@
         top: 45px;
         right: 5px;
         background-color: white;
-        width: 20vw;
+        width: 300px;
+        max-width: 90vw;
         min-height: 200px;
         max-height: 801px;
         opacity: 0;

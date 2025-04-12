@@ -16,6 +16,7 @@ export async function initCesium(containerId) {
         geocoder: true
         
     });  
+
     viewer.scene.globe.enableLighting = true;
 
     viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function (e) {

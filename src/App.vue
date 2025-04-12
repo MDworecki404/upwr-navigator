@@ -7,4 +7,8 @@
 </template>
 
 <style scoped>
+html{
+  width: 100vw;
+  height: 200vh;
+}
 </style>
