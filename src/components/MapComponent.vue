@@ -6,7 +6,7 @@
     import UniversityBuildings from '../data/universityBuildings.json'
     import { ref } from "vue";
     import routeFinder from "../scripts/routeFinder";
-    import { show3DBuildingsGoogle, show3DBuildingsOSM } from "../scripts/layers";
+    import { show3DBuildingsGoogle, show3DBuildingsOSM, show3DBuildingsWroclaw } from "../scripts/layers";
     import 'bootstrap/dist/css/bootstrap.min.css';
     import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
@@ -72,7 +72,8 @@
             },
             routeFinder,
             show3DBuildingsGoogle,
-            show3DBuildingsOSM
+            show3DBuildingsOSM,
+            show3DBuildingsWroclaw
         }
     };
     
@@ -91,6 +92,10 @@
         <div class="layerContainer">
             <input type="checkbox" class="form-check-input" id="3DBuildingsOSM" @click="show3DBuildingsOSM">
             <span>Budynki 3D OpenStreetMap</span>
+        </div>
+        <div class="layerContainer">
+            <input type="checkbox" class="form-check-input" id="3DBuildingsWroclaw" @click="show3DBuildingsWroclaw">
+            <span>Budynki 3D Wrocław LOD1</span>
         </div>
     </div>
     <div id="navigationPicker" @click="panelVisibility('navigation')">
