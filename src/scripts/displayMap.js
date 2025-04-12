@@ -16,8 +16,16 @@ export async function initCesium(containerId) {
         geocoder: true
         
     });  
+    
+
+    const fixedTime = Cesium.JulianDate.fromDate(new Date(Date.UTC(2025, 6, 1, 14, 0, 0)));
+
+    viewer.clock.currentTime = fixedTime;
+    viewer.clock.shouldAnimate = false;
 
     viewer.scene.globe.enableLighting = true;
+
+    viewer.shadows = false;
 
     viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function (e) {
         e.cancel = true; // Zapobiega domyślnemu zachowaniu

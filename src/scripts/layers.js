@@ -74,6 +74,8 @@ const show3DBuildingsWroclaw = async () => {
         if (!tileset) { // Jeśli tileset jeszcze nie istnieje, tworzymy go
             try {
                 tileset = await Cesium.Cesium3DTileset.fromIonAssetId(3294785)
+                
+                tileset.shadows = Cesium.ShadowMode.DISABLED;
 
                 const boundingSphere = tileset.boundingSphere;
                 const cartographic = Cesium.Cartographic.fromCartesian(boundingSphere.center);
