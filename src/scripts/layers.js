@@ -81,7 +81,7 @@ const show3DBuildingsWroclaw = async () => {
                 const cartographic = Cesium.Cartographic.fromCartesian(boundingSphere.center);
             
                 const surface = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, 0.0);
-                const offset = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, 40); // np. +20m
+                const offset = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, 42); 
             
                 const translation = Cesium.Cartesian3.subtract(offset, surface, new Cesium.Cartesian3());
                 tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);
