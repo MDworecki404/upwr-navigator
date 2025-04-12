@@ -79,7 +79,7 @@
     [{
       "code": "A4",
       "name": "Norwida 25",
-      "node": [],
+      "node": [17.065260114039887, 51.11180755841827],
       "facilities": [
         "Biblioteka Główna"
       ]

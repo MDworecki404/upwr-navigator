@@ -2,7 +2,8 @@ import { viewer } from "./displayMap";
 import { buildGraph, aStar } from "./aStar/aStar";
 import * as Cesium from 'cesium'
 import BuildingData from '../data/universityBuildings.json'
-import markerPNG from '../assets/marker.png'
+import startMarkerPNG from '../assets/finishMarker.png'
+import endMarkerPNG from '../assets/startMarker.png'
 
 const routeFinder = () => {
 
@@ -72,10 +73,20 @@ const routeFinder = () => {
         }
     });
 
+    const startPoint = viewer.entities.add({
+        position: Cesium.Cartesian3.fromDegrees(startNode[0], startNode[1]), 
+        billboard: {
+            image: startMarkerPNG,
+            width: 64,
+            height: 64,
+            heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+        },
+        
+    });
     const destination = viewer.entities.add({
         position: Cesium.Cartesian3.fromDegrees(endNode[0], endNode[1]), 
         billboard: {
-            image: markerPNG,
+            image: endMarkerPNG,
             width: 64,
             height: 64,
             heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
