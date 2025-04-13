@@ -82,58 +82,61 @@
 <template>
     <div id="cesiumContainer" @click="hidePanel"></div>
     <div id="otherContainer">
+        <div class="progress">
+            <div class="progress-bar progressTrigger" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
         <div id="layerPicker" @click="panelVisibility('layer')">
-        <img src="../assets/layers-svgrepo-com.svg">
-    </div>
-    <div id="layerPanel">
-        <div class="layerContainer">
-            <input type="checkbox" class="form-check-input"  id="3DBuildingsGoogle" @click="show3DBuildingsGoogle">
-            <span>Budynki 3D Google</span>
+            <img src="../assets/layers-svgrepo-com.svg">
         </div>
-        <div class="layerContainer">
-            <input type="checkbox" class="form-check-input" id="3DBuildingsOSM" @click="show3DBuildingsOSM">
-            <span>Budynki 3D OpenStreetMap</span>
+        <div id="layerPanel">
+            <div class="layerContainer">
+                <input type="checkbox" class="form-check-input"  id="3DBuildingsGoogle" @click="show3DBuildingsGoogle">
+                <span>Budynki 3D Google</span>
+            </div>
+            <div class="layerContainer">
+                <input type="checkbox" class="form-check-input" id="3DBuildingsOSM" @click="show3DBuildingsOSM">
+                <span>Budynki 3D OpenStreetMap</span>
+            </div>
+            <div class="layerContainer">
+                <input type="checkbox" class="form-check-input" id="3DBuildingsWroclaw" @click="show3DBuildingsWroclaw">
+                <span>Budynki 3D Wrocław LOD1</span>
+            </div>
         </div>
-        <div class="layerContainer">
-            <input type="checkbox" class="form-check-input" id="3DBuildingsWroclaw" @click="show3DBuildingsWroclaw">
-            <span>Budynki 3D Wrocław LOD1</span>
+        <div id="navigationPicker" @click="panelVisibility('navigation')">
+            <img src="../assets/route-svgrepo-com.svg">
         </div>
-    </div>
-    <div id="navigationPicker" @click="panelVisibility('navigation')">
-        <img src="../assets/route-svgrepo-com.svg">
-    </div>
-    <div id="navigationPanel">
-        <div id="startingBuilding">
-            <span class="lead">Wybierz punkt początkowy</span>
-            <select class="form-select-sm mb-1 startChoice" v-model="selectedStartBuilding">
-                <option value="">Wybierz budynek</option>
-                <option 
-                    v-for="building in buildings" 
-                    :key="building.code" 
-                    :value="building.code"
-                >
+        <div id="navigationPanel">
+            <div id="startingBuilding">
+                <span class="lead">Wybierz punkt początkowy</span>
+                <select class="form-select-sm mb-1 startChoice" v-model="selectedStartBuilding">
+                    <option value="">Wybierz budynek</option>
+                    <option 
+                        v-for="building in buildings" 
+                        :key="building.code" 
+                        :value="building.code"
+                    >
                     {{ building.code }}
-                </option>
-            </select>
+                    </option>
+                </select>
                 <br><br>
-        </div>
-        <div id="endBuilding">
-            <span class="lead">Wybierz punkt końcowy</span>
-            <select class="form-select-sm mb-1 endChoice" v-model="selectedEndBuilding">
-                <option value="">Wybierz budynek</option>
-                <option 
+            </div>
+            <div id="endBuilding">
+                <span class="lead">Wybierz punkt końcowy</span>
+                <select class="form-select-sm mb-1 endChoice" v-model="selectedEndBuilding">
+                    <option value="">Wybierz budynek</option>
+                    <option 
                     v-for="building in buildings" 
                     :key="building.code" 
                     :value="building.code"
-                >
+                    >
                     {{ building.code }}
-                </option>
-            </select>
+                    </option>
+                </select>
+            </div>
+            <div id="buttonDiv">
+                <button class="btn btn-secondary" @click="routeFinder" type="button">Sprawdź trasę</button>
+            </div>
         </div>
-        <div id="buttonDiv">
-            <button class="btn btn-secondary" @click="routeFinder" type="button">Sprawdź trasę</button>
-        </div>
-    </div>
     </div>
 </template>
 
@@ -313,5 +316,15 @@
             text-align: center;
         }
         
+    }
+    .progress{
+        width: 200px;
+        height: 20px;
+        position: absolute;
+        left: calc(50vw - 100px);
+        bottom: 50px;
+        z-index: 100;
+        border-radius: 10%;
+
     }
 </style>

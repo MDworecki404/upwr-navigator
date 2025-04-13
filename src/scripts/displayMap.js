@@ -91,5 +91,7 @@ export async function initCesium(containerId) {
     
 }
 
-export {viewer}
+const progressTrigger = document.querySelector('.progressTrigger')
+
+export {viewer, progressTrigger}
 
