@@ -4,16 +4,13 @@ import * as Cesium from 'cesium'
 import BuildingData from '../data/universityBuildings.json'
 import startMarkerPNG from '../assets/startMarker.png'
 import endMarkerPNG from '../assets/finishMarker.png'
+import gsap from "gsap";
 
 
 const routeFinder = async () => {
     viewer.entities.removeAll();
-
-    const progressBar = document.querySelector('.progress-bar');
-        if (progressBar) {
-            progressBar.style.width = '0%';
-            progressBar.textContent = 'Trasa gotowa!';
-        }
+    const loadingIconSVG = document.querySelector('.loadingSVG')
+    
 
     const startChoice = document.querySelector('.startChoice').value;
     const endChoice = document.querySelector('.endChoice').value;
@@ -32,6 +29,9 @@ const routeFinder = async () => {
     if (!startNode || !endNode) {
         console.error("Nie znaleziono budynków.");
         return;
+    } else {
+        gsap.to(loadingIconSVG, {visibility: 'visible', opacity: 1, duration: 1})
+        gsap.fromTo(loadingIconSVG, {rotation: 0}, {rotation: "360", repeat: -1, ease: "none"})
     }
 
     // Ładujemy dane sieci drogowej (do przesłania do workera)
@@ -54,12 +54,6 @@ const routeFinder = async () => {
         if (!path || path.length === 0) {
             console.warn("Brak trasy.");
             return;
-        }
-
-        const progressBar = document.querySelector('.progress-bar');
-        if (progressBar) {
-            progressBar.style.width = '100%';
-            progressBar.textContent = 'Trasa gotowa!';
         }
 
         const positions = path.map(coord => Cesium.Cartesian3.fromDegrees(coord[0], coord[1]));
@@ -92,6 +86,8 @@ const routeFinder = async () => {
                 heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
             }
         });
+        gsap.to(loadingIconSVG, {opacity: 0, duration: 1})
+        gsap.to(loadingIconSVG, {visibility: 'hidden', delay: 1})
     };
 };
 

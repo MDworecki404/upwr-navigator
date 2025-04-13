@@ -82,8 +82,8 @@
 <template>
     <div id="cesiumContainer" @click="hidePanel"></div>
     <div id="otherContainer">
-        <div class="progress">
-            <div class="progress-bar progressTrigger" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
+        <div id="loadingIcon">
+            <img class="loadingSVG" src="../assets/loading-process-svgrepo-com.svg" />
         </div>
         <div id="layerPicker" @click="panelVisibility('layer')">
             <img src="../assets/layers-svgrepo-com.svg">
@@ -115,7 +115,7 @@
                         :key="building.code" 
                         :value="building.code"
                     >
-                    {{ building.code }}
+                    {{ building.code +" - "+ building.name }}
                     </option>
                 </select>
                 <br><br>
@@ -129,7 +129,7 @@
                     :key="building.code" 
                     :value="building.code"
                     >
-                    {{ building.code }}
+                    {{ building.code +" - "+ building.name }}
                     </option>
                 </select>
             </div>
@@ -317,14 +317,20 @@
         }
         
     }
-    .progress{
-        width: 200px;
-        height: 20px;
-        position: absolute;
-        left: calc(50vw - 100px);
-        bottom: 50px;
-        z-index: 100;
-        border-radius: 10%;
 
+    #loadingIcon{
+        
+        img{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: calc(50% - 20px);
+            bottom: 60px;
+        }
+        visibility: hidden;
+        
+        .loadingSVG{
+            opacity: 0;
+        }
     }
 </style>
