@@ -38,4 +38,5 @@ onmessage = function(e) {
     console.log("🗺️ Znaleziona ścieżka, długość:", path.length);
 
     postMessage({ path });
+    console.log(Date.now())
 };

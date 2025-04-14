@@ -8,6 +8,7 @@ import gsap from "gsap";
 
 
 const routeFinder = async () => {
+    console.log(Date.now())
     viewer.entities.removeAll();
     const loadingIconSVG = document.querySelector('.loadingSVG')
     
@@ -61,19 +62,13 @@ const routeFinder = async () => {
         viewer.entities.add({
             polyline: {
                 positions: positions,
-                width: 5,
-                material: Cesium.Color.YELLOW,
+                width: 7,
+                material: new Cesium.PolylineOutlineMaterialProperty({
+                    color: Cesium.Color.DEEPSKYBLUE,
+                    outlineWidth: 3,
+                    outlineColor: Cesium.Color.DIMGRAY
+                }),
                 clampToGround: true
-            }
-        });
-
-        viewer.entities.add({
-            position: Cesium.Cartesian3.fromDegrees(startNode[0], startNode[1]),
-            billboard: {
-                image: startMarkerPNG,
-                width: 64,
-                height: 64,
-                heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
             }
         });
 
@@ -89,6 +84,7 @@ const routeFinder = async () => {
         gsap.to(loadingIconSVG, {opacity: 0, duration: 1})
         gsap.to(loadingIconSVG, {visibility: 'hidden', delay: 1})
     };
+    
 };
 
 
