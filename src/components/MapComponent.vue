@@ -89,6 +89,7 @@
             <img src="../assets/layers-svgrepo-com.svg">
         </div>
         <div id="layerPanel">
+            <h4>Warstwy 3D</h4>
             <div class="layerContainer">
                 <input type="checkbox" class="form-check-input"  id="3DBuildingsGoogle" @click="show3DBuildingsGoogle">
                 <span>Budynki 3D Google</span>
@@ -101,6 +102,9 @@
                 <input type="checkbox" class="form-check-input" id="3DBuildingsWroclaw" @click="show3DBuildingsWroclaw">
                 <span>Budynki 3D Wrocław LOD1</span>
             </div>
+            <hr style="outline: 0.5px solid white;">
+
+            <h4>Warstwy 2D</h4>
         </div>
         <div id="navigationPicker" @click="panelVisibility('navigation')">
             <img src="../assets/route-svgrepo-com.svg">
@@ -212,18 +216,31 @@
         align-items: stretch;
         align-content: stretch;
 
+        h4{
+            color: white;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
         .layerContainer{
             text-align: left;
             margin-left: 10px;
             margin-top: 10px;
             color: white;
             font-family: sans-serif;
-
-            
             
             span{
                 margin-left: 10px;
             }
+        }
+
+        .layerContainer:first-of-type{
+            margin-top: 0px;
+        }
+        hr{
+            color: white;
+            width: 90%;
+            margin-left: 5%;
         }
     }
     #navigationPicker{

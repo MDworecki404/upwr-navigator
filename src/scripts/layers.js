@@ -87,7 +87,7 @@ const show3DBuildingsWroclaw = async () => {
                 tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);
             
                 tileset.style = new Cesium.Cesium3DTileStyle({
-                    color: "color('#782834')"
+                    color: "color('#CCCCCC')"
                 })
 
                 viewer.scene.primitives.add(tileset)
