@@ -155,13 +155,13 @@
     }
 
     #cesiumContainer{
-        width: 100vw;
-        height: 100vh;
+        width: 100dvw;
+        height: 100dvh;
         position: fixed;
     }
     #otherContainer{
-        width: 100vw;
-        height: 100vh;
+        width: 100dvw;
+        height: 100dvh;
         position: fixed;
     }
     #otherContainer {
