@@ -1,11 +1,11 @@
 import { buildGraph, aStar } from './aStar/aStar.js';
 
 onmessage = function(e) {
-    const { start, goal, network } = e.data;
+    const { start, goal, network, mode } = e.data;
     
     console.log("👷‍♂️ Worker otrzymał dane:", { start, goal });
 
-    const graph = buildGraph(network);
+    const graph = buildGraph(network, mode);
 
     console.log("📈 Zbudowano graf:", graph.nodes.length, "węzłów");
 

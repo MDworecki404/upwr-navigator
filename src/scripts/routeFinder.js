@@ -41,11 +41,14 @@ const routeFinder = async () => {
     // Uruchamiamy workera (UPEWNIJ się że masz pathWorker.js obok)
     const worker = new Worker(new URL('./pathWorker.js', import.meta.url), { type: 'module' });
 
+    const selectedMode = document.querySelector('input[name="transportTypeRadio"]:checked').value
+
     // Wysyłamy dane do workera
     worker.postMessage({
         start: startNode,
         goal: endNode,
-        network: network.default // potrzebne jeśli importujesz JSON jako ES moduł
+        network: network.default,
+        mode: selectedMode
     });
 
     // Reakcja na otrzymanie ścieżki z workera

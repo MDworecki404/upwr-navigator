@@ -1,20 +1,27 @@
-import Network from '../../layers/osm_wroclaw_roads.json'; // Importowanie danych o sieci drogowej w formacie GeoJSON
-
 // Funkcja budująca graf na podstawie danych GeoJSON
-export const buildGraph = () => {
+export const buildGraph = (network, mode) => {
     //console.log('Rozpoczęcie budowy grafu');
-    
+    console.log(mode)
     let nodes = new Set();
     let edges = new Map();
     let pedestrianPaths = 0; // Licznik tras dla pieszych
+    
+    let allowedClasses;
+    if (mode === "bikeFoot") {
+        allowedClasses = ["footway", "pedestrian", "path", "cycleway", "steps", "service"];
+    } else if (mode === "car") {
+        allowedClasses = ["motorway", "trunk", "primary", "secondary", "tertiary", "residential"];
+    }
 
-    Network.features.forEach(feature => {
-        const allowedClasses = ["footway", "pedestrian", "path", "cycleway", "steps", "service"];
+    network.features.forEach(feature => {
         if (!allowedClasses.includes(feature.properties.fclass)) {
-            return;
+            return; // Jeśli nie, pominąć
         }
 
-        pedestrianPaths++; // Zliczanie dróg pieszych
+        // Zliczanie tras pieszych
+        if (mode === "bikeFoot") {
+            pedestrianPaths++;
+        }
 
         if (feature.geometry.type === "MultiLineString") {
             feature.geometry.coordinates.forEach(line => {

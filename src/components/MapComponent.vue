@@ -137,6 +137,12 @@
                     </option>
                 </select>
             </div>
+            <div id="typeOfTransport">
+                <span class="lead">Wybierz rodzaj transportu</span>
+                <label><input type="radio" name="transportTypeRadio" value="bikeFoot" class="bikeFoot" checked>Pieszo/Rowerem</label>
+                <label><input type="radio" name="transportTypeRadio" value="car" class="car">Samochodem</label>
+            </div>
+
             <div id="buttonDiv">
                 <button class="btn btn-secondary" @click="routeFinder" type="button">Sprawdź trasę</button>
             </div>
@@ -319,6 +325,22 @@
             
             select{
                 width: 75%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            span{
+                width: 100%;
+                text-align: center;
+                font-size: 25px;
+            }
+        }
+        #typeOfTransport{
+            width: 100%;
+            text-align: center;
+            color: white;
+            
+            label{
+                width: 100%;
                 margin-left: auto;
                 margin-right: auto;
             }
