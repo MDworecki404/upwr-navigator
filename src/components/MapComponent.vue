@@ -175,8 +175,6 @@
             </div>
         </div>
         <div id="userToBuildingPanel">
-            <button class="btn btn-secondary">Pobierz pozycję</button>
-            <br>
             <span class="lead">Wybierz budynek</span>
             <select class="form-select-sm mb-1 userEndChoice" v-model="selectedEndBuilding">
                 <option value="">Wybierz budynek</option>
