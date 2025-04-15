@@ -35,7 +35,7 @@
                 if(panel == 'navigation'){
                     if(layerVisibility == 'visible'){
                         gsap.to('#layerPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
-                        gsap.to('#layerPanel', {visibility: 'hidden', duration: 0, delay: 0.1, ease: 'linear'})
+                        gsap.to('#layerPanel', {visibility: 'hidden',zIndex: -1000, duration: 0, delay: 0.1, ease: 'linear'})
                         gsap.to('#navigationPanel', {visibility: 'visible', duration: 0, delay: 0.1, ease: 'linear'})
                         gsap.to('#navigationPanel', {opacity: 1, duration: 0.1, delay: 0.2, ease: 'linear'})
                     }
@@ -47,7 +47,7 @@
                 if(panel == 'layer'){
                     if(navigationVisibility == 'visible'){
                         gsap.to('#navigationPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
-                        gsap.to('#navigationPanel', {visibility: 'hidden', duration: 0, delay: 0.1, ease: 'linear'})
+                        gsap.to('#navigationPanel', {visibility: 'hidden',zIndex: -1000, duration: 0, delay: 0.1, ease: 'linear'})
                         gsap.to('#layerPanel', {visibility: 'visible', duration: 0, delay: 0.1, ease: 'linear'})
                         gsap.to('#layerPanel', {opacity: 1, duration: 0.1, delay: 0.1, ease: 'linear'})
                     }
@@ -70,23 +70,28 @@
                     gsap.to('#navigationPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
                     gsap.to('#navigationPanel', {visibility: 'hidden', duration: 0, delay: 0.1, ease: 'linear'})
                     
+                    gsap.to('#userToBuildingPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
+                    gsap.to('#userToBuildingPanel', {visibility: 'hidden', zIndex: -1000, duration: 0, delay: 0.1, ease: 'linear'})
+                    gsap.to('.buildingToBuildingPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
+                    gsap.to('.buildingToBuildingPanel', {visibility: 'hidden', zIndex: -1000, duration: 0, delay: 0.1, ease: 'linear'})
+
+                    document.querySelector('.userRadio1').checked = false
+                    document.querySelector('.userRadio2').checked = false
                 }
             },
             changeRoutingMode(){
                 const routingMethodRadio = document.querySelector('input[name="typeOfRouting"]:checked').value
                 switch(routingMethodRadio){
                     case "userToBuilding":
-                        console.log('xd1')
                         gsap.to('.buildingToBuildingPanel', {opacity: 0, duration: 0.3})
-                        gsap.to('.buildingToBuildingPanel', {visibility: 'hidden', delay: 0.3})
-                        gsap.to('#userToBuildingPanel', {visibility: 'visible', delay: 0})
+                        gsap.to('.buildingToBuildingPanel', {visibility: 'hidden', zIndex: -1000, delay: 0.3})
+                        gsap.to('#userToBuildingPanel', {visibility: 'visible', zIndex: 1000, delay: 0})
                         gsap.to('#userToBuildingPanel', {opacity: 1, duration: 0.3})
                         break
                     case "buildingToBuilding":
-                        console.log('xd2')
                         gsap.to('#userToBuildingPanel', {opacity: 0, duration: 0.3})
-                        gsap.to('#userToBuildingPanel', {visibility: 'hidden', delay: 0.3})
-                        gsap.to('.buildingToBuildingPanel', {visibility: 'visible', delay: 0})
+                        gsap.to('#userToBuildingPanel', {visibility: 'hidden', zIndex: -1000, delay: 0.3})
+                        gsap.to('.buildingToBuildingPanel', {visibility: 'visible', zIndex: 1000, delay: 0})
                         gsap.to('.buildingToBuildingPanel', {opacity: 1, delay: 0.1, duration: 0.3})
                         break
                 }
@@ -133,27 +138,50 @@
         </div>
         <div id="navigationPanel">
             <div id="typeOfRouting">
-                <span><input @click="changeRoutingMode" type="radio" name="typeOfRouting" value="userToBuilding" class="form-check-input" ><label class="form-check-label">Użytkownik => Budynek</label></span>
-                <span><input @click="changeRoutingMode" type="radio" name="typeOfRouting" value="buildingToBuilding" class="form-check-input" checked><label class="form-check-label">Budynek => Budynek</label></span>
+                <span><input @click="changeRoutingMode" type="radio" name="typeOfRouting" value="userToBuilding" class="form-check-input userRadio1" ><label class="form-check-label">Użytkownik => Budynek</label></span>
+                <span><input @click="changeRoutingMode" type="radio" name="typeOfRouting" value="buildingToBuilding" class="form-check-input userRadio2"><label class="form-check-label">Budynek => Budynek</label></span>
             </div>
             <div class="buildingToBuildingPanel">
-            <div id="startingBuilding">
-                <span class="lead">Wybierz punkt początkowy</span>
-                <select class="form-select-sm mb-1 startChoice" v-model="selectedStartBuilding">
-                    <option value="">Wybierz budynek</option>
-                    <option 
+                <div id="startingBuilding">
+                    <span class="lead">Wybierz punkt początkowy</span>
+                    <select class="form-select-sm mb-1 startChoice" v-model="selectedStartBuilding">
+                        <option value="">Wybierz budynek</option>
+                        <option 
+                            v-for="building in buildings" 
+                            :key="building.code" 
+                            :value="building.code"
+                        >
+                        {{ building.code +" - "+ building.name }}
+                        </option>
+                    </select>
+                    <br><br>
+                </div>
+                <div id="endBuilding">
+                    <span class="lead">Wybierz punkt końcowy</span>
+                    <select class="form-select-sm mb-1 endChoice" v-model="selectedEndBuilding">
+                        <option value="">Wybierz budynek</option>
+                        <option 
                         v-for="building in buildings" 
                         :key="building.code" 
                         :value="building.code"
-                    >
-                    {{ building.code +" - "+ building.name }}
-                    </option>
-                </select>
-                <br><br>
-            </div>
-            <div id="endBuilding">
-                <span class="lead">Wybierz punkt końcowy</span>
-                <select class="form-select-sm mb-1 endChoice" v-model="selectedEndBuilding">
+                        >
+                        {{ building.code +" - "+ building.name }}
+                        </option>
+                    </select>
+                </div>
+                <div id="typeOfTransport">
+                    <span class="lead">Wybierz rodzaj transportu</span>
+                    <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="bikeFoot" class="bikeFoot form-check-input" checked>Pieszo/Rowerem</label>
+                    <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="car" class="car form-check-input">Samochodem</label>
+                </div>
+
+                <div id="buttonDiv">
+                    <button class="btn btn-secondary" @click="routeFinder" type="button">Sprawdź trasę</button>
+                </div>
+                </div>
+            <div id="userToBuildingPanel">
+                <span class="lead">Wybierz budynek</span>
+                <select class="form-select-sm mb-1 userEndChoice" v-model="selectedEndBuilding">
                     <option value="">Wybierz budynek</option>
                     <option 
                     v-for="building in buildings" 
@@ -163,37 +191,13 @@
                     {{ building.code +" - "+ building.name }}
                     </option>
                 </select>
-            </div>
-            <div id="typeOfTransport">
+                <br>
                 <span class="lead">Wybierz rodzaj transportu</span>
-                <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="bikeFoot" class="bikeFoot form-check-input" checked>Pieszo/Rowerem</label>
-                <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="car" class="car form-check-input">Samochodem</label>
+                <label class="form-check-label"><input type="radio" name="userTransportTypeRadio" value="bikeFoot" class="bikeFoot form-check-input" checked>Pieszo/Rowerem</label>
+                <label class="form-check-label"><input type="radio" name="userTransportTypeRadio" value="car" class="car form-check-input">Samochodem</label>
+                <br>
+                <button class="btn btn-secondary" @click="userRouteFinder">Pokaż trasę</button>
             </div>
-
-            <div id="buttonDiv">
-                <button class="btn btn-secondary" @click="routeFinder" type="button">Sprawdź trasę</button>
-            </div>
-        </div>
-        <div id="userToBuildingPanel">
-            <span class="lead">Wybierz budynek</span>
-            <select class="form-select-sm mb-1 userEndChoice" v-model="selectedEndBuilding">
-                <option value="">Wybierz budynek</option>
-                <option 
-                v-for="building in buildings" 
-                :key="building.code" 
-                :value="building.code"
-                >
-                {{ building.code +" - "+ building.name }}
-                </option>
-            </select>
-            <br>
-            <span class="lead">Wybierz rodzaj transportu</span>
-            <label class="form-check-label"><input type="radio" name="userTransportTypeRadio" value="bikeFoot" class="bikeFoot form-check-input" checked>Pieszo/Rowerem</label>
-            <label class="form-check-label"><input type="radio" name="userTransportTypeRadio" value="car" class="car form-check-input">Samochodem</label>
-            <br>
-            <button class="btn btn-secondary" @click="userRouteFinder">Pokaż trasę</button>
-            
-        </div>
     </div>
     </div>
 </template>
@@ -340,9 +344,23 @@
         font-family: sans-serif;
         padding-left: 10px;
         padding-right: 10px;
+        
+        &[style*="visibility: hidden"] {
+            pointer-events: none !important;
+        }
 
-        #buildingToBuildingPanel, #userToBuildingPanel{
+        #userToBuildingPanel{
             position: absolute;
+            
+        }
+
+        .buildingToBuildingPanel, #userToBuildingPanel {
+
+            visibility: hidden;
+
+            &[style*="visibility: hidden"] {
+                pointer-events: none !important;
+            }
         }
         #userToBuildingPanel{
             visibility: hidden;
