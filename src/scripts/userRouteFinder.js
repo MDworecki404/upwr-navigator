@@ -117,11 +117,10 @@ const userRouteFinder = async () => {
                 return;
             }
 
-            // Dodaj marker startowy
             viewer.entities.add({
-                position: Cesium.Cartesian3.fromDegrees(startNode[0], startNode[1]),
+                position: Cesium.Cartesian3.fromDegrees(endNode[0], endNode[1]),
                 billboard: {
-                    image: startMarkerPNG,
+                    image: endMarkerPNG,
                     width: 64,
                     height: 64,
                     heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
