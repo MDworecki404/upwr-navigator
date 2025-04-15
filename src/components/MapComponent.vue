@@ -7,6 +7,7 @@
     import { ref } from "vue";
     import routeFinder from "../scripts/routeFinder";
     import { show3DBuildingsGoogle, show3DBuildingsOSM, show3DBuildingsWroclaw } from "../scripts/layers";
+    import userRouteFinder from "../scripts/userRouteFinder";
     import 'bootstrap/dist/css/bootstrap.min.css';
     import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
@@ -68,12 +69,33 @@
                     gsap.to('#layerPanel', {visibility: 'hidden', duration: 0, delay: 0.1, ease: 'linear'})
                     gsap.to('#navigationPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
                     gsap.to('#navigationPanel', {visibility: 'hidden', duration: 0, delay: 0.1, ease: 'linear'})
+                    
+                }
+            },
+            changeRoutingMode(){
+                const routingMethodRadio = document.querySelector('input[name="typeOfRouting"]:checked').value
+                switch(routingMethodRadio){
+                    case "userToBuilding":
+                        console.log('xd1')
+                        gsap.to('.buildingToBuildingPanel', {opacity: 0, duration: 0.3})
+                        gsap.to('.buildingToBuildingPanel', {visibility: 'hidden', delay: 0.3})
+                        gsap.to('#userToBuildingPanel', {visibility: 'visible', delay: 0})
+                        gsap.to('#userToBuildingPanel', {opacity: 1, duration: 0.3})
+                        break
+                    case "buildingToBuilding":
+                        console.log('xd2')
+                        gsap.to('#userToBuildingPanel', {opacity: 0, duration: 0.3})
+                        gsap.to('#userToBuildingPanel', {visibility: 'hidden', delay: 0.3})
+                        gsap.to('.buildingToBuildingPanel', {visibility: 'visible', delay: 0})
+                        gsap.to('.buildingToBuildingPanel', {opacity: 1, delay: 0.1, duration: 0.3})
+                        break
                 }
             },
             routeFinder,
+            userRouteFinder,
             show3DBuildingsGoogle,
             show3DBuildingsOSM,
-            show3DBuildingsWroclaw
+            show3DBuildingsWroclaw,
         }
     };
     
@@ -110,6 +132,11 @@
             <img src="../assets/route-svgrepo-com.svg">
         </div>
         <div id="navigationPanel">
+            <div id="typeOfRouting">
+                <span><input @click="changeRoutingMode" type="radio" name="typeOfRouting" value="userToBuilding" class="form-check-input" ><label class="form-check-label">Użytkownik => Budynek</label></span>
+                <span><input @click="changeRoutingMode" type="radio" name="typeOfRouting" value="buildingToBuilding" class="form-check-input" checked><label class="form-check-label">Budynek => Budynek</label></span>
+            </div>
+            <div class="buildingToBuildingPanel">
             <div id="startingBuilding">
                 <span class="lead">Wybierz punkt początkowy</span>
                 <select class="form-select-sm mb-1 startChoice" v-model="selectedStartBuilding">
@@ -139,14 +166,37 @@
             </div>
             <div id="typeOfTransport">
                 <span class="lead">Wybierz rodzaj transportu</span>
-                <label><input type="radio" name="transportTypeRadio" value="bikeFoot" class="bikeFoot" checked>Pieszo/Rowerem</label>
-                <label><input type="radio" name="transportTypeRadio" value="car" class="car">Samochodem</label>
+                <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="bikeFoot" class="bikeFoot form-check-input" checked>Pieszo/Rowerem</label>
+                <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="car" class="car form-check-input">Samochodem</label>
             </div>
 
             <div id="buttonDiv">
                 <button class="btn btn-secondary" @click="routeFinder" type="button">Sprawdź trasę</button>
             </div>
         </div>
+        <div id="userToBuildingPanel">
+            <button class="btn btn-secondary">Pobierz pozycję</button>
+            <br>
+            <span class="lead">Wybierz budynek</span>
+            <select class="form-select-sm mb-1 userEndChoice" v-model="selectedEndBuilding">
+                <option value="">Wybierz budynek</option>
+                <option 
+                v-for="building in buildings" 
+                :key="building.code" 
+                :value="building.code"
+                >
+                {{ building.code +" - "+ building.name }}
+                </option>
+            </select>
+            <br>
+            <span class="lead">Wybierz rodzaj transportu</span>
+            <label class="form-check-label"><input type="radio" name="userTransportTypeRadio" value="bikeFoot" class="bikeFoot form-check-input" checked>Pieszo/Rowerem</label>
+            <label class="form-check-label"><input type="radio" name="userTransportTypeRadio" value="car" class="car form-check-input">Samochodem</label>
+            <br>
+            <button class="btn btn-secondary" @click="userRouteFinder">Pokaż trasę</button>
+            
+        </div>
+    </div>
     </div>
 </template>
 
@@ -221,6 +271,7 @@
         justify-content: flex-start;
         align-items: stretch;
         align-content: stretch;
+        z-index: 1000 !important;
 
         h4{
             color: white;
@@ -281,18 +332,57 @@
         width: 300px;
         max-width: 90vw;
         min-height: 200px;
-        max-height: 801px;
+        max-height: auto;
         opacity: 0;
         background-color: rgba(38, 38, 38, 0.75);
         border-radius: 10px;
         visibility: hidden;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 10px;
+        display: flex;
+        flex-direction: column;
         font-family: sans-serif;
-        padding: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        #buildingToBuildingPanel, #userToBuildingPanel{
+            position: absolute;
+        }
+        #userToBuildingPanel{
+            visibility: hidden;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            color: white;
+            position: absolute;
+            top: 100px;
+            left: 10%;
+            text-align: center;
+            
+        }
+
+        & > *{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        #typeOfRouting{
+            height: auto;
+            color: white;
+            
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+
+            span{
+                display: flex;
+                flex-direction: column;
+
+                input{
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
 
 
         #startingBuilding{
