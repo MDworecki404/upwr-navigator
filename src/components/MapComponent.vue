@@ -7,9 +7,10 @@
     import { ref } from "vue";
     import routeFinder from "../scripts/routeFinder";
     import { show3DBuildingsGoogle, show3DBuildingsOSM, show3DBuildingsWroclaw } from "../scripts/layers";
-    import userRouteFinder from "../scripts/userRouteFinder";
+    import {userRouteFinder} from "../scripts/userRouteFinder";
     import 'bootstrap/dist/css/bootstrap.min.css';
     import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+    import userPositionFollow from "../scripts/userLocation";
 
     export default {
         setup() {
@@ -101,6 +102,7 @@
             show3DBuildingsGoogle,
             show3DBuildingsOSM,
             show3DBuildingsWroclaw,
+            userPositionFollow
         }
     };
     
@@ -135,6 +137,9 @@
         </div>
         <div id="navigationPicker" @click="panelVisibility('navigation')">
             <img src="../assets/route-svgrepo-com.svg">
+        </div>
+        <div id="userPositionPicker" @click="userPositionFollow">
+            <img src="../assets/location-arrow-svgrepo-com.svg">
         </div>
         <div id="navigationPanel">
             <div id="typeOfRouting">
@@ -199,6 +204,7 @@
                 <button class="btn btn-secondary" @click="userRouteFinder">Pokaż trasę</button>
             </div>
     </div>
+    <button class="btn btn-secondary" id="routeClear">Wyczyść trasę</button>
     </div>
 </template>
 
@@ -311,6 +317,32 @@
         border-radius: 14%;
         background-color: #303336;
         border: 1px solid #444;
+
+        img{
+        width: 28px;
+        height: 28px;
+        margin-left: 2px;
+        margin-top: 2px;
+        }
+
+        &:hover{
+            background-color: #4488bb;
+            box-shadow: 0px 0px 50px #4488bb;
+            border: 1px solid #aaeeff;
+            cursor: pointer;
+        }
+    }
+    #userPositionPicker{
+        position: absolute;
+        right: 85px;
+        top: 5px;
+        width: 32px;
+        height: 32px;
+        border-radius: 14%;
+        background-color: #303336;
+        border: 1px solid #444;
+        opacity: 0;
+        pointer-events: none;
 
         img{
         width: 28px;
@@ -477,5 +509,14 @@
         .loadingSVG{
             opacity: 0;
         }
+    }
+
+    #routeClear{
+        width: 130px;
+        position: absolute;
+        bottom: 50px;
+        left: calc(50% - 65px);
+        pointer-events: none;
+        opacity: 0;
     }
 </style>
