@@ -22,6 +22,8 @@ const getCurrentPosition = () => {
 }
 
 const userRouteFinder = async () => {
+
+    gsap.to('#routeClear', {opacity: 0, pointerEvents: 'none', duration: 0.2})
     console.log("Rozpoczęcie wyszukiwania trasy:", Date.now());
     
     // Anuluj poprzedniego workera jeśli istnieje
@@ -144,8 +146,10 @@ const userRouteFinder = async () => {
 
 
             // Ukryj ikonę ładowania
-            gsap.to(loadingIconSVG, {opacity: 0, duration: 0.5});
-            gsap.to(loadingIconSVG, {visibility: 'hidden', delay: 0.5});
+            gsap.to('#userPositionPicker', {opacity: 1, pointerEvents: 'auto', duration: 0.5})
+            gsap.to('#routeClear', {opacity: 1, pointerEvents: 'auto', duration: 0.2})
+            gsap.to(loadingIconSVG, {opacity: 0, duration: 1})
+            gsap.to(loadingIconSVG, {visibility: 'hidden', delay: 1})
             
             // Wyśrodkuj widok na trasie
             
@@ -172,4 +176,4 @@ const userRouteFinder = async () => {
     }
 };
 
-export default userRouteFinder;
+export {userRouteFinder};
