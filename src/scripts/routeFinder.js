@@ -10,6 +10,7 @@ import gsap from "gsap";
 const routeFinder = async () => {
     console.log(Date.now())
     viewer.entities.removeAll();
+    gsap.to('#routeClear', {opacity: 0, pointerEvents: 'none', duration: 0.2})
     const loadingIconSVG = document.querySelector('.loadingSVG')
     
 
@@ -84,6 +85,9 @@ const routeFinder = async () => {
                 heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
             }
         });
+
+        gsap.to('#userPositionPicker', {opacity: 1, pointerEvents: 'auto', duration: 0.5})
+        gsap.to('#routeClear', {opacity: 1, pointerEvents: 'auto', duration: 0.2})
         gsap.to(loadingIconSVG, {opacity: 0, duration: 1})
         gsap.to(loadingIconSVG, {visibility: 'hidden', delay: 1})
     };

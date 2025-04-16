@@ -3,6 +3,7 @@ import { buildGraph, aStar } from "./aStar/aStar";
 import * as Cesium from 'cesium'
 import BuildingData from '../data/universityBuildings.json'
 import startMarkerPNG from '../assets/startMarker.png'
+import userIconPng from '../assets/userIcon.png'
 import endMarkerPNG from '../assets/finishMarker.png'
 import gsap from "gsap";
 
@@ -98,6 +99,8 @@ const userRouteFinder = async () => {
                 heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
             }
         });
+
+        gsap.to('#userPositionPicker', {opacity: 1, pointerEvents: 'auto', duration: 0.5})
         gsap.to(loadingIconSVG, {opacity: 0, duration: 1})
         gsap.to(loadingIconSVG, {visibility: 'hidden', delay: 1})
     };
@@ -105,4 +108,4 @@ const userRouteFinder = async () => {
 };
 
 
-export default userRouteFinder
+export {userRouteFinder}
