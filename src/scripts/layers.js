@@ -1,7 +1,10 @@
 import * as Cesium from 'cesium'
 import { viewer } from './displayMap'
+import upwrBuildings from '../layers/upwrBuildingsWithAddresses.json'
+
 
 let tileset = null; // Przechowujemy referencję do tilesetu
+let upwrDataSource = null;
 
 const show3DBuildingsGoogle = async () => {
     const checkbox = document.getElementById('3DBuildingsGoogle');
@@ -111,4 +114,25 @@ const show3DBuildingsWroclaw = async () => {
     }
 }
 
-export {show3DBuildingsGoogle, show3DBuildingsOSM, show3DBuildingsWroclaw}
+const showUPWRBuildingsPoints = async () => {
+    const checkbox = document.getElementById('UPWRBuildingsPoints');
+
+    if (checkbox.checked) {
+        if (!upwrDataSource) {
+            upwrDataSource = await Cesium.GeoJsonDataSource.load(upwrBuildings, {
+                stroke: Cesium.Color.fromBytes(120,40,52,255),
+                fill: Cesium.Color.fromBytes(120,40,52,255),
+                strokeWidth: 3,
+                clampToGround: true,
+            });
+            viewer.dataSources.add(upwrDataSource);
+        }
+    } else {
+        if (upwrDataSource) {
+            viewer.dataSources.remove(upwrDataSource);
+            upwrDataSource = null;
+        }
+    }
+};
+
+export {show3DBuildingsGoogle, show3DBuildingsOSM, show3DBuildingsWroclaw, showUPWRBuildingsPoints}

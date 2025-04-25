@@ -1,0 +1,692 @@
+{
+	"type" : "FeatureCollection",
+	"name" : "Output",
+	"features" : [
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0634787, 51.110551 ]
+			},
+			"properties" : {
+				"A" : "A1",
+				"B" : "Wrocław, Skłodowskiej-Curie 42",
+				"_address" : "42, Marii Curie-Skłodowskiej, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-369, Polska",
+				"_latitude" : "51.110551",
+				"_longitude" : "17.0634787"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0639417, 51.1113126 ]
+			},
+			"properties" : {
+				"A" : "A2",
+				"B" : "Wrocław, Norwida 25",
+				"_address" : "25, Cypriana Kamila Norwida, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-375, Polska",
+				"_latitude" : "51.1113126",
+				"_longitude" : "17.0639417"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0646965, 51.1122054 ]
+			},
+			"properties" : {
+				"A" : "A3",
+				"B" : "Wrocław, Norwida 31",
+				"_address" : "31, Cypriana Kamila Norwida, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-375, Polska",
+				"_latitude" : "51.1122054",
+				"_longitude" : "17.0646965"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0639417, 51.1113126 ]
+			},
+			"properties" : {
+				"A" : "A4",
+				"B" : "Wrocław, Norwida 25",
+				"_address" : "25, Cypriana Kamila Norwida, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-375, Polska",
+				"_latitude" : "51.1113126",
+				"_longitude" : "17.0639417"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0643268, 51.1109914 ]
+			},
+			"properties" : {
+				"A" : "A5",
+				"B" : "Wrocław, Norwida 27",
+				"_address" : "27, Cypriana Kamila Norwida, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-375, Polska",
+				"_latitude" : "51.1109914",
+				"_longitude" : "17.0643268"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0646454, 51.1110378 ]
+			},
+			"properties" : {
+				"A" : "A6",
+				"B" : "Wrocław, Norwida 27A",
+				"_address" : "27a, Cypriana Kamila Norwida, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-375, Polska",
+				"_latitude" : "51.1110378",
+				"_longitude" : "17.0646454"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0649949, 51.111292 ]
+			},
+			"properties" : {
+				"A" : "A7",
+				"B" : "Wrocław, Norwida 27B",
+				"_address" : "27b, Cypriana Kamila Norwida, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-375, Polska",
+				"_latitude" : "51.111292",
+				"_longitude" : "17.0649949"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0653697, 51.1115534 ]
+			},
+			"properties" : {
+				"A" : "A8",
+				"B" : "Wrocław, Norwida 27D",
+				"_address" : "27d, Cypriana Kamila Norwida, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-375, Polska",
+				"_latitude" : "51.1115534",
+				"_longitude" : "17.0653697"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0650555, 51.111469 ]
+			},
+			"properties" : {
+				"A" : "A12",
+				"B" : "Wrocław, Norwida 27C",
+				"_address" : "27c, Cypriana Kamila Norwida, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-375, Polska",
+				"_latitude" : "51.111469",
+				"_longitude" : "17.0650555"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0657807, 51.1125429 ]
+			},
+			"properties" : {
+				"A" : "B1",
+				"B" : "Wrocław, pl. Grunwaldzki 45",
+				"_address" : "45, plac Grunwaldzki, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-366, Polska",
+				"_latitude" : "51.1125429",
+				"_longitude" : "17.0657807"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0667404, 51.1128346 ]
+			},
+			"properties" : {
+				"A" : "B2",
+				"B" : "Wrocław, pl. Grunwaldzki 47",
+				"_address" : "47, plac Grunwaldzki, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-366, Polska",
+				"_latitude" : "51.1128346",
+				"_longitude" : "17.0667404"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0677224, 51.1131023 ]
+			},
+			"properties" : {
+				"A" : "B3",
+				"B" : "Wrocław, pl. Grunwaldzki 49",
+				"_address" : "49, plac Grunwaldzki, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-366, Polska",
+				"_latitude" : "51.1131023",
+				"_longitude" : "17.0677224"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0685927, 51.1133778 ]
+			},
+			"properties" : {
+				"A" : "B4",
+				"B" : "Wrocław, pl. Grunwaldzki 51",
+				"_address" : "51, plac Grunwaldzki, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-366, Polska",
+				"_latitude" : "51.1133778",
+				"_longitude" : "17.0685927"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0693351, 51.1137806 ]
+			},
+			"properties" : {
+				"A" : "B5",
+				"B" : "Wrocław, pl. Grunwaldzki 51A",
+				"_address" : "51a, plac Grunwaldzki, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-366, Polska",
+				"_latitude" : "51.1137806",
+				"_longitude" : "17.0693351"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0606462, 51.1117544 ]
+			},
+			"properties" : {
+				"A" : "B6",
+				"B" : "Wrocław, pl. Grunwaldzki 49A",
+				"_address" : "plac Grunwaldzki, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-365, Polska",
+				"_latitude" : "51.1117544",
+				"_longitude" : "17.0606462"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0669998, 51.1121978 ]
+			},
+			"properties" : {
+				"A" : "B7",
+				"B" : "Wrocław, Mikulicza-Radeckiego 6",
+				"_address" : "6, Jana Mikulicza-Radeckiego, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-345, Polska",
+				"_latitude" : "51.1121978",
+				"_longitude" : "17.0669998"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0669998, 51.1121978 ]
+			},
+			"properties" : {
+				"A" : "B8",
+				"B" : "Wrocław, Mikulicza-Radeckiego 6",
+				"_address" : "6, Jana Mikulicza-Radeckiego, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-345, Polska",
+				"_latitude" : "51.1121978",
+				"_longitude" : "17.0669998"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0663065, 51.112501 ]
+			},
+			"properties" : {
+				"A" : "B9",
+				"B" : "Wrocław, pl. Grunwaldzki 47A",
+				"_address" : "47a, plac Grunwaldzki, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-366, Polska",
+				"_latitude" : "51.112501",
+				"_longitude" : "17.0663065"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0620949, 51.1132382 ]
+			},
+			"properties" : {
+				"A" : "C1",
+				"B" : "Wrocław, Grunwaldzka 53",
+				"_address" : "53, Grunwaldzka, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-357, Polska",
+				"_latitude" : "51.1132382",
+				"_longitude" : "17.0620949"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0630029, 51.1129031 ]
+			},
+			"properties" : {
+				"A" : "C2",
+				"B" : "Wrocław, pl. Grunwaldzki 24",
+				"_address" : "24, plac Grunwaldzki, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-363, Polska",
+				"_latitude" : "51.1129031",
+				"_longitude" : "17.0630029"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0637573, 51.1128419 ]
+			},
+			"properties" : {
+				"A" : "C3",
+				"B" : "Wrocław, pl. Grunwaldzki 24A",
+				"_address" : "24a, plac Grunwaldzki, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-363, Polska",
+				"_latitude" : "51.1128419",
+				"_longitude" : "17.0637573"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0630029, 51.1129031 ]
+			},
+			"properties" : {
+				"A" : "C4",
+				"B" : "Wrocław, pl. Grunwaldzki 24",
+				"_address" : "24, plac Grunwaldzki, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-363, Polska",
+				"_latitude" : "51.1129031",
+				"_longitude" : "17.0630029"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0622198, 51.1137842 ]
+			},
+			"properties" : {
+				"A" : "C5",
+				"B" : "Wrocław, Grunwaldzka 55",
+				"_address" : "55, Grunwaldzka, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-357, Polska",
+				"_latitude" : "51.1137842",
+				"_longitude" : "17.0622198"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0945321, 51.0987899 ]
+			},
+			"properties" : {
+				"A" : "E1",
+				"B" : "Wrocław, Kożuchowska 1",
+				"_address" : "1, Kożuchowska, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-631, Polska",
+				"_latitude" : "51.0987899",
+				"_longitude" : "17.0945321"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0949057, 51.0981787 ]
+			},
+			"properties" : {
+				"A" : "E2",
+				"B" : "Wrocław, Kożuchowska 5B",
+				"_address" : "Instytut Biologii Środowiskowej, 5b, Kożuchowska, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-631, Polska",
+				"_latitude" : "51.0981787",
+				"_longitude" : "17.0949057"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.095247, 51.0979641 ]
+			},
+			"properties" : {
+				"A" : "E3",
+				"B" : "Wrocław, Kożuchowska 5",
+				"_address" : "5, Kożuchowska, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-631, Polska",
+				"_latitude" : "51.0979641",
+				"_longitude" : "17.095247"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0956434, 51.0975707 ]
+			},
+			"properties" : {
+				"A" : "E4",
+				"B" : "Wrocław, Kożuchowska 7A",
+				"_address" : "7a, Kożuchowska, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-631, Polska",
+				"_latitude" : "51.0975707",
+				"_longitude" : "17.0956434"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0964081, 51.0975797 ]
+			},
+			"properties" : {
+				"A" : "E5",
+				"B" : "Wrocław, Kożuchowska 7",
+				"_address" : "7, Kożuchowska, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-631, Polska",
+				"_latitude" : "51.0975797",
+				"_longitude" : "17.0964081"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0955496, 51.0980909 ]
+			},
+			"properties" : {
+				"A" : "E6",
+				"B" : "Wrocław, Kożuchowska 5A",
+				"_address" : "5a, Kożuchowska, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-731, Polska",
+				"_latitude" : "51.0980909",
+				"_longitude" : "17.0955496"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.095346, 51.0982418 ]
+			},
+			"properties" : {
+				"A" : "E9",
+				"B" : "Wrocław, Kożuchowska 5C",
+				"_address" : "5c, Kożuchowska, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-631, Polska",
+				"_latitude" : "51.0982418",
+				"_longitude" : "17.095346"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0964081, 51.0975797 ]
+			},
+			"properties" : {
+				"A" : "E10",
+				"B" : "Wrocław, Kożuchowska 7",
+				"_address" : "7, Kożuchowska, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-631, Polska",
+				"_latitude" : "51.0975797",
+				"_longitude" : "17.0964081"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0959078, 51.0987664 ]
+			},
+			"properties" : {
+				"A" : "E11",
+				"B" : "Wrocław, Chełmońskiego 38D",
+				"_address" : "38d, Józefa Chełmońskiego, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-630, Polska",
+				"_latitude" : "51.0987664",
+				"_longitude" : "17.0959078"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0956919, 51.0991462 ]
+			},
+			"properties" : {
+				"A" : "E12",
+				"B" : "Wrocław, Chełmońskiego 38C",
+				"_address" : "38c, Józefa Chełmońskiego, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-630, Polska",
+				"_latitude" : "51.0991462",
+				"_longitude" : "17.0956919"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0954249, 51.0989428 ]
+			},
+			"properties" : {
+				"A" : "E13",
+				"B" : "Wrocław, Chełmońskiego 38E",
+				"_address" : "38e, Józefa Chełmońskiego, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-631, Polska",
+				"_latitude" : "51.0989428",
+				"_longitude" : "17.0954249"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0955641, 51.1000185 ]
+			},
+			"properties" : {
+				"A" : "F1",
+				"B" : "Wrocław, Chełmońskiego 37B",
+				"_address" : "37b, Józefa Chełmońskiego, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-630, Polska",
+				"_latitude" : "51.1000185",
+				"_longitude" : "17.0955641"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0953224, 51.0995765 ]
+			},
+			"properties" : {
+				"A" : "F2",
+				"B" : "Wrocław, Chełmońskiego 37",
+				"_address" : "37, Józefa Chełmońskiego, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-630, Polska",
+				"_latitude" : "51.0995765",
+				"_longitude" : "17.0953224"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0962351, 51.1003607 ]
+			},
+			"properties" : {
+				"A" : "F3",
+				"B" : "Wrocław, Chełmońskiego 39A",
+				"_address" : "39a, Józefa Chełmońskiego, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-630, Polska",
+				"_latitude" : "51.1003607",
+				"_longitude" : "17.0962351"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0969047, 51.0999219 ]
+			},
+			"properties" : {
+				"A" : "F4",
+				"B" : "Wrocław, Chełmońskiego 41",
+				"_address" : "41, Józefa Chełmońskiego, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-630, Polska",
+				"_latitude" : "51.0999219",
+				"_longitude" : "17.0969047"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0969765, 51.0998325 ]
+			},
+			"properties" : {
+				"A" : "F5",
+				"B" : "Wrocław, Chełmońskiego 39",
+				"_address" : "Centrum Biologii Stosowanej, 39, Józefa Chełmońskiego, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-630, Polska",
+				"_latitude" : "51.0998325",
+				"_longitude" : "17.0969765"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0951056, 51.0999763 ]
+			},
+			"properties" : {
+				"A" : "F8",
+				"B" : "Wrocław, Chełmońskiego 37A",
+				"_address" : "37a, Józefa Chełmońskiego, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-630, Polska",
+				"_latitude" : "51.0999763",
+				"_longitude" : "17.0951056"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0977216, 51.0996724 ]
+			},
+			"properties" : {
+				"A" : "F11",
+				"B" : "Wrocław, Chełmońskiego 43A",
+				"_address" : "43a, Józefa Chełmońskiego, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-630, Polska",
+				"_latitude" : "51.0996724",
+				"_longitude" : "17.0977216"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0976403, 51.1003348 ]
+			},
+			"properties" : {
+				"A" : "F12",
+				"B" : "Wrocław, Chełmońskiego 43",
+				"_address" : "43, Józefa Chełmońskiego, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-630, Polska",
+				"_latitude" : "51.1003348",
+				"_longitude" : "17.0976403"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0953224, 51.0995765 ]
+			},
+			"properties" : {
+				"A" : "F13",
+				"B" : "Wrocław, Chełmońskiego 37",
+				"_address" : "37, Józefa Chełmońskiego, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-630, Polska",
+				"_latitude" : "51.0995765",
+				"_longitude" : "17.0953224"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0974812, 51.1021278 ]
+			},
+			"properties" : {
+				"A" : "DS1",
+				"B" : "Wrocław, Olszewskiego 25",
+				"_address" : "25, Karola Olszewskiego, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-642, Polska",
+				"_latitude" : "51.1021278",
+				"_longitude" : "17.0974812"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0660493, 51.1140808 ]
+			},
+			"properties" : {
+				"A" : "DS2",
+				"B" : "Wrocław, Grunwaldzka 65",
+				"_address" : "Dom Studencki \"Centaur\", 65, Grunwaldzka, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-357, Polska",
+				"_latitude" : "51.1140808",
+				"_longitude" : "17.0660493"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0703176, 51.116662 ]
+			},
+			"properties" : {
+				"A" : "DS3",
+				"B" : "Wrocław, Sopocka 23",
+				"_address" : "23, Sopocka, Ołbin, Wrocław, województwo dolnośląskie, 50-344, Polska",
+				"_latitude" : "51.116662",
+				"_longitude" : "17.0703176"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0654933, 51.1139827 ]
+			},
+			"properties" : {
+				"A" : "DS4",
+				"B" : "Wrocław, Grunwaldzka 63",
+				"_address" : "Dom Studencki \"Talizman\", 63, Grunwaldzka, Manhattan, Plac Grunwaldzki, Wrocław, województwo dolnośląskie, 50-357, Polska",
+				"_latitude" : "51.1139827",
+				"_longitude" : "17.0654933"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.070888, 51.115013 ]
+			},
+			"properties" : {
+				"A" : "DS5",
+				"B" : "Wrocław, Grunwaldzka 106A",
+				"_address" : "106a, Grunwaldzka, Ołbin, Wrocław, województwo dolnośląskie, 50-357, Polska",
+				"_latitude" : "51.115013",
+				"_longitude" : "17.070888"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 17.0997992, 51.1011293 ]
+			},
+			"properties" : {
+				"A" : "DS6",
+				"B" : "Wrocław, Pautscha 5/7",
+				"_address" : "5/7, Fryderyka Pautscha, Biskupin, Biskupin-Sępolno-Dąbie-Bartoszowice, Wrocław, województwo dolnośląskie, 51-651, Polska",
+				"_latitude" : "51.1011293",
+				"_longitude" : "17.0997992"
+			}
+		}
+	]
+}
