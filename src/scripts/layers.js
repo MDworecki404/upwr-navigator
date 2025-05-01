@@ -114,15 +114,15 @@ const show3DBuildingsWroclaw = async () => {
     }
 }
 
-const showUPWRBuildingsPoints = async () => {
+const showUPWRBuildings = async () => {
     const checkbox = document.getElementById('UPWRBuildingsPoints');
 
     if (checkbox.checked) {
         if (!upwrDataSource) {
             upwrDataSource = await Cesium.GeoJsonDataSource.load(upwrBuildings, {
-                stroke: Cesium.Color.fromBytes(120,40,52,255),
+                stroke: Cesium.Color.BLACK,
                 fill: Cesium.Color.fromBytes(120,40,52,255),
-                strokeWidth: 3,
+                strokeWidth: 2,
                 clampToGround: true,
             });
             viewer.dataSources.add(upwrDataSource);
@@ -135,4 +135,4 @@ const showUPWRBuildingsPoints = async () => {
     }
 };
 
-export {show3DBuildingsGoogle, show3DBuildingsOSM, show3DBuildingsWroclaw, showUPWRBuildingsPoints}
+export {show3DBuildingsGoogle, show3DBuildingsOSM, show3DBuildingsWroclaw, showUPWRBuildings}
