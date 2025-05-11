@@ -1,7 +1,9 @@
 import { buildGraph, aStar } from './aStar/aStar.js';
 
 onmessage = function(e) {
-    const { start, goal, network, mode } = e.data;
+    const { start, goal, network, mode } = e.data;  
+
+    const startTime = Date.now();
     
     console.log("👷‍♂️ Worker otrzymał dane:", { start, goal });
 
@@ -38,5 +40,6 @@ onmessage = function(e) {
     console.log("🗺️ Znaleziona ścieżka, długość:", path.length);
 
     postMessage({ path });
-    console.log(Date.now())
+    const endTime = Date.now();
+    console.log("⏱️ Czas wykonania:", endTime - startTime, "ms");
 };

@@ -4,7 +4,6 @@ export const buildGraph = (network, mode) => {
     console.log(mode)
     let nodes = new Set();
     let edges = new Map();
-    let pedestrianPaths = 0; // Licznik tras dla pieszych
     
     let allowedClasses;
     if (mode === "bikeFoot") {
@@ -16,11 +15,6 @@ export const buildGraph = (network, mode) => {
     network.features.forEach(feature => {
         if (!allowedClasses.includes(feature.properties.fclass)) {
             return; // Jeśli nie, pominąć
-        }
-
-        // Zliczanie tras pieszych
-        if (mode === "bikeFoot") {
-            pedestrianPaths++;
         }
 
         if (feature.geometry.type === "MultiLineString") {
