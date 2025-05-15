@@ -10,7 +10,7 @@
     import {userRouteFinder} from "../scripts/userRouteFinder";
     import 'bootstrap/dist/css/bootstrap.min.css';
     import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-    import userPositionFollow from "../scripts/userLocation";
+    import {userPositionFollow} from "../scripts/userLocation";
 
     export default {
         setup() {
@@ -375,8 +375,6 @@
         border-radius: 14%;
         background-color: #ffffff;
         border: 1px solid #444;
-        opacity: 0;
-        pointer-events: none;
 
         img{
         width: 28px;

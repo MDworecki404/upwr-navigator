@@ -4,11 +4,13 @@ import BuildingData from '../data/universityBuildings.json'
 import startMarkerPNG from '../assets/startMarker.png'
 import endMarkerPNG from '../assets/finishMarker.png'
 import gsap from "gsap";
+import { stopTracking } from "./userLocation";
 
 // Zmienna do śledzenia aktywnego workera
 let activeWorker = null;
 
 const routeFinder = async () => {
+    stopTracking();
     gsap.to('#routeClear', {opacity: 0, pointerEvents: 'none', duration: 0.2})
     console.log("Rozpoczęcie wyszukiwania trasy:", Date.now());
     

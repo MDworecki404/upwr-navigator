@@ -4,21 +4,26 @@ import * as Cesium from "cesium";
 
 let watchId = null;
 let userEntity = null; // <- zapamiętujemy encję poza funkcją
+let tracking = false
 
-const userPositionFollow = () => {
+export const stopTracking = () => {
     if (watchId !== null) {
-        console.log("Śledzenie już aktywne. Zatrzymuję...");
         navigator.geolocation.clearWatch(watchId);
         watchId = null;
-
         if (userEntity) {
-            viewer.entities.remove(userEntity); // teraz działa!
+            viewer.entities.remove(userEntity);
             userEntity = null;
         }
-
-        return;
+        tracking = false
     }
+};
 
+const userPositionFollow = () => {
+    
+    if (tracking == true){
+        stopTracking()
+    } else {
+    tracking = true
   // Tworzymy ikonkę i encję
 
 
@@ -57,16 +62,7 @@ const userPositionFollow = () => {
             });
             hasSetInitialView = true; // ustawiamy flagę, żeby już nie wykonywało się ponownie
         }
-
-            viewer.camera.setView({
-                destination: destination,
-                orientation: {
-                    heading: 0.0,
-                    pitch: -Math.PI / 2,
-                    roll: 0.0
-                }
-            });
-            },
+        },
             (error) => {
             console.error("Błąd lokalizacji:", error.message);
         },
@@ -76,6 +72,7 @@ const userPositionFollow = () => {
             timeout: 10000
         }
     );
+}
 };
 
-export default userPositionFollow;
+export {userPositionFollow};
