@@ -248,7 +248,7 @@
         width: 32px;
         height: 32px;
         border-radius: 14%;
-        background-color: #303336;
+        background-color: #fff;
         border: 1px solid #444;
 
         img{
@@ -259,9 +259,6 @@
         }
 
         &:hover{
-            background-color: #4488bb;
-            box-shadow: 0px 0px 50px #4488bb;
-            border: 1px solid #aaeeff;
             cursor: pointer;
         }
     }
@@ -320,7 +317,7 @@
         width: 32px;
         height: 32px;
         border-radius: 14%;
-        background-color: #303336;
+        background-color: #fff;
         border: 1px solid #444;
 
         img{
@@ -523,5 +520,21 @@
         left: calc(50% - 65px);
         pointer-events: none;
         opacity: 0;
+    }
+
+    .cesium-sceneModePicker-wrapper{
+        display: none !important;
+    }
+    .cesium-navigationHelpButton-wrapper{
+        display: none !important
+    }
+    .cesium-viewer-geocoderContainer{
+        background-color: white !important;
+        display: none !important
+    }
+    .cesium-svgPath-svg{
+        fill: black !important;
+        background-color: white !important;
+        
     }
 </style>
