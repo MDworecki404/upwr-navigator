@@ -32,6 +32,7 @@ const userPositionFollow = () => {
             heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
         }
     });
+    let hasSetInitialView = false; // dodaj poza funkcją
 
     watchId = navigator.geolocation.watchPosition((position) => {
         const lat = position.coords.latitude;
@@ -42,26 +43,38 @@ const userPositionFollow = () => {
         const destination = Cesium.Cartesian3.fromDegrees(lon, lat, height);
 
         if (userEntity) {
-        userEntity.position = Cesium.Cartesian3.fromDegrees(lon, lat, alt);
+            userEntity.position = Cesium.Cartesian3.fromDegrees(lon, lat, alt);
         }
 
-        viewer.camera.setView({
-            destination: destination,
-            orientation: {
-                heading: 0.0,
-                pitch: -Math.PI / 2,
-                roll: 0.0
-            }
-        });
+        if (!hasSetInitialView) {
+            viewer.camera.setView({
+                destination: destination,
+                orientation: {
+                    heading: 0.0,
+                    pitch: -Math.PI / 2,
+                    roll: 0.0
+                }
+            });
+            hasSetInitialView = true; // ustawiamy flagę, żeby już nie wykonywało się ponownie
+        }
+
+            viewer.camera.setView({
+                destination: destination,
+                orientation: {
+                    heading: 0.0,
+                    pitch: -Math.PI / 2,
+                    roll: 0.0
+                }
+            });
+            },
+            (error) => {
+            console.error("Błąd lokalizacji:", error.message);
         },
-        (error) => {
-        console.error("Błąd lokalizacji:", error.message);
-    },
-    {
-        enableHighAccuracy: true,
-        maximumAge: 100,
-        timeout: 10000
-    }
+        {
+            enableHighAccuracy: true,
+            maximumAge: 100,
+            timeout: 10000
+        }
     );
 };
 

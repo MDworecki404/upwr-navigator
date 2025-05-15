@@ -8,3 +8,51 @@
 .cesium-navigation-help, .cesium-navigation-help-visible{
     right: -60px;
 }
+.cesium-sceneModePicker-wrapper{
+        display: none !important;
+    }
+    .cesium-navigationHelpButton-wrapper{
+        display: none !important
+    }
+    .cesium-viewer-geocoderContainer{
+        background-color: white !important;
+        display: none !important
+    }
+    .cesium-svgPath-svg{
+        fill: black !important;
+        background-color: white !important;
+        
+    }
+    .cesium-baseLayerPicker-choices{
+        border-radius: 2px;
+        outline: 2px solid rgba(173,171,171,125);
+        border: none;
+    }
+
+    .cesium-baseLayerPicker-dropDown{
+        background-color: white !important;
+        border-radius: 2px;
+        outline: 2px solid rgba(173,171,171,125);
+        border: none !important;
+        
+        & > *{
+            color: black !important;
+        }
+
+        .cesium-baseLayerPicker-section{
+            .cesium-baseLayerPicker-categoryTitle{
+                color: black !important;
+            }
+        }
+    }
+    .cesium-baseLayerPicker-itemLabel{
+        color: black !important;
+    }
+    .cesium-button {
+        background-color: white !important;
+        background-image: url('../assets/basemap-svgrepo-com.svg') !important;
+        background-size: cover !important;
+    }
+    .cesium-baseLayerPicker-selected{
+        display: none !important;
+    }

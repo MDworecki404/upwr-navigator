@@ -29,7 +29,7 @@
         methods: {
             panelVisibility(panel) {
                 const layerPanel = document.querySelector('#layerPanel')
-                const navigationPanel = document.querySelector('#navigationPanel')
+                const navigationPanel = document.querySelector('#navigation_panel')
                 const layerVisibility = window.getComputedStyle(layerPanel).visibility
                 const navigationVisibility = window.getComputedStyle(navigationPanel).visibility
 
@@ -37,18 +37,18 @@
                     if(layerVisibility == 'visible'){
                         gsap.to('#layerPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
                         gsap.to('#layerPanel', {visibility: 'hidden',zIndex: -1000, duration: 0, delay: 0.1, ease: 'linear'})
-                        gsap.to('#navigationPanel', {visibility: 'visible', duration: 0, delay: 0.1, ease: 'linear'})
-                        gsap.to('#navigationPanel', {opacity: 1, duration: 0.1, delay: 0.2, ease: 'linear'})
+                        gsap.to('#navigation_panel', {visibility: 'visible', duration: 0, delay: 0.1, ease: 'linear'})
+                        gsap.to('#navigation_panel', {opacity: 1, duration: 0.1, delay: 0.2, ease: 'linear'})
                     }
                     if(layerVisibility == 'hidden' && navigationVisibility == 'hidden'){
-                        gsap.to('#navigationPanel', {visibility: 'visible', duration: 0, delay: 0, ease: 'linear'})
-                        gsap.to('#navigationPanel', {opacity: 1, duration: 0.1, delay: 0, ease: 'linear'})
+                        gsap.to('#navigation_panel', {visibility: 'visible', duration: 0, delay: 0, ease: 'linear'})
+                        gsap.to('#navigation_panel', {opacity: 1, duration: 0.1, delay: 0, ease: 'linear'})
                     }
                 }
                 if(panel == 'layer'){
                     if(navigationVisibility == 'visible'){
-                        gsap.to('#navigationPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
-                        gsap.to('#navigationPanel', {visibility: 'hidden',zIndex: -1000, duration: 0, delay: 0.1, ease: 'linear'})
+                        gsap.to('#navigation_panel', {opacity: 0, duration: 0.1, ease: 'linear'})
+                        gsap.to('#navigation_panel', {visibility: 'hidden',zIndex: -1000, duration: 0, delay: 0.1, ease: 'linear'})
                         gsap.to('#layerPanel', {visibility: 'visible', duration: 0, delay: 0.1, ease: 'linear'})
                         gsap.to('#layerPanel', {opacity: 1, duration: 0.1, delay: 0.1, ease: 'linear'})
                     }
@@ -61,42 +61,75 @@
             },
             hidePanel(){
                 const layerPanel = document.querySelector('#layerPanel')
-                const navigationPanel = document.querySelector('#navigationPanel')
+                const navigationPanel = document.querySelector('#navigation_panel')
                 const layerVisibility = window.getComputedStyle(layerPanel).visibility
                 const navigationVisibility = window.getComputedStyle(navigationPanel).visibility
                 if(layerVisibility == 'visible' || navigationVisibility == 'visible'){
                     
                     gsap.to('#layerPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
                     gsap.to('#layerPanel', {visibility: 'hidden', duration: 0, delay: 0.1, ease: 'linear'})
-                    gsap.to('#navigationPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
-                    gsap.to('#navigationPanel', {visibility: 'hidden', duration: 0, delay: 0.1, ease: 'linear'})
+                    gsap.to('#navigation_panel', {opacity: 0, duration: 0.1, ease: 'linear'})
+                    gsap.to('#navigation_panel', {visibility: 'hidden', duration: 0, delay: 0.1, ease: 'linear'})
                     
                     gsap.to('#userToBuildingPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
                     gsap.to('#userToBuildingPanel', {visibility: 'hidden', zIndex: -1000, duration: 0, delay: 0.1, ease: 'linear'})
-                    gsap.to('.buildingToBuildingPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
-                    gsap.to('.buildingToBuildingPanel', {visibility: 'hidden', zIndex: -1000, duration: 0, delay: 0.1, ease: 'linear'})
+                    gsap.to('#buildingToBuildingPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
+                    gsap.to('#buildingToBuildingPanel', {visibility: 'hidden', zIndex: -1000, duration: 0, delay: 0.1, ease: 'linear'})
 
-                    document.querySelector('.userRadio1').checked = false
-                    document.querySelector('.userRadio2').checked = false
                 }
             },
-            changeRoutingMode(){
-                const routingMethodRadio = document.querySelector('input[name="typeOfRouting"]:checked').value
-                switch(routingMethodRadio){
-                    case "userToBuilding":
-                        gsap.to('.buildingToBuildingPanel', {opacity: 0, duration: 0.3})
-                        gsap.to('.buildingToBuildingPanel', {visibility: 'hidden', zIndex: -1000, delay: 0.3})
-                        gsap.to('#userToBuildingPanel', {visibility: 'visible', zIndex: 1000, delay: 0})
-                        gsap.to('#userToBuildingPanel', {opacity: 1, duration: 0.3})
-                        break
-                    case "buildingToBuilding":
-                        gsap.to('#userToBuildingPanel', {opacity: 0, duration: 0.3})
-                        gsap.to('#userToBuildingPanel', {visibility: 'hidden', zIndex: -1000, delay: 0.3})
-                        gsap.to('.buildingToBuildingPanel', {visibility: 'visible', zIndex: 1000, delay: 0})
-                        gsap.to('.buildingToBuildingPanel', {opacity: 1, delay: 0.1, duration: 0.3})
-                        break
-                }
+            showBuildingToBuildingPanel() {
+                gsap.to('#buildingToBuilding_panel', {
+                    duration: 0,
+                    display: 'flex',
+                    ease: 'power2.inOut'
+                });
+                gsap.to('#userToBuilding_panel', {
+                    duration: 0,
+                    display: 'none',
+                    ease: 'power2.inOut'
+                });
+                gsap.to('#buildingToBuilding', {
+                    duration: 0,
+                    backgroundColor: '#28a745',
+                    borderColor: '#28a745',
+                    color: 'white',
+                    ease: 'power2.inOut'
+                });
+                gsap.to('#userToBuilding', {
+                    duration: 0,
+                    backgroundColor: '#0d6efd',
+                    borderColor: '#0d6efd',
+                    color: 'white',
+                    ease: 'power2.inOut'
+                });
             },
+            showUserToBuildingPanel() {
+                gsap.to('#userToBuilding_panel', {
+                    duration: 0,
+                    display: 'flex',
+                    ease: 'power2.inOut'
+                });
+                gsap.to('#buildingToBuilding_panel', {
+                    duration: 0,
+                    display: 'none',
+                    ease: 'power2.inOut'
+                });
+                gsap.to('#userToBuilding', {
+                    duration: 0,
+                    backgroundColor: '#28a745',
+                    borderColor: '#28a745',
+                    color: 'white',
+                    ease: 'power2.inOut'
+                });
+                gsap.to('#buildingToBuilding', {
+                    duration: 0,
+                    backgroundColor: '#0d6efd',
+                    borderColor: '#0d6efd',
+                    color: 'white',
+                    ease: 'power2.inOut'
+                });
+    },
             routeFinder,
             userRouteFinder,
             show3DBuildingsGoogle,
@@ -146,68 +179,58 @@
         <div id="userPositionPicker" @click="userPositionFollow">
             <img src="../assets/location-arrow-svgrepo-com.svg">
         </div>
-        <div id="navigationPanel">
-            <div id="typeOfRouting">
-                <span><input @click="changeRoutingMode" type="radio" name="typeOfRouting" value="userToBuilding" class="form-check-input userRadio1" ><label class="form-check-label">Użytkownik => Budynek</label></span>
-                <span><input @click="changeRoutingMode" type="radio" name="typeOfRouting" value="buildingToBuilding" class="form-check-input userRadio2"><label class="form-check-label">Budynek => Budynek</label></span>
-            </div>
-            <div class="buildingToBuildingPanel">
-                <div id="startingBuilding">
-                    <span class="lead">Wybierz punkt początkowy</span>
-                    <select class="form-select-sm mb-1 startChoice" v-model="selectedStartBuilding">
-                        <option value="">Wybierz budynek</option>
-                        <option 
-                            v-for="building in buildings" 
-                            :key="building.code" 
-                            :value="building.code"
-                        >
-                        {{ building.code +" - "+ building.name }}
-                        </option>
-                    </select>
-                    <br><br>
-                </div>
-                <div id="endBuilding">
-                    <span class="lead">Wybierz punkt końcowy</span>
-                    <select class="form-select-sm mb-1 endChoice" v-model="selectedEndBuilding">
-                        <option value="">Wybierz budynek</option>
-                        <option 
-                        v-for="building in buildings" 
-                        :key="building.code" 
-                        :value="building.code"
-                        >
-                        {{ building.code +" - "+ building.name }}
-                        </option>
-                    </select>
-                </div>
-                <div id="typeOfTransport">
-                    <span class="lead">Wybierz rodzaj transportu</span>
-                    <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="bikeFoot" class="bikeFoot form-check-input" checked>Pieszo/Rowerem</label>
-                    <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="car" class="car form-check-input">Samochodem</label>
-                </div>
-
-                <div id="buttonDiv">
-                    <button class="btn btn-secondary" @click="routeFinder" type="button">Sprawdź trasę</button>
-                </div>
-                </div>
-            <div id="userToBuildingPanel">
-                <span class="lead">Wybierz budynek</span>
-                <select class="form-select-sm mb-1 userEndChoice" v-model="selectedEndBuilding">
-                    <option value="">Wybierz budynek</option>
-                    <option 
-                    v-for="building in buildings" 
-                    :key="building.code" 
-                    :value="building.code"
-                    >
-                    {{ building.code +" - "+ building.name }}
-                    </option>
-                </select>
-                <br>
-                <span class="lead">Wybierz rodzaj transportu</span>
-                <label class="form-check-label"><input type="radio" name="userTransportTypeRadio" value="bikeFoot" class="bikeFoot form-check-input" checked>Pieszo/Rowerem</label>
-                <label class="form-check-label"><input type="radio" name="userTransportTypeRadio" value="car" class="car form-check-input">Samochodem</label>
-                <br>
-                <button class="btn btn-secondary" @click="userRouteFinder">Pokaż trasę</button>
-            </div>
+        <div id="navigation_panel">
+            <div id="menu">
+      <button class="btn btn-primary" id="buildingToBuilding" @click="showBuildingToBuildingPanel">Budynek - Budynek</button>
+      <button class="btn btn-primary" id="userToBuilding" @click="showUserToBuildingPanel">Użytkownik - Budynek</button>
+    </div>
+    <div id="buildingToBuilding_panel">
+      <span>Wybierz punkt początkowy</span>
+      <select class="form-select-sm mb-1 startChoice" v-model="selectedStartBuilding">
+        <option value="">Wybierz budynek</option>
+        <option 
+            v-for="building in buildings" 
+            :key="building.code" 
+            :value="building.code"
+        >
+        {{ building.code +" - "+ building.name }}
+        </option>
+      </select>
+      <span>Wybierz punkt końcowy</span>
+      <select class="form-select-sm mb-1 endChoice" v-model="selectedEndBuilding">
+          <option value="">Wybierz budynek</option>
+          <option 
+          v-for="building in buildings" 
+          :key="building.code" 
+          :value="building.code"
+          >
+          {{ building.code +" - "+ building.name }}
+          </option>
+      </select>
+      <span>Wybierz rodzaj transportu</span>
+      <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="bikeFoot" class="bikeFoot form-check-input" checked>Pieszo/Rowerem</label>
+      <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="car" class="car form-check-input">Samochodem</label>
+      <button class="btn btn-secondary" @click="routeFinder" type="button">Sprawdź trasę</button>
+    </div>
+    <div id="userToBuilding_panel">
+      <span class="lead">Wybierz budynek</span>
+        <select class="form-select-sm mb-1 userEndChoice" v-model="selectedEndBuilding">
+            <option value="">Wybierz budynek</option>
+            <option 
+            v-for="building in buildings" 
+            :key="building.code" 
+            :value="building.code"
+            >
+            {{ building.code +" - "+ building.name }}
+            </option>
+        </select>
+        <br>
+        <span class="lead">Wybierz rodzaj transportu</span>
+        <label class="form-check-label"><input type="radio" name="userTransportTypeRadio" value="bikeFoot" class="bikeFoot form-check-input" checked>Pieszo/Rowerem</label>
+        <label class="form-check-label"><input type="radio" name="userTransportTypeRadio" value="car" class="car form-check-input">Samochodem</label>
+        <br>
+        <button class="btn btn-secondary" @click="userRouteFinder">Pokaż trasę</button>
+    </div>
     </div>
     <button class="btn btn-secondary" id="routeClear">Wyczyść trasę</button>
     </div>
@@ -271,9 +294,12 @@
         max-width: 90vw;
         min-height: 200px;
         max-height: 801px;
+        padding-top: 5px;
+        padding-bottom: 10px;
         opacity: 0;
-        background-color: rgba(38, 38, 38, 0.75);
-        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 2px;
+        outline: 2px solid rgba(173,171,171,125);
         visibility: hidden;
         display: flex;
         flex-direction: column;
@@ -283,9 +309,12 @@
         align-content: stretch;
         z-index: 1000 !important;
 
+        input[type="checkbox"]{
+            outline: black 0.1px solid;
+        }
+
         h4{
-            color: white;
-            margin-top: 10px;
+            color: rgb(0, 0, 0);
             margin-left: 10px;
         }
 
@@ -293,7 +322,7 @@
             text-align: left;
             margin-left: 10px;
             margin-top: 10px;
-            color: white;
+            color: rgb(0, 0, 0);
             font-family: sans-serif;
             
             span{
@@ -305,9 +334,12 @@
             margin-top: 0px;
         }
         hr{
-            color: white;
+            color: rgb(0, 0, 0);
             width: 90%;
             margin-left: 5%;
+            height: 1px;
+            margin-top: 5%;
+            margin-bottom: 5%;
         }
     }
     #navigationPicker{
@@ -341,7 +373,7 @@
         width: 32px;
         height: 32px;
         border-radius: 14%;
-        background-color: #303336;
+        background-color: #ffffff;
         border: 1px solid #444;
         opacity: 0;
         pointer-events: none;
@@ -354,148 +386,55 @@
         }
 
         &:hover{
-            background-color: #4488bb;
-            box-shadow: 0px 0px 50px #4488bb;
-            border: 1px solid #aaeeff;
             cursor: pointer;
         }
     }
-    #navigationPanel{
-        position: absolute;
-        top: 45px;
-        right: 5px;
-        background-color: white;
-        width: 300px;
-        max-width: 90vw;
-        min-height: 200px;
-        max-height: auto;
-        opacity: 0;
-        background-color: rgba(38, 38, 38, 0.75);
-        border-radius: 10px;
-        visibility: hidden;
-        display: flex;
-        flex-direction: column;
-        font-family: sans-serif;
-        padding-left: 10px;
-        padding-right: 10px;
-        
-        &[style*="visibility: hidden"] {
-            pointer-events: none !important;
-        }
+    #navigation_panel {
+    position: absolute;
+    top: 55px;
+    right: 10px;
+    z-index: 1000;
+    width: 300px;
+    height: auto;
+    background-color: white;
+    border-radius: 2px;
+    outline: 2px solid rgba(173,171,171,125);
+    visibility: hidden;
 
-        #userToBuildingPanel{
-            position: absolute;
-            
-        }
-
-        .buildingToBuildingPanel, #userToBuildingPanel {
-
-            visibility: hidden;
-
-            &[style*="visibility: hidden"] {
-                pointer-events: none !important;
-            }
-        }
-        #userToBuildingPanel{
-            visibility: hidden;
-            opacity: 0;
-            display: flex;
-            flex-direction: column;
-            width: 80%;
-            color: white;
-            position: absolute;
-            top: 100px;
-            left: 10%;
-            text-align: center;
-            
-        }
-
-        & > *{
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-
-        #typeOfRouting{
-            height: auto;
-            color: white;
-            
-            display: flex;
-            flex-direction: row;
-            text-align: center;
-
-            span{
-                display: flex;
-                flex-direction: column;
-
-                input{
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-            }
-        }
-
-
-        #startingBuilding{
-            width: 100%;
-            text-align: center;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            justify-content: center;
-            align-items: flex-start;
-            align-content: flex-start;
-            
-            
-            select{
-                width: 75%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            span{
-                width: 100%;
-                text-align: center;
-                font-size: 25px;
-            }
-        }
-        #endBuilding{
-            width: 100%;
-            text-align: center;
-            color: white;
-            
-            select{
-                width: 75%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            span{
-                width: 100%;
-                text-align: center;
-                font-size: 25px;
-            }
-        }
-        #typeOfTransport{
-            width: 100%;
-            text-align: center;
-            color: white;
-            
-            label{
-                width: 100%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            span{
-                width: 100%;
-                text-align: center;
-                font-size: 25px;
-            }
-        }
-        #buttonDiv{
-            width: 100%;
-            text-align: center;
-        }
-        
+    #menu{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      width: 100%;
+      height: 100%;
     }
+
+    #buildingToBuilding_panel{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    #userToBuilding_panel{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+  }
 
     #loadingIcon{
         
@@ -522,19 +461,6 @@
         opacity: 0;
     }
 
-    .cesium-sceneModePicker-wrapper{
-        display: none !important;
-    }
-    .cesium-navigationHelpButton-wrapper{
-        display: none !important
-    }
-    .cesium-viewer-geocoderContainer{
-        background-color: white !important;
-        display: none !important
-    }
-    .cesium-svgPath-svg{
-        fill: black !important;
-        background-color: white !important;
-        
-    }
+    
+    
 </style>
