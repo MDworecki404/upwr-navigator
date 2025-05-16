@@ -11,6 +11,7 @@
     import 'bootstrap/dist/css/bootstrap.min.css';
     import 'bootstrap/dist/js/bootstrap.bundle.min.js'
     import {userPositionFollow} from "../scripts/userLocation";
+    import { clearRoutes } from "../scripts/clearRoutes";
 
     export default {
         setup() {
@@ -136,7 +137,8 @@
             show3DBuildingsOSM,
             show3DBuildingsWroclaw,
             userPositionFollow,
-            showUPWRBuildings
+            showUPWRBuildings,
+            clearRoutes
         }
     };
     
@@ -232,7 +234,7 @@
         <button class="btn btn-secondary" @click="userRouteFinder">Pokaż trasę</button>
     </div>
     </div>
-    <button class="btn btn-secondary" id="routeClear">Wyczyść trasę</button>
+    <button class="btn btn-secondary" id="routeClear" @click="clearRoutes">Wyczyść trasę</button>
     </div>
 </template>
 
@@ -277,11 +279,14 @@
         img{
         width: 28px;
         height: 28px;
-        margin-left: 2px;
-        margin-top: 2px;
+        position: relative;
+        left: 1px;
+        top: 1px;
         }
 
         &:hover{
+            box-shadow: 0px 0px 50px #4488bb;
+            border: 1px solid #aaeeff;
             cursor: pointer;
         }
     }
@@ -360,7 +365,6 @@
         }
 
         &:hover{
-            background-color: #4488bb;
             box-shadow: 0px 0px 50px #4488bb;
             border: 1px solid #aaeeff;
             cursor: pointer;
@@ -384,6 +388,8 @@
         }
 
         &:hover{
+            box-shadow: 0px 0px 50px #4488bb;
+            border: 1px solid #aaeeff;
             cursor: pointer;
         }
     }

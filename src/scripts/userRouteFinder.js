@@ -5,7 +5,7 @@ import BuildingData from '../data/universityBuildings.json'
 import startMarkerPNG from '../assets/startMarker.png'
 import endMarkerPNG from '../assets/finishMarker.png'
 import gsap from "gsap";
-import { stopTracking } from "./userLocation";
+import { stopTracking, userPositionFollow } from "./userLocation";
 
 // Zmienna do śledzenia aktywnego workera
 let activeWorker = null;
@@ -177,6 +177,7 @@ const userRouteFinder = async () => {
         gsap.to(loadingIconSVG, {visibility: 'hidden', delay: 0.5});
         alert("Wystąpił nieoczekiwany błąd. Spróbuj ponownie.");
     }
+    userPositionFollow()
 };
 
 export {userRouteFinder};

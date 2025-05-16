@@ -52,6 +52,12 @@
         background-color: white !important;
         background-image: url('../assets/basemap-svgrepo-com.svg') !important;
         background-size: cover !important;
+        
+
+        svg{
+            fill: #303030 !important;
+        }
+        
     }
     .cesium-baseLayerPicker-selected{
         display: none !important;

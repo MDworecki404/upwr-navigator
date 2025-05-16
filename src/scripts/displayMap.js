@@ -61,6 +61,7 @@ export async function initCesium(containerId) {
     //}));
 
 
+
     //Pobieranie współrzędnych
 
     const handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas);
