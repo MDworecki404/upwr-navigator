@@ -1,6 +1,8 @@
 import { viewer } from "./displayMap";
 import userIconPNG from '../assets/userIcon.png';
 import * as Cesium from "cesium";
+import gsap from "gsap";
+
 
 let watchId = null;
 let userEntity = null; // <- zapamiętujemy encję poza funkcją
@@ -15,6 +17,7 @@ export const stopTracking = () => {
             userEntity = null;
         }
         tracking = false
+        gsap.to("#locationArrowSVG", {stroke: "#303030"})
     }
 };
 
@@ -24,6 +27,7 @@ const userPositionFollow = () => {
         stopTracking()
     } else {
     tracking = true
+    gsap.to("#locationArrowSVG", {stroke: "#4488bb"})
   // Tworzymy ikonkę i encję
 
 

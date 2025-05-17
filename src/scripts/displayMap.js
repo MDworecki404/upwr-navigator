@@ -61,34 +61,6 @@ export async function initCesium(containerId) {
     //}));
 
 
-
-    //Pobieranie współrzędnych
-
-    const handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas);
-
-    // Nasłuchiwanie na kliknięcia na mapie
-    handler.setInputAction(function (click) {
-    // Pobranie współrzędnych kliknięcia
-        const ray = viewer.camera.getPickRay(click.position);
-        const scene = viewer.scene;
-        const intersection = scene.globe.pick(ray, scene);
-
-        // Sprawdzamy, czy punkt przecięcia istnieje
-        if (Cesium.defined(intersection)) {
-            const cartographic = Cesium.Cartographic.fromCartesian(intersection);
-            const longitude = Cesium.Math.toDegrees(cartographic.longitude);
-            const latitude = Cesium.Math.toDegrees(cartographic.latitude);
-
-            // Wyświetlenie współrzędnych w konsoli
-            console.log(`Wpółrzędne:  ${longitude}, ${latitude}`);
-            
-        } else {
-            console.log("Kliknięcie poza powierzchnią Ziemi");
-        }
-        }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
-
-    //Koniec pobierania współrzędnych
-
     
 }
 

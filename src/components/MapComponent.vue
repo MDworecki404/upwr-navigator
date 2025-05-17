@@ -12,6 +12,7 @@
     import 'bootstrap/dist/js/bootstrap.bundle.min.js'
     import {userPositionFollow} from "../scripts/userLocation";
     import { clearRoutes } from "../scripts/clearRoutes";
+    import {zoomInOut} from "../scripts/zoomInOut";
 
     export default {
         setup() {
@@ -71,11 +72,7 @@
                     gsap.to('#layerPanel', {visibility: 'hidden', duration: 0, delay: 0.1, ease: 'linear'})
                     gsap.to('#navigation_panel', {opacity: 0, duration: 0.1, ease: 'linear'})
                     gsap.to('#navigation_panel', {visibility: 'hidden', duration: 0, delay: 0.1, ease: 'linear'})
-                    
-                    gsap.to('#userToBuildingPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
-                    gsap.to('#userToBuildingPanel', {visibility: 'hidden', zIndex: -1000, duration: 0, delay: 0.1, ease: 'linear'})
-                    gsap.to('#buildingToBuildingPanel', {opacity: 0, duration: 0.1, ease: 'linear'})
-                    gsap.to('#buildingToBuildingPanel', {visibility: 'hidden', zIndex: -1000, duration: 0, delay: 0.1, ease: 'linear'})
+                
 
                 }
             },
@@ -138,7 +135,8 @@
             show3DBuildingsWroclaw,
             userPositionFollow,
             showUPWRBuildings,
-            clearRoutes
+            clearRoutes,
+            zoomInOut
         }
     };
     
@@ -179,12 +177,16 @@
             <img src="../assets/route-svgrepo-com.svg">
         </div>
         <div id="userPositionPicker" @click="userPositionFollow">
-            <img src="../assets/location-arrow-svgrepo-com.svg">
+            <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"/>            
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                <g id="SVGRepo_iconCarrier"> <path id="locationArrowSVG" d="M5.36328 12.0523C4.01081 11.5711 3.33457 11.3304 3.13309 10.9655C2.95849 10.6492 2.95032 10.2673 3.11124 9.94388C3.29694 9.57063 3.96228 9.30132 5.29295 8.76272L17.8356 3.68594C19.1461 3.15547 19.8014 2.89024 20.2154 3.02623C20.5747 3.14427 20.8565 3.42608 20.9746 3.7854C21.1106 4.19937 20.8453 4.85465 20.3149 6.16521L15.2381 18.7078C14.6995 20.0385 14.4302 20.7039 14.0569 20.8896C13.7335 21.0505 13.3516 21.0423 13.0353 20.8677C12.6704 20.6662 12.4297 19.99 11.9485 18.6375L10.4751 14.4967C10.3815 14.2336 10.3347 14.102 10.2582 13.9922C10.1905 13.8948 10.106 13.8103 10.0086 13.7426C9.89876 13.6661 9.76719 13.6193 9.50407 13.5257L5.36328 12.0523Z" stroke="#303030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
+            </svg>
         </div>
         <div id="navigation_panel">
             <div id="menu">
-      <button class="btn btn-primary" id="buildingToBuilding" @click="showBuildingToBuildingPanel">Budynek - Budynek</button>
-      <button class="btn btn-primary" id="userToBuilding" @click="showUserToBuildingPanel">Użytkownik - Budynek</button>
+        <button class="btn btn-primary" id="buildingToBuilding" @click="showBuildingToBuildingPanel">Budynek - Budynek</button>
+        <button class="btn btn-primary" id="userToBuilding" @click="showUserToBuildingPanel">Użytkownik - Budynek</button>
     </div>
     <div id="buildingToBuilding_panel">
       <span>Wybierz punkt początkowy</span>
@@ -236,6 +238,10 @@
     </div>
     <button class="btn btn-secondary" id="routeClear" @click="clearRoutes">Wyczyść trasę</button>
     </div>
+    <div id="zoomInOut">
+        <span @click="zoomInOut('in')"><span>+</span></span>
+        <span @click="zoomInOut('out')"><span>-</span></span>
+    </div>
 </template>
 
 <style lang="scss">
@@ -246,6 +252,43 @@
     }
     *{
         font-family: Roboto;
+    }
+
+    #zoomInOut{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 32px;
+        height: 64px;
+        background-color: #fff;
+        border-radius: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        span{
+            font-size: 30px;
+            height: 50%;
+            color: #000;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            span{
+                user-select: none;
+            }
+
+
+            &:hover{
+            background-color: rgb(224, 224, 224);
+        }
+        }
+
+        
     }
 
     #cesiumContainer{
@@ -380,7 +423,7 @@
         background-color: #ffffff;
         border: 1px solid #444;
 
-        img{
+        svg{
         width: 28px;
         height: 28px;
         margin-left: 2px;

@@ -1,9 +1,9 @@
 .cesium-viewer-toolbar{
-    top:5px;
-    left: 5px;
+    top:3px;
+    right: 120px;
 }
 .cesium-baseLayerPicker-dropDown, .cesium-baseLayerPicker-dropDown-visible{
-    left: 0px;
+    right: -114px;
 }
 .cesium-navigation-help, .cesium-navigation-help-visible{
     right: -60px;
