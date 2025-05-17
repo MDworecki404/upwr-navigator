@@ -1,58 +1,29 @@
+import bikeFootGraph from '../../data/bikeFootGraph.json'
+import carGraph from '../../data/carGraph.json'
+
 // Funkcja budująca graf na podstawie danych GeoJSON
 export const buildGraph = (network, mode) => {
-    //console.log('Rozpoczęcie budowy grafu');
-    console.log(mode)
-    let nodes = new Set();
-    let edges = new Map();
-    
-    let allowedClasses;
+    let graph;
+
     if (mode === "bikeFoot") {
-        allowedClasses = ["footway", "pedestrian", "path", "cycleway", "steps", "service"];
+        graph = bikeFootGraph;
     } else if (mode === "car") {
-        allowedClasses = ["motorway", "trunk", "primary", "secondary", "tertiary", "residential"];
+        graph = carGraph;
+    } else {
+        throw new Error(`Nieznany tryb: ${mode}`);
     }
 
-    network.features.forEach(feature => {
-        if (!allowedClasses.includes(feature.properties.fclass)) {
-            return; // Jeśli nie, pominąć
-        }
-
-        if (feature.geometry.type === "MultiLineString") {
-            feature.geometry.coordinates.forEach(line => {
-                for (let i = 0; i < line.length; i++) {
-                    const point = line[i];
-                    const key = JSON.stringify(point);
-                    
-                    nodes.add(key);
-
-                    if (i > 0) {
-                        const prevPoint = line[i - 1];
-                        addEdge(edges, prevPoint, point, feature.properties.oneway);
-                    }
-                }
-            });
-        }
-    });
-
-    //console.log('Liczba tras pieszych:', pedestrianPaths);
-    console.log('Liczba węzłów:', nodes.size);
-    console.log('Liczba połączeń:', edges.size);
-    
-    return { nodes: Array.from(nodes).map(JSON.parse), edges };
-    
-};
-
-const addEdge = (edges, from, to, oneway) => {
-    const fromKey = JSON.stringify(from);
-    const toKey = JSON.stringify(to);
-
-    if (!edges.has(fromKey)) edges.set(fromKey, []);
-    edges.get(fromKey).push(to);
-
-    if (oneway !== "F") { // Jeśli droga nie jest jednokierunkowa, dodaj krawędź w drugą stronę
-        if (!edges.has(toKey)) edges.set(toKey, []);
-        edges.get(toKey).push(from);
+    // Zamiana edges z obiektu na Mapę
+    const edgesMap = new Map();
+    for (const key in graph.edges) {
+        edgesMap.set(key, graph.edges[key]);
     }
+
+    // nodes są już w postaci tablicy, więc bez zmian
+    return {
+        nodes: graph.nodes,
+        edges: edgesMap,
+    };
 };
 
 // Heurystyka dla algorytmu A* (oblicza odległość euklidesową między dwoma punktami)
@@ -62,6 +33,7 @@ const heuristic = (a, b) => {
 
 export const aStar = (start, goal, graph) => {
     const { nodes, edges } = graph; // Pobranie węzłów i krawędzi z grafu
+    console.log(graph)
     const startKey = JSON.stringify(start); // Konwersja punktu początkowego na string (dla Map)
     const goalKey = JSON.stringify(goal); // Konwersja punktu docelowego na string (dla Map)
 
