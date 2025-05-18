@@ -12,7 +12,8 @@ export async function initCesium(containerId) {
         animation: false,
         timeline: false,
         shouldAnimate: false,
-        geocoder: true
+        geocoder: true,
+        selectionIndicator : false
         
     });  
     

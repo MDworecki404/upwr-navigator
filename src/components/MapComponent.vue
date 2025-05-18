@@ -152,7 +152,7 @@
             <img src="../assets/layers-svgrepo-com.svg">
         </div>
         <div id="layerPanel">
-            <h4>Warstwy 3D</h4>
+            <h4>Warstwy: </h4>
             <div class="layerContainer">
                 <input type="checkbox" class="form-check-input"  id="3DBuildingsGoogle" @click="show3DBuildingsGoogle">
                 <span>Budynki 3D Google</span>
@@ -165,9 +165,6 @@
                 <input type="checkbox" class="form-check-input" id="3DBuildingsWroclaw" @click="show3DBuildingsWroclaw">
                 <span>Budynki 3D Wrocław LOD1</span>
             </div>
-            <hr style="outline: 0.5px solid white;">
-
-            <h4>Warstwy 2D</h4>
             <div class="layerContainer">
                 <input type="checkbox" class="form-check-input"  id="UPWRBuildingsPoints" @click="showUPWRBuildings">
                 <span>Budynki UPWr</span>
