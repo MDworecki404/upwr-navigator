@@ -50,6 +50,8 @@ const show3DBuildingsOSM = async () => {
         if (!tileset) { // Jeśli tileset jeszcze nie istnieje, tworzymy go
             try {
                 tileset = await Cesium.createOsmBuildingsAsync();
+                const translation = Cesium.Cartesian3.fromElements(0, 0, -210);
+                tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);
                 viewer.scene.primitives.add(tileset);
             } catch (error) {
                 console.log(`Failed to load tileset: ${error}`);
@@ -91,8 +93,8 @@ const show3DBuildingsWroclaw = async () => {
                 // Przesunięcie
                 const boundingSphere = tileset.boundingSphere;
                 const cartographic = Cesium.Cartographic.fromCartesian(boundingSphere.center);
-                const surface = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, 0.0);
-                const offset = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, 42);
+                const surface = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, -42.0);
+                const offset = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, 0);
                 const translation = Cesium.Cartesian3.subtract(offset, surface, new Cesium.Cartesian3());
                 tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);
 
@@ -163,7 +165,7 @@ const showUPWRBuildings = async () => {
         if (!upwrDataSource) {
             upwrDataSource = await Cesium.GeoJsonDataSource.load(upwrBuildings, {
                 fill: Cesium.Color.fromBytes(120, 40, 52, 255),
-                stroke: Cesium.Color.BLACK,
+                stroke: Cesium.Color.fromBytes(120, 40, 52, 0),
                 strokeWidth: 1.0,
                 clampToGround: false // ważne: budynki mają być "w powietrzu"
             });
