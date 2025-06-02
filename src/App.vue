@@ -3,12 +3,18 @@
 </script>
 
 <template>
-  <MapComponent></MapComponent>
+  <v-app>
+    <v-main>
+      <v-container>
+        <MapComponent></MapComponent>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <style scoped>
 html{
   width: 100vw;
-  height: 200vh;
+  height: 100vh;
 }
 </style>

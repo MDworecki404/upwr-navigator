@@ -1,13 +1,11 @@
 .cesium-viewer-toolbar{
     top:3px;
-    right: 120px;
+    left: 15px;
 }
 .cesium-baseLayerPicker-dropDown, .cesium-baseLayerPicker-dropDown-visible{
-    right: -114px;
+    left: 44px;
 }
-.cesium-navigation-help, .cesium-navigation-help-visible{
-    right: -60px;
-}
+
 .cesium-sceneModePicker-wrapper{
         display: none !important;
     }

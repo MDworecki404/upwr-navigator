@@ -3,7 +3,6 @@ import { viewer } from './displayMap'
 import upwrBuildings from '../layers/upwrBuildingsWithAddresses.json'
 
 
- // Przechowujemy referencję do tilesetu
 let upwrDataSource = null;
 let tileset = null;
 let handler = null;
@@ -15,8 +14,8 @@ const show3DBuildingsGoogle = async () => {
     if (checkbox.checked) {
         if (!tileset) { // Jeśli tileset jeszcze nie istnieje, tworzymy go
             document.getElementById('3DBuildingsOSM').setAttribute('disabled', '')
-            document.getElementById('3DBuildingsWroclaw').setAttribute('disabled', '')
-            document.getElementById('UPWRBuildingsPoints').setAttribute('disabled', '')
+            document.getElementById('3DBuildingsWRO').setAttribute('disabled', '')
+            document.getElementById('3DBuildingsUPWR').setAttribute('disabled', '')
             try {
                 tileset = await Cesium.createGooglePhotorealistic3DTileset();
                 viewer.scene.primitives.add(tileset);
@@ -27,8 +26,8 @@ const show3DBuildingsGoogle = async () => {
     } else {
         if (tileset) { // Jeśli tileset istnieje, usuwamy go
             document.getElementById('3DBuildingsOSM').removeAttribute('disabled', '')
-            document.getElementById('3DBuildingsWroclaw').removeAttribute('disabled', '')
-            document.getElementById('UPWRBuildingsPoints').removeAttribute('disabled', '')
+            document.getElementById('3DBuildingsWRO').removeAttribute('disabled', '')
+            document.getElementById('3DBuildingsUPWR').removeAttribute('disabled', '')
             try {
                 viewer.scene.primitives.remove(tileset);
                 tileset = null; // Zerujemy referencję, aby można było ponownie go dodać
@@ -45,8 +44,8 @@ const show3DBuildingsOSM = async () => {
 
     if (checkbox.checked) {
         document.getElementById('3DBuildingsGoogle').setAttribute('disabled', '')
-        document.getElementById('3DBuildingsWroclaw').setAttribute('disabled', '')
-        document.getElementById('UPWRBuildingsPoints').setAttribute('disabled', '')
+        document.getElementById('3DBuildingsWRO').setAttribute('disabled', '')
+        document.getElementById('3DBuildingsUPWR').setAttribute('disabled', '')
         if (!tileset) { // Jeśli tileset jeszcze nie istnieje, tworzymy go
             try {
                 tileset = await Cesium.createOsmBuildingsAsync();
@@ -60,8 +59,8 @@ const show3DBuildingsOSM = async () => {
     } else {
         if (tileset) { // Jeśli tileset istnieje, usuwamy go
             document.getElementById('3DBuildingsGoogle').removeAttribute('disabled', '')
-            document.getElementById('3DBuildingsWroclaw').removeAttribute('disabled', '')
-            document.getElementById('UPWRBuildingsPoints').removeAttribute('disabled', '')
+            document.getElementById('3DBuildingsWRO').removeAttribute('disabled', '')
+            document.getElementById('3DBuildingsUPWR').removeAttribute('disabled', '')
             try {
                 viewer.scene.primitives.remove(tileset);
                 tileset = null; // Zerujemy referencję, aby można było ponownie go dodać
@@ -78,12 +77,12 @@ const show3DBuildingsOSM = async () => {
 //    await Cesium.Cesium3DTileset.fromIonAssetId(3294785),
 //);
 const show3DBuildingsWroclaw = async () => {
-    const checkbox = document.getElementById('3DBuildingsWroclaw');
+    const checkbox = document.getElementById('3DBuildingsWRO');
 
     if (checkbox.checked) {
         document.getElementById('3DBuildingsGoogle').setAttribute('disabled', '');
         document.getElementById('3DBuildingsOSM').setAttribute('disabled', '');
-        document.getElementById('UPWRBuildingsPoints').setAttribute('disabled', '')
+        document.getElementById('3DBuildingsUPWR').setAttribute('disabled', '')
 
         if (!tileset) {
             try {
@@ -139,7 +138,7 @@ const show3DBuildingsWroclaw = async () => {
         if (tileset) {
             document.getElementById('3DBuildingsGoogle').removeAttribute('disabled', '');
             document.getElementById('3DBuildingsOSM').removeAttribute('disabled', '');
-            document.getElementById('UPWRBuildingsPoints').removeAttribute('disabled', '')
+            document.getElementById('3DBuildingsUPWR').removeAttribute('disabled', '')
 
             try {
                 viewer.scene.primitives.remove(tileset);
@@ -156,12 +155,12 @@ const originalColors = new Map();
 
 
 const showUPWRBuildings = async () => {
-    const checkbox = document.getElementById('UPWRBuildingsPoints');
+    const checkbox = document.getElementById('3DBuildingsUPWR');
 
     if (checkbox.checked) {
         document.getElementById('3DBuildingsGoogle').setAttribute('disabled', '')
         document.getElementById('3DBuildingsOSM').setAttribute('disabled', '')
-        document.getElementById('3DBuildingsWroclaw').setAttribute('disabled', '')
+        document.getElementById('3DBuildingsWRO').setAttribute('disabled', '')
         if (!upwrDataSource) {
             upwrDataSource = await Cesium.GeoJsonDataSource.load(upwrBuildings, {
                 fill: Cesium.Color.fromBytes(120, 40, 52, 255),
@@ -213,7 +212,7 @@ const showUPWRBuildings = async () => {
         if (upwrDataSource) {
             document.getElementById('3DBuildingsGoogle').removeAttribute('disabled', '')
             document.getElementById('3DBuildingsOSM').removeAttribute('disabled', '')
-            document.getElementById('3DBuildingsWroclaw').removeAttribute('disabled', '')
+            document.getElementById('3DBuildingsWRO').removeAttribute('disabled', '')
             viewer.dataSources.remove(upwrDataSource);
             upwrDataSource = null;
         }
