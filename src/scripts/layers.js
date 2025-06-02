@@ -48,8 +48,8 @@ const show3DBuildingsOSM = async () => {
         document.getElementById('3DBuildingsUPWR').setAttribute('disabled', '')
         if (!tileset) { // Jeśli tileset jeszcze nie istnieje, tworzymy go
             try {
-                tileset = await Cesium.createOsmBuildingsAsync();
-                const translation = Cesium.Cartesian3.fromElements(0, 0, -210);
+                tileset = await Cesium.Cesium3DTileset.fromIonAssetId(96188);
+                const translation = Cesium.Cartesian3.fromElements(0, 0, 0);
                 tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);
                 viewer.scene.primitives.add(tileset);
             } catch (error) {

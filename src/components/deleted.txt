@@ -1,0 +1,27 @@
+<v-fab 
+        @click="showLayerPanel"
+        class="position-absolute right-0 top-0 m-3" 
+        icon="mdi-layers">
+    </v-fab>
+    <v-card title="Warstwy" class="layerPanel position-absolute top-0 right-0 w-auto ">
+            <v-checkbox @click="show3DBuildingsGoogle" id="3DBuildingsGoogle" 
+                class="layerCheckbox ma-0 pa-0" 
+                color="info" 
+                label="Budynki 3D Google">
+            </v-checkbox>
+            <v-checkbox @click="show3DBuildingsOSM" id="3DBuildingsOSM" 
+                class="layerCheckbox ma-0 pa-0" 
+                color="info" 
+                label="Budynki OpenStreetMap">
+            </v-checkbox>
+            <v-checkbox @click="show3DBuildingsWroclaw" id="3DBuildingsWRO" 
+                class="layerCheckbox ma-0 pa-0" 
+                color="info" 
+                label="Budynki 3D Wrocław LOD1">
+            </v-checkbox>
+            <v-checkbox @click="showUPWRBuildings" id="3DBuildingsUPWR" 
+                class="layerCheckbox ma-0 pa-0" 
+                color="info" 
+                label="Budynki UPWr">
+            </v-checkbox>
+    </v-card>

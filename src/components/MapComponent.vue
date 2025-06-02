@@ -40,12 +40,71 @@
 
 <template>
     <div id="cesiumContainer" @click="hidePanel"></div>
-    <v-card title="Warstwy" class="layerPanel position-absolute top-0 right-0 w-auto ">
-            <v-checkbox @click="show3DBuildingsGoogle" id="3DBuildingsGoogle" class="layerCheckbox" color="info" label="Budynki 3D Google"></v-checkbox>
-            <v-checkbox @click="show3DBuildingsOSM" id="3DBuildingsOSM" class="layerCheckbox" color="info" label="Budynki OpenStreetMap"></v-checkbox>
-            <v-checkbox @click="show3DBuildingsWroclaw" id="3DBuildingsWRO" class="layerCheckbox" color="info" label="Budynki 3D Wrocław LOD1"></v-checkbox>
-            <v-checkbox @click="showUPWRBuildings" id="3DBuildingsUPWR" class="layerCheckbox" color="info" label="Budynki UPWr"></v-checkbox>
-    </v-card>
+    <v-expansion-panels 
+        class="panels d-flex mr-0 position-absolute right-0" variant="popout"
+    >
+        <v-expansion-panel
+            class="layerPanel h-auto"
+            title="Nawigacja"
+            >
+
+            <v-expansion-panel-text>
+                <v-expansion-panels variant="popout">
+                    <v-expansion-panel
+                    title="Od użytkownika do budynku">
+
+                    </v-expansion-panel>
+                    <v-expansion-panel
+                    title="Od budynku do budynku">
+                        <v-expansion-panel-text>
+                            <v-select
+                            label="Budynek początkowy"
+                            :items="buildings"
+                            item-value="code"
+                            item-title="name"
+                            >
+                            </v-select>
+                            <v-select
+                            label="Budynek końcowy"
+                            :items="buildings"
+                            item-value="code"
+                            item-title="name"
+                            >
+                            </v-select>
+                        </v-expansion-panel-text>
+                    </v-expansion-panel>
+                </v-expansion-panels>
+            </v-expansion-panel-text>
+            
+        </v-expansion-panel>
+        <v-expansion-panel
+            class="layerPanel h-auto"
+            title="Warstwy"
+            >
+            <v-expansion-panel-text>
+                <v-checkbox @click="show3DBuildingsGoogle" id="3DBuildingsGoogle" 
+                    class="layerCheckbox ma-0 pa-0" 
+                    color="info" 
+                    label="Budynki 3D Google">
+                </v-checkbox>
+                <v-checkbox @click="show3DBuildingsOSM" id="3DBuildingsOSM" 
+                    class="layerCheckbox ma-0 pa-0" 
+                    color="info" 
+                    label="Budynki OpenStreetMap">
+                </v-checkbox>
+                <v-checkbox @click="show3DBuildingsWroclaw" id="3DBuildingsWRO" 
+                    class="layerCheckbox ma-0 pa-0" 
+                    color="info" 
+                    label="Budynki 3D Wrocław LOD1">
+                </v-checkbox>
+                <v-checkbox @click="showUPWRBuildings" id="3DBuildingsUPWR" 
+                    class="layerCheckbox ma-0 pa-0" 
+                    color="info" 
+                    label="Budynki UPWr">
+                </v-checkbox>
+            </v-expansion-panel-text>
+        </v-expansion-panel>
+    </v-expansion-panels>
 </template>
 
 <style lang="scss">
@@ -58,14 +117,11 @@
         left: 0;
     }
 
-    .layerPanel{
-        margin-top: 50px;
-        margin-right: 25px;
-        padding: 5px;
+    .panels{
+        width: 300px;
     }
-    .layerCheckbox{
-        height: 40px;
-    }
+
+    
     
     
 </style>
