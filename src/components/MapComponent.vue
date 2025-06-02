@@ -186,35 +186,35 @@
         <button class="btn btn-primary" id="userToBuilding" @click="showUserToBuildingPanel">Użytkownik - Budynek</button>
     </div>
     <div id="buildingToBuilding_panel">
-      <span>Wybierz punkt początkowy</span>
-      <select class="form-select-sm mb-1 startChoice" v-model="selectedStartBuilding">
-        <option value="">Wybierz budynek</option>
-        <option 
+        <span>Wybierz punkt początkowy</span>
+        <select class="form-select-sm mb-1 startChoice" v-model="selectedStartBuilding">
+            <option value="">Wybierz budynek</option>
+            <option 
+                v-for="building in buildings" 
+                :key="building.code" 
+                :value="building.code"
+            >
+            {{ building.code +" - "+ building.name }}
+            </option>
+        </select>
+        <span>Wybierz punkt końcowy</span>
+        <select class="form-select-sm mb-1 endChoice" v-model="selectedEndBuilding">
+            <option value="">Wybierz budynek</option>
+            <option 
             v-for="building in buildings" 
             :key="building.code" 
             :value="building.code"
-        >
-        {{ building.code +" - "+ building.name }}
-        </option>
-      </select>
-      <span>Wybierz punkt końcowy</span>
-      <select class="form-select-sm mb-1 endChoice" v-model="selectedEndBuilding">
-          <option value="">Wybierz budynek</option>
-          <option 
-          v-for="building in buildings" 
-          :key="building.code" 
-          :value="building.code"
-          >
-          {{ building.code +" - "+ building.name }}
-          </option>
-      </select>
-      <span>Wybierz rodzaj transportu</span>
-      <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="bikeFoot" class="bikeFoot form-check-input" checked>Pieszo/Rowerem</label>
-      <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="car" class="car form-check-input">Samochodem</label>
-      <button class="btn btn-secondary" @click="routeFinder" type="button">Sprawdź trasę</button>
+            >
+            {{ building.code +" - "+ building.name }}
+            </option>
+        </select>
+        <span>Wybierz rodzaj transportu</span>
+        <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="bikeFoot" class="bikeFoot form-check-input" checked>Pieszo/Rowerem</label>
+        <label class="form-check-label"><input type="radio" name="transportTypeRadio" value="car" class="car form-check-input">Samochodem</label>
+        <button class="btn btn-secondary" @click="routeFinder" type="button">Sprawdź trasę</button>
     </div>
     <div id="userToBuilding_panel">
-      <span class="lead">Wybierz budynek</span>
+        <span class="lead">Wybierz budynek</span>
         <select class="form-select-sm mb-1 userEndChoice" v-model="selectedEndBuilding">
             <option value="">Wybierz budynek</option>
             <option 
@@ -446,39 +446,39 @@
     visibility: hidden;
 
     #menu{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
-      width: 100%;
-      height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
     }
 
     #buildingToBuilding_panel{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
-      width: 100%;
-      height: 100%;
-      display: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        display: none;
     }
     #userToBuilding_panel{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
-      width: 100%;
-      height: 100%;
-      display: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        display: none;
     }
-  }
+    }
 
     #loadingIcon{
         
