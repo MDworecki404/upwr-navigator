@@ -11,7 +11,7 @@ let activeWorker = null;
 
 const routeFinder = async (startChoice, endChoice, selectedMode) => {
     stopTracking();
-    gsap.to('#routeClear', {opacity: 0, pointerEvents: 'none', duration: 0.2})
+    gsap.to('#routeClear', {opacity: 0, visibility: 'hidden', pointerEvents: 'none', duration: 0.2})
     console.log("Rozpoczęcie wyszukiwania trasy:", Date.now());
     
     // Anuluj poprzedniego workera jeśli istnieje
@@ -124,7 +124,7 @@ const routeFinder = async (startChoice, endChoice, selectedMode) => {
 
             // Ukryj ikonę ładowania
             gsap.to('#userPositionPicker', {opacity: 1, pointerEvents: 'auto', duration: 0.5})
-            gsap.to('#routeClear', {opacity: 1, pointerEvents: 'auto', duration: 0.2})
+            gsap.to('#routeClear', {opacity: 1, visibility: 'visible', pointerEvents: 'auto', duration: 0.2})
             gsap.to(loadingIconSVG, {opacity: 0, duration: 1})
             gsap.to(loadingIconSVG, {visibility: 'hidden', delay: 1})
             

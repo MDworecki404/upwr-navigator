@@ -46,6 +46,7 @@
             userPositionFollow,
             homeView,
             zoomInOut,
+            clearRoutes,
             callRouteFinder(){
                 if(!this.selectedStartBuilding || !this.selectedEndBuilding){
                     alert("Wybierz budynki początkowy i końcowy");
@@ -80,6 +81,12 @@
         @click="userPositionFollow"
         class="position-absolute bottom-0 left-0 mt-5 ml-5 mb-5" 
         icon="mdi-navigation-variant-outline">
+    </v-fab>
+    <v-fab 
+        @click="clearRoutes"
+        id="routeClear"
+        class="clearRouteButton position-absolute bottom-0 left-0" 
+        icon="mdi-close">
     </v-fab>
     <v-fab 
         @click="homeView"
@@ -215,6 +222,13 @@
     }
     .zoomIn{
         margin-bottom: 225px;
+    }
+    .clearRouteButton{
+        margin-left: calc(50vw - 24px);
+        margin-bottom: 40px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
     }
 
     
