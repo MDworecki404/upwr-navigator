@@ -9,7 +9,7 @@ import { stopTracking } from "./userLocation";
 // Zmienna do śledzenia aktywnego workera
 let activeWorker = null;
 
-const routeFinder = async () => {
+const routeFinder = async (startChoice, endChoice, selectedMode) => {
     stopTracking();
     gsap.to('#routeClear', {opacity: 0, pointerEvents: 'none', duration: 0.2})
     console.log("Rozpoczęcie wyszukiwania trasy:", Date.now());
@@ -22,9 +22,6 @@ const routeFinder = async () => {
     
     viewer.entities.removeAll();
     const loadingIconSVG = document.querySelector('.loadingSVG');
-    
-    const startChoice = document.querySelector('.startChoice').value;
-    const endChoice = document.querySelector('.endChoice').value;
 
     // Sprawdzenie czy wybrano budynki
     if (!startChoice || !endChoice) {
@@ -60,7 +57,6 @@ const routeFinder = async () => {
     try {
         // Ładujemy dane sieci drogowej
         const network = await import('../layers/osm_wroclaw_roads.json');
-        const selectedMode = document.querySelector('input[name="transportTypeRadio"]:checked').value;
 
         // Tworzymy nowego workera
         activeWorker = new Worker(new URL('./pathWorker.js', import.meta.url), { type: 'module' });

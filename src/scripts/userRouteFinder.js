@@ -22,7 +22,7 @@ const getCurrentPosition = () => {
     });
 }
 
-const userRouteFinder = async () => {
+const userRouteFinder = async (endChoice, selectedMode) => {
 
     stopTracking();
 
@@ -56,7 +56,6 @@ const userRouteFinder = async () => {
         return;
     }
     
-    const endChoice = document.querySelector('.userEndChoice').value;
     if (!endChoice) {
         console.error("Nie wybrano budynku docelowego");
         gsap.to(loadingIconSVG, {opacity: 0, duration: 0.5});
@@ -84,7 +83,6 @@ const userRouteFinder = async () => {
     try {
         // Ładujemy dane sieci drogowej
         const network = await import('../layers/osm_wroclaw_roads.json');
-        const selectedMode = document.querySelector('input[name="userTransportTypeRadio"]:checked').value;
 
         // Tworzymy nowego workera
         activeWorker = new Worker(new URL('./pathWorker.js', import.meta.url), { type: 'module' });
