@@ -13,6 +13,7 @@
     import {userPositionFollow} from "../scripts/userLocation";
     import { clearRoutes } from "../scripts/clearRoutes";
     import {zoomInOut} from "../scripts/zoomInOut";
+    import { homeView } from "../scripts/homeView";
 
     export default {
         setup() {
@@ -20,6 +21,12 @@
         const selectedStartBuilding = ref('');
         const selectedEndBuilding = ref('');
         const selectedMode = ref('bikeFoot');
+        const layerCheckboxes = ref({
+            google: false,
+            osm: false,
+            wroclaw: false,
+            upwr: false
+        });
         onMounted(() => {
             initCesium("cesiumContainer");
         });
@@ -27,7 +34,8 @@
                 buildings,
                 selectedStartBuilding,
                 selectedEndBuilding,
-                selectedMode
+                selectedMode,
+                layerCheckboxes
             }
         },
         methods: {
@@ -36,6 +44,8 @@
             show3DBuildingsWroclaw,
             showUPWRBuildings,
             userPositionFollow,
+            homeView,
+            zoomInOut,
             callRouteFinder(){
                 if(!this.selectedStartBuilding || !this.selectedEndBuilding){
                     alert("Wybierz budynki początkowy i końcowy");
@@ -68,8 +78,23 @@
     <div id="cesiumContainer" @click="hidePanel"></div>
     <v-fab 
         @click="userPositionFollow"
-        class="position-absolute left-0 mt-5 ml-5" 
+        class="position-absolute bottom-0 left-0 mt-5 ml-5 mb-5" 
         icon="mdi-navigation-variant-outline">
+    </v-fab>
+    <v-fab 
+        @click="homeView"
+        class="homeButton position-absolute bottom-0 left-0 mt-5 ml-5 mb-" 
+        icon="mdi-home">
+    </v-fab>
+    <v-fab 
+        @click="zoomInOut('out')"
+        class="zoomOut position-absolute bottom-0 left-0 mt-5 ml-5 mb-" 
+        icon="mdi-minus">
+    </v-fab>
+    <v-fab 
+        @click="zoomInOut('in')"
+        class="zoomIn position-absolute bottom-0 left-0 mt-5 ml-5 mb-" 
+        icon="mdi-plus">
     </v-fab>
     <v-expansion-panels 
         class="panels d-flex mr-0 position-absolute right-0" variant="popout"
@@ -77,6 +102,8 @@
         <v-expansion-panel
             class="layerPanel h-auto"
             title="Nawigacja"
+            expand-icon="mdi-road-variant"
+            focusable="true"
             >
 
             <v-expansion-panel-text>
@@ -135,24 +162,29 @@
         <v-expansion-panel
             class="layerPanel h-auto"
             title="Warstwy"
+            expand-icon="mdi-layers"
             >
             <v-expansion-panel-text>
-                <v-checkbox @click="show3DBuildingsGoogle" id="3DBuildingsGoogle" 
+                <v-checkbox @click="show3DBuildingsGoogle" id="3DBuildingsGoogle"
+                    v-model="layerCheckboxes.google" 
                     class="layerCheckbox ma-0 pa-0" 
                     color="info" 
                     label="Budynki 3D Google">
                 </v-checkbox>
-                <v-checkbox @click="show3DBuildingsOSM" id="3DBuildingsOSM" 
+                <v-checkbox @click="show3DBuildingsOSM" id="3DBuildingsOSM"
+                    v-model="layerCheckboxes.osm" 
                     class="layerCheckbox ma-0 pa-0" 
                     color="info" 
                     label="Budynki OpenStreetMap">
                 </v-checkbox>
                 <v-checkbox @click="show3DBuildingsWroclaw" id="3DBuildingsWRO" 
+                    v-model="layerCheckboxes.wroclaw"
                     class="layerCheckbox ma-0 pa-0" 
                     color="info" 
                     label="Budynki 3D Wrocław LOD1">
                 </v-checkbox>
                 <v-checkbox @click="showUPWRBuildings" id="3DBuildingsUPWR" 
+                    v-model="layerCheckboxes.upwr"
                     class="layerCheckbox ma-0 pa-0" 
                     color="info" 
                     label="Budynki UPWr">
@@ -174,6 +206,15 @@
 
     .panels{
         width: 300px;
+    }
+    .homeButton{
+        margin-bottom: 105px;
+    }
+    .zoomOut{
+        margin-bottom: 165px;
+    }
+    .zoomIn{
+        margin-bottom: 225px;
     }
 
     

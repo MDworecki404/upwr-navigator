@@ -1,9 +1,16 @@
 .cesium-viewer-toolbar{
     top:3px;
     left: 15px;
+    display: none;
 }
 .cesium-baseLayerPicker-dropDown, .cesium-baseLayerPicker-dropDown-visible{
     left: 44px;
+}
+.cesium-fullscreenButton{
+    display: none !important;
+}
+.cesium-home-button{
+    display: none !important;
 }
 
 .cesium-sceneModePicker-wrapper{
