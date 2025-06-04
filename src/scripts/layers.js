@@ -4,33 +4,37 @@ import upwrBuildings from '../layers/upwrBuildingsWithAddresses.json'
 
 
 let upwrDataSource = null;
-let tileset = null;
+let googleTileset = null;
+let OSMTileset = null;
+let Wro3dTileset = null;
 let handler = null;
 let lastPickedFeature = null;
 let highlightedEntity = null;
 
+
 const show3DBuildingsGoogle = async () => {
-    const checkbox = document.getElementById('3DBuildingsGoogle');
-    if (checkbox.checked) {
-        if (!tileset) { // Jeśli tileset jeszcze nie istnieje, tworzymy go
-            document.getElementById('3DBuildingsOSM').setAttribute('disabled', '')
-            document.getElementById('3DBuildingsWRO').setAttribute('disabled', '')
-            document.getElementById('3DBuildingsUPWR').setAttribute('disabled', '')
+    const checkboxGoogle = document.getElementById('3DBuildingsGoogle');
+    const checkboxOSM = document.getElementById('3DBuildingsOSM');
+    const checkboxWRO = document.getElementById('3DBuildingsWRO');
+    if (checkboxGoogle.checked) {
+        if (!googleTileset) { // Jeśli tileset jeszcze nie istnieje, tworzymy go
             try {
-                tileset = await Cesium.createGooglePhotorealistic3DTileset();
-                viewer.scene.primitives.add(tileset);
+                viewer.scene.primitives.remove(OSMTileset)
+                viewer.scene.primitives.remove(Wro3dTileset)
+                viewer.dataSources.remove(upwrDataSource);
+                googleTileset = await Cesium.createGooglePhotorealistic3DTileset();
+                checkboxOSM.checked = false;
+                checkboxWRO.checked = false;
+                viewer.scene.primitives.add(googleTileset);
             } catch (error) {
                 console.log(`Failed to load tileset: ${error}`);
             }
         }
     } else {
-        if (tileset) { // Jeśli tileset istnieje, usuwamy go
-            document.getElementById('3DBuildingsOSM').removeAttribute('disabled', '')
-            document.getElementById('3DBuildingsWRO').removeAttribute('disabled', '')
-            document.getElementById('3DBuildingsUPWR').removeAttribute('disabled', '')
+        if (googleTileset) { // Jeśli tileset istnieje, usuwamy go
             try {
-                viewer.scene.primitives.remove(tileset);
-                tileset = null; // Zerujemy referencję, aby można było ponownie go dodać
+                viewer.scene.primitives.remove(googleTileset);
+                googleTileset = null; // Zerujemy referencję, aby można było ponownie go dodać
             } catch (error) {
                 console.log(`Failed to remove tileset: ${error}`);
             }
@@ -39,31 +43,33 @@ const show3DBuildingsGoogle = async () => {
 }
 
 const show3DBuildingsOSM = async () => {
-    const checkbox = document.getElementById('3DBuildingsOSM');
+    const checkboxGoogle = document.getElementById('3DBuildingsGoogle');
+    const checkboxOSM = document.getElementById('3DBuildingsOSM');
+    const checkboxWRO = document.getElementById('3DBuildingsWRO');
 
 
-    if (checkbox.checked) {
-        document.getElementById('3DBuildingsGoogle').setAttribute('disabled', '')
-        document.getElementById('3DBuildingsWRO').setAttribute('disabled', '')
-        document.getElementById('3DBuildingsUPWR').setAttribute('disabled', '')
-        if (!tileset) { // Jeśli tileset jeszcze nie istnieje, tworzymy go
+    if (checkboxOSM.checked) {
+        if (!OSMTileset) { // Jeśli tileset jeszcze nie istnieje, tworzymy go
             try {
-                tileset = await Cesium.Cesium3DTileset.fromIonAssetId(96188);
+                viewer.scene.primitives.remove(googleTileset)
+                viewer.scene.primitives.remove(Wro3dTileset)
+                viewer.dataSources.remove(upwrDataSource);
+                googleTileset = null;
+                Wro3dTileset = null;
+                upwrDataSource = null;
+                OSMTileset = await Cesium.Cesium3DTileset.fromIonAssetId(96188);
                 const translation = Cesium.Cartesian3.fromElements(0, 0, 0);
-                tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);
-                viewer.scene.primitives.add(tileset);
+                OSMTileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);
+                viewer.scene.primitives.add(OSMTileset);
             } catch (error) {
                 console.log(`Failed to load tileset: ${error}`);
             }
         }
     } else {
-        if (tileset) { // Jeśli tileset istnieje, usuwamy go
-            document.getElementById('3DBuildingsGoogle').removeAttribute('disabled', '')
-            document.getElementById('3DBuildingsWRO').removeAttribute('disabled', '')
-            document.getElementById('3DBuildingsUPWR').removeAttribute('disabled', '')
+        if (OSMTileset) { // Jeśli tileset istnieje, usuwamy go
             try {
-                viewer.scene.primitives.remove(tileset);
-                tileset = null; // Zerujemy referencję, aby można było ponownie go dodać
+                viewer.scene.primitives.remove(OSMTileset);
+                OSMTileset = null; // Zerujemy referencję, aby można było ponownie go dodać
             } catch (error) {
                 console.log(`Failed to remove tileset: ${error}`);
             }
@@ -77,27 +83,32 @@ const show3DBuildingsOSM = async () => {
 //    await Cesium.Cesium3DTileset.fromIonAssetId(3294785),
 //);
 const show3DBuildingsWroclaw = async () => {
-    const checkbox = document.getElementById('3DBuildingsWRO');
+    const checkboxGoogle = document.getElementById('3DBuildingsGoogle');
+    const checkboxOSM = document.getElementById('3DBuildingsOSM');
+    const checkboxWRO = document.getElementById('3DBuildingsWRO');
 
-    if (checkbox.checked) {
-        document.getElementById('3DBuildingsGoogle').setAttribute('disabled', '');
-        document.getElementById('3DBuildingsOSM').setAttribute('disabled', '');
-        document.getElementById('3DBuildingsUPWR').setAttribute('disabled', '')
+    if (checkboxWRO.checked) {
 
-        if (!tileset) {
+        if (!Wro3dTileset) {
             try {
-                tileset = await Cesium.Cesium3DTileset.fromIonAssetId(3294785);
-                tileset.shadows = Cesium.ShadowMode.DISABLED;
+                viewer.scene.primitives.remove(googleTileset)
+                viewer.scene.primitives.remove(OSMTileset)
+                viewer.dataSources.remove(upwrDataSource);
+                googleTileset = null;
+                OSMTileset = null;
+                upwrDataSource = null;
+                Wro3dTileset = await Cesium.Cesium3DTileset.fromIonAssetId(3294785);
+                Wro3dTileset.shadows = Cesium.ShadowMode.DISABLED;
 
                 // Przesunięcie
-                const boundingSphere = tileset.boundingSphere;
+                const boundingSphere = Wro3dTileset.boundingSphere;
                 const cartographic = Cesium.Cartographic.fromCartesian(boundingSphere.center);
                 const surface = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, -42.0);
                 const offset = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, 0);
                 const translation = Cesium.Cartesian3.subtract(offset, surface, new Cesium.Cartesian3());
-                tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);
+                Wro3dTileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);
 
-                viewer.scene.primitives.add(tileset);
+                viewer.scene.primitives.add(Wro3dTileset);
 
                 // Event handler tylko raz
                 if (!handler) {
@@ -106,7 +117,7 @@ const show3DBuildingsWroclaw = async () => {
                     handler.setInputAction(function (movement) {
                         const picked = viewer.scene.pick(movement.endPosition);
 
-                        if (Cesium.defined(picked) && picked.primitive === tileset && picked instanceof Cesium.Cesium3DTileFeature) {
+                        if (Cesium.defined(picked) && picked.primitive === Wro3dTileset && picked instanceof Cesium.Cesium3DTileFeature) {
                             if (lastPickedFeature && lastPickedFeature !== picked) {
                                 // Przywróć poprzedni kolor
                                 lastPickedFeature.color = Cesium.Color.fromCssColorString('#CCCCCC').withAlpha(1.0);
@@ -125,7 +136,7 @@ const show3DBuildingsWroclaw = async () => {
                 }
 
                 // Domyślny styl tilesetu (na szaro)
-                tileset.style = new Cesium.Cesium3DTileStyle({
+                Wro3dTileset.style = new Cesium.Cesium3DTileStyle({
                     color: "color('#CCCCCC')"
                 });
 
@@ -135,14 +146,11 @@ const show3DBuildingsWroclaw = async () => {
         }
 
     } else {
-        if (tileset) {
-            document.getElementById('3DBuildingsGoogle').removeAttribute('disabled', '');
-            document.getElementById('3DBuildingsOSM').removeAttribute('disabled', '');
-            document.getElementById('3DBuildingsUPWR').removeAttribute('disabled', '')
+        if (Wro3dTileset) {
 
             try {
-                viewer.scene.primitives.remove(tileset);
-                tileset = null;
+                viewer.scene.primitives.remove(Wro3dTileset);
+                Wro3dTileset = null;
                 lastPickedFeature = null;
             } catch (error) {
                 console.log(`Failed to remove tileset: ${error}`);
@@ -158,9 +166,6 @@ const showUPWRBuildings = async () => {
     const checkbox = document.getElementById('3DBuildingsUPWR');
 
     if (checkbox.checked) {
-        document.getElementById('3DBuildingsGoogle').setAttribute('disabled', '')
-        document.getElementById('3DBuildingsOSM').setAttribute('disabled', '')
-        document.getElementById('3DBuildingsWRO').setAttribute('disabled', '')
         if (!upwrDataSource) {
             upwrDataSource = await Cesium.GeoJsonDataSource.load(upwrBuildings, {
                 fill: Cesium.Color.fromBytes(120, 40, 52, 255),
@@ -169,6 +174,12 @@ const showUPWRBuildings = async () => {
                 clampToGround: false // ważne: budynki mają być "w powietrzu"
             });
 
+            viewer.scene.primitives.remove(googleTileset);
+            viewer.scene.primitives.remove(OSMTileset);
+            viewer.scene.primitives.remove(Wro3dTileset);
+            googleTileset = null;
+            OSMTileset = null;
+            Wro3dTileset = null;
             viewer.dataSources.add(upwrDataSource);
 
             // Dodaj wysokość do każdego budynku (jeśli nie ma)
@@ -210,9 +221,6 @@ const showUPWRBuildings = async () => {
         }
     } else {
         if (upwrDataSource) {
-            document.getElementById('3DBuildingsGoogle').removeAttribute('disabled', '')
-            document.getElementById('3DBuildingsOSM').removeAttribute('disabled', '')
-            document.getElementById('3DBuildingsWRO').removeAttribute('disabled', '')
             viewer.dataSources.remove(upwrDataSource);
             upwrDataSource = null;
         }

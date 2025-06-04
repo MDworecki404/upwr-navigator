@@ -14,6 +14,7 @@
     import { clearRoutes } from "../scripts/clearRoutes";
     import {zoomInOut} from "../scripts/zoomInOut";
     import { homeView } from "../scripts/homeView";
+    import { changeBasemap } from "../scripts/basemaps";
 
     export default {
         setup() {
@@ -27,6 +28,7 @@
             wroclaw: false,
             upwr: false
         });
+        const baseMapRadio = ref('bma'); // Domyślnie Bing Maps Aerial
         onMounted(() => {
             initCesium("cesiumContainer");
         });
@@ -35,7 +37,9 @@
                 selectedStartBuilding,
                 selectedEndBuilding,
                 selectedMode,
-                layerCheckboxes
+                layerCheckboxes,
+                baseMapRadio, 
+
             }
         },
         methods: {
@@ -47,6 +51,7 @@
             homeView,
             zoomInOut,
             clearRoutes,
+            changeBasemap,
             callRouteFinder(){
                 if(!this.selectedStartBuilding || !this.selectedEndBuilding){
                     alert("Wybierz budynki początkowy i końcowy");
@@ -70,6 +75,34 @@
                     this.selectedMode
                 );
             },
+            async toggleGoogleLayer() {
+                this.layerCheckboxes.osm = false;
+                this.layerCheckboxes.wroclaw = false;
+                this.layerCheckboxes.upwr = false;
+                await show3DBuildingsGoogle();
+                
+            },
+            async toggleOSMLayer() {
+                this.layerCheckboxes.google = false;
+                this.layerCheckboxes.wroclaw = false;
+                this.layerCheckboxes.upwr = false;
+                await show3DBuildingsOSM();
+                
+            },
+            async toggleWroLayer() {
+                this.layerCheckboxes.google = false;
+                this.layerCheckboxes.osm = false;
+                this.layerCheckboxes.upwr = false;
+                await show3DBuildingsWroclaw();
+                
+            },
+            async toggleUPWRLayer() {
+                this.layerCheckboxes.google = false;
+                this.layerCheckboxes.osm = false;
+                this.layerCheckboxes.wroclaw = false;
+                await showUPWRBuildings();
+                
+            }
         }
     }
         
@@ -124,7 +157,7 @@
                             label="Wybierz budynek"
                             :items="buildings"
                             item-value="code"
-                            item-title="name"
+                            :item-title="item => `${item.code} - ${item.name}`"
                             >
                             </v-select>
                             <v-radio-group v-model="selectedMode" name="userTransportTypeRadio">
@@ -143,7 +176,7 @@
                             label="Budynek początkowy"
                             :items="buildings"
                             item-value="code"
-                            item-title="name"
+                            :item-title="item => `${item.code} - ${item.name}`"
                             >
                             </v-select>
                             <v-select
@@ -152,7 +185,7 @@
                             label="Budynek końcowy"
                             :items="buildings"
                             item-value="code"
-                            item-title="name"
+                            :item-title="item => `${item.code} - ${item.name}`"
                             >
                             </v-select>
                             <v-radio-group v-model="selectedMode" name="transportTypeRadio">
@@ -172,25 +205,31 @@
             expand-icon="mdi-layers"
             >
             <v-expansion-panel-text>
-                <v-checkbox @click="show3DBuildingsGoogle" id="3DBuildingsGoogle"
+                <v-radio-group v-model="baseMapRadio">
+                    <v-radio @change="changeBasemap('BingMapsAerial')" label="Bing Maps Aerial" value="bma"></v-radio>
+                    <v-radio @change="changeBasemap('OSM')" label="OpenStreetMap" value="osm"></v-radio>
+                    <v-radio @change="changeBasemap('GoogleMaps')" label="Google Maps" value="googlemaps"></v-radio>
+                </v-radio-group>
+            <v-divider></v-divider>
+                <v-checkbox @click="toggleGoogleLayer" id="3DBuildingsGoogle"
                     v-model="layerCheckboxes.google" 
                     class="layerCheckbox ma-0 pa-0" 
                     color="info" 
                     label="Budynki 3D Google">
                 </v-checkbox>
-                <v-checkbox @click="show3DBuildingsOSM" id="3DBuildingsOSM"
+                <v-checkbox @click="toggleOSMLayer" id="3DBuildingsOSM"
                     v-model="layerCheckboxes.osm" 
                     class="layerCheckbox ma-0 pa-0" 
                     color="info" 
                     label="Budynki OpenStreetMap">
                 </v-checkbox>
-                <v-checkbox @click="show3DBuildingsWroclaw" id="3DBuildingsWRO" 
+                <v-checkbox @click="toggleWroLayer" id="3DBuildingsWRO" 
                     v-model="layerCheckboxes.wroclaw"
                     class="layerCheckbox ma-0 pa-0" 
                     color="info" 
                     label="Budynki 3D Wrocław LOD1">
                 </v-checkbox>
-                <v-checkbox @click="showUPWRBuildings" id="3DBuildingsUPWR" 
+                <v-checkbox @click="toggleUPWRLayer" id="3DBuildingsUPWR" 
                     v-model="layerCheckboxes.upwr"
                     class="layerCheckbox ma-0 pa-0" 
                     color="info" 
@@ -210,7 +249,9 @@
         top: 0;
         left: 0;
     }
-
+    .layerCheckbox{
+        height: 50px;
+    }
     .panels{
         width: 300px;
     }

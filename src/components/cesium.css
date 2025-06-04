@@ -6,6 +6,10 @@
 .cesium-baseLayerPicker-dropDown, .cesium-baseLayerPicker-dropDown-visible{
     left: 44px;
 }
+.cesium-infoBox{
+    position: absolute;
+    left:  35px;
+}
 .cesium-fullscreenButton{
     display: none !important;
 }
