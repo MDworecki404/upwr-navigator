@@ -1,27 +1,102 @@
-<v-fab 
-        @click="showLayerPanel"
-        class="position-absolute right-0 top-0 m-3" 
-        icon="mdi-layers">
-    </v-fab>
-    <v-card title="Warstwy" class="layerPanel position-absolute top-0 right-0 w-auto ">
-            <v-checkbox @click="show3DBuildingsGoogle" id="3DBuildingsGoogle" 
-                class="layerCheckbox ma-0 pa-0" 
-                color="info" 
-                label="Budynki 3D Google">
-            </v-checkbox>
-            <v-checkbox @click="show3DBuildingsOSM" id="3DBuildingsOSM" 
-                class="layerCheckbox ma-0 pa-0" 
-                color="info" 
-                label="Budynki OpenStreetMap">
-            </v-checkbox>
-            <v-checkbox @click="show3DBuildingsWroclaw" id="3DBuildingsWRO" 
-                class="layerCheckbox ma-0 pa-0" 
-                color="info" 
-                label="Budynki 3D Wrocław LOD1">
-            </v-checkbox>
-            <v-checkbox @click="showUPWRBuildings" id="3DBuildingsUPWR" 
-                class="layerCheckbox ma-0 pa-0" 
-                color="info" 
-                label="Budynki UPWr">
-            </v-checkbox>
-    </v-card>
+<v-expansion-panels 
+        class="panels d-flex mr-0 position-absolute right-0" variant="popout"
+    >
+        <v-expansion-panel
+            class="layerPanel h-auto"
+            title="Nawigacja"
+            expand-icon="mdi-road-variant"
+            focusable="true"
+            >
+
+            <v-expansion-panel-text>
+                <v-expansion-panels variant="popout">
+                    <v-expansion-panel
+                    title="Od użytkownika do budynku">
+                        <v-expansion-panel-text>
+                            <v-select
+                            v-model="selectedEndBuilding"
+                            class="userEndChoice"
+                            label="Wybierz budynek"
+                            :items="buildings"
+                            item-value="code"
+                            :item-title="item => `${item.code} - ${item.name}`"
+                            >
+                            </v-select>
+                            <v-radio-group v-model="selectedMode" name="userTransportTypeRadio">
+                                <v-radio label="Pieszo/Rowerem" value="bikeFoot" class="bikeFoot"></v-radio>
+                                <v-radio label="Samochodem" value="car" class="car"></v-radio>
+                            </v-radio-group>
+                            <v-btn @click="callUserRouteFinder" color="primary">Szukaj trasy</v-btn>
+                        </v-expansion-panel-text>
+                    </v-expansion-panel>
+                    <v-expansion-panel
+                    title="Od budynku do budynku">
+                        <v-expansion-panel-text>
+                            <v-select
+                            v-model="selectedStartBuilding"
+                            class="startChoice"
+                            label="Budynek początkowy"
+                            :items="buildings"
+                            item-value="code"
+                            :item-title="item => `${item.code} - ${item.name}`"
+                            >
+                            </v-select>
+                            <v-select
+                            v-model="selectedEndBuilding"
+                            class="endChoice"
+                            label="Budynek końcowy"
+                            :items="buildings"
+                            item-value="code"
+                            :item-title="item => `${item.code} - ${item.name}`"
+                            >
+                            </v-select>
+                            <v-radio-group v-model="selectedMode" name="transportTypeRadio">
+                                <v-radio label="Pieszo/Rowerem" value="bikeFoot" class="bikeFoot"></v-radio>
+                                <v-radio label="Samochodem" value="car" class="car"></v-radio>
+                            </v-radio-group>
+                            <v-btn @click="callRouteFinder" color="primary">Szukaj trasy</v-btn>
+                        </v-expansion-panel-text>
+                    </v-expansion-panel>
+                </v-expansion-panels>
+            </v-expansion-panel-text>
+            
+        </v-expansion-panel>
+        <v-expansion-panel
+            class="layerPanel h-auto"
+            title="Warstwy"
+            expand-icon="mdi-layers"
+            >
+            <v-expansion-panel-text>
+                <v-radio-group v-model="baseMapRadio">
+                    <v-radio @change="changeBasemap('BingMapsAerial')" label="Bing Maps Aerial" value="bma"></v-radio>
+                    <v-radio @change="changeBasemap('OSM')" label="OpenStreetMap" value="osm"></v-radio>
+                    <v-radio @change="changeBasemap('GoogleMaps')" label="Google Maps" value="googlemaps"></v-radio>
+                </v-radio-group>
+            <v-divider></v-divider>
+                <v-checkbox @click="toggleGoogleLayer" id="3DBuildingsGoogle"
+                    v-model="layerCheckboxes.google" 
+                    class="layerCheckbox ma-0 pa-0" 
+                    color="info" 
+                    label="Budynki 3D Google">
+                </v-checkbox>
+                <v-checkbox @click="toggleOSMLayer" id="3DBuildingsOSM"
+                    v-model="layerCheckboxes.osm" 
+                    class="layerCheckbox ma-0 pa-0" 
+                    color="info" 
+                    label="Budynki OpenStreetMap">
+                </v-checkbox>
+                <v-checkbox @click="toggleWroLayer" id="3DBuildingsWRO" 
+                    v-model="layerCheckboxes.wroclaw"
+                    class="layerCheckbox ma-0 pa-0" 
+                    color="info" 
+                    label="Budynki 3D Wrocław LOD1">
+                </v-checkbox>
+                <v-checkbox @click="toggleUPWRLayer" id="3DBuildingsUPWR" 
+                    v-model="layerCheckboxes.upwr"
+                    class="layerCheckbox ma-0 pa-0" 
+                    color="info" 
+                    label="Budynki UPWr">
+                </v-checkbox>
+            </v-expansion-panel-text>
+        </v-expansion-panel>
+    </v-expansion-panels>
