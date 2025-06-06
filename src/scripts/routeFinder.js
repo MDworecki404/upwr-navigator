@@ -21,7 +21,7 @@ const routeFinder = async (startChoice, endChoice, selectedMode) => {
     }
     
     viewer.entities.removeAll();
-    const loadingIconSVG = document.querySelector('.loadingSVG');
+    const loadingIconSVG = document.querySelector('#loadingIcon');
 
     // Sprawdzenie czy wybrano budynki
     if (!startChoice || !endChoice) {

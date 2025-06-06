@@ -115,6 +115,10 @@
 <template>
     <div id="cesiumContainer" @click="hidePanel"></div>
     <v-fab 
+        id="loadingIcon" 
+        icon="mdi-cog-outline" >
+    </v-fab>
+    <v-fab 
         @click="userPositionFollow"
         class="position-absolute bottom-0 left-0 mt-5 ml-5 mb-5" 
         icon="mdi-navigation-variant-outline">
@@ -308,7 +312,16 @@
         visibility: hidden;
         pointer-events: none;
     }
-
+    #loadingIcon{
+        
+        position: absolute;
+        left: calc(50vw - 24px);
+        bottom: 0;
+        margin-bottom: 40px;
+        visibility: hidden;
+        opacity: 0;
+        
+    }
     
     
     

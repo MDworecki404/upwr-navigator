@@ -7,13 +7,14 @@ let viewer
 
 export async function initCesium(containerId) {
 
-    viewer = new Cesium.Viewer('cesiumContainer', {
+    viewer = new Cesium.Viewer(containerId, {
         terrain: Cesium.Terrain.fromWorldTerrain(),
         animation: false,
         timeline: false,
         shouldAnimate: false,
         geocoder: true,
-        selectionIndicator : false
+        selectionIndicator : false,
+        infoBox: false,
         
     });  
     

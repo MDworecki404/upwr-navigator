@@ -36,7 +36,7 @@ const userRouteFinder = async (endChoice, selectedMode) => {
     }
     
     viewer.entities.removeAll();
-    const loadingIconSVG = document.querySelector('.loadingSVG');
+    const loadingIconSVG = document.querySelector('#loadingIcon');
     
     // Pokaż animację ładowania od razu
     gsap.to(loadingIconSVG, {visibility: 'visible', opacity: 1, duration: 0.5});
