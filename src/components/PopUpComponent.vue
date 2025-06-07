@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-    <v-card v-model="popUpVisible" v-if="popUpVisible" class="popup-panel position-absolute">
+    <v-card v-if="popUpVisible" class="popup-panel position-absolute">
         <v-card-title class="text-h6">Informacje o obiekcie</v-card-title>
             <v-card-text>
                 <b>{{ popUpInfo.title }}</b> <br><br>

@@ -264,8 +264,7 @@ const showUPWRBuildings = async () => {
                 if (Cesium.defined(pickedObject) && pickedObject.id && upwrDataSource.entities.contains(pickedObject.id)) {
                     const entity = pickedObject.id;
                     const properties = entity.properties;
-
-                    // Wyświetl informacje w konsoli lub w innym miejscu
+                    
                     popUpInfo.value.title = 'Budynek UPWr';
                     popUpInfo.value.description = `
                         Numer budynku: <b>${properties.A}</b> <br>
