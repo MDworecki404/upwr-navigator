@@ -1,6 +1,7 @@
 import * as Cesium from 'cesium'
 import { viewer } from './displayMap'
 import upwrBuildings from '../layers/upwrBuildingsWithAddresses.json'
+import { popUpVisible, popUpInfo } from './popUpVisible';
 
 
 let upwrDataSource = null;
@@ -133,6 +134,20 @@ const show3DBuildingsWroclaw = async () => {
                             }
                         }
                     }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+
+                    handler.setInputAction(function (click){
+                        const picked = viewer.scene.pick(click.position);
+
+                        if (Cesium.defined(picked) && picked.primitive === Wro3dTileset && picked instanceof Cesium.Cesium3DTileFeature) {
+                            const feature = picked;
+                            const properties = feature.getProperty('gml_id')
+                            // Wyświetl informacje w konsoli lub w innym miejscu
+                            popUpInfo.value.title = 'Wrocław CityGML LOD2'
+                            popUpInfo.value.description = properties;
+                            popUpVisible.value = true;
+                            
+                        }
+                    }, Cesium.ScreenSpaceEventType.LEFT_CLICK)
                 }
 
                 // Domyślny styl tilesetu (na szaro)
@@ -218,7 +233,26 @@ const showUPWRBuildings = async () => {
                     }
                 }
             }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+            handler.setInputAction(function (click) {
+                const pickedObject = viewer.scene.pick(click.position);
+
+                if (Cesium.defined(pickedObject) && pickedObject.id && upwrDataSource.entities.contains(pickedObject.id)) {
+                    const entity = pickedObject.id;
+                    const properties = entity.properties;
+
+                    // Wyświetl informacje w konsoli lub w innym miejscu
+                    popUpInfo.value.title = 'Budynek UPWr';
+                    popUpInfo.value.description = `
+                        Numer budynku: ${properties.A} <br>
+                        Adres: ${properties.B} <br>
+                    `;
+                    popUpVisible.value = true;
+                }
+            }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
         }
+
+        
+
     } else {
         if (upwrDataSource) {
             viewer.dataSources.remove(upwrDataSource);

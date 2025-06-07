@@ -15,6 +15,9 @@
     import {zoomInOut} from "../scripts/zoomInOut";
     import { homeView } from "../scripts/homeView";
     import { changeBasemap } from "../scripts/basemaps";
+    import PopUpComponent from "./PopUpComponent.vue";
+    import { rail } from "../scripts/railVisible";
+
 
     export default {
         setup() {
@@ -23,7 +26,6 @@
         const selectedEndBuilding = ref('');
         const selectedMode = ref('bikeFoot');
         const drawer = ref(true)
-        const rail = ref(true)
         const layerCheckboxes = ref({
             google: false,
             osm: false,
@@ -45,6 +47,9 @@
                 rail 
 
             }
+        },
+        components: {
+            PopUpComponent
         },
         methods: {
             show3DBuildingsGoogle,
@@ -113,6 +118,7 @@
 </script>
 
 <template>
+    <PopUpComponent></PopUpComponent>
     <div id="cesiumContainer" @click="hidePanel"></div>
     <v-fab 
         id="loadingIcon" 
@@ -147,7 +153,6 @@
     <v-navigation-drawer
         v-model="drawer"
         :rail="rail"
-        persistent="true"
         permanent
         :width="320"
         location="right"

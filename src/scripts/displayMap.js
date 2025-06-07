@@ -1,5 +1,7 @@
 import * as Cesium from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
+import { popUpVisible } from "./popUpVisible";
+import { rail } from "./railVisible";
 
 Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmY2Q0MDIzZC1iODVjLTQ0ODItYWY1Yi1kNWNmNzljNzNiNmQiLCJpZCI6Mjg2NDc0LCJpYXQiOjE3NDI1NzA0MTd9.3Pa6jje6WlfLT6Dm-fn2z2waSBsLDuEAmxcIT0oDZFc";
 
@@ -16,7 +18,18 @@ export async function initCesium(containerId) {
         selectionIndicator : false,
         infoBox: false,
         
-    });  
+    });
+    
+    const handler = new Cesium.ScreenSpaceEventHandler();
+
+    if (viewer) {
+        const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+
+        handler.setInputAction(() => {
+            popUpVisible.value = false;
+            rail.value = true;
+        }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+    }
     
 
     const fixedTime = Cesium.JulianDate.fromDate(new Date(Date.UTC(2025, 6, 1, 14, 0, 0)));
