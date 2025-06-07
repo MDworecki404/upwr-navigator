@@ -35,4 +35,10 @@ export default {
     left: 25px;
     z-index: 1000;
 }
+
+p{
+    overflow-y: scroll;
+    max-height: 400px;
+}
+
 </style>

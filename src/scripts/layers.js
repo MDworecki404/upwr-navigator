@@ -189,6 +189,31 @@ const showUPWRBuildings = async () => {
                 clampToGround: false // ważne: budynki mają być "w powietrzu"
             });
 
+            upwrDataSource.entities.values.forEach((entity) => {
+                if (entity.polygon) {
+
+                    // Ustawienie koloru materiału budynku
+                    if (entity.properties.A._value[0] === 'A'){
+                        entity.polygon.material = Cesium.Color.fromBytes(135, 70, 36, 255);
+                    }
+                    if (entity.properties.A._value[0] === 'B'){
+                        entity.polygon.material = Cesium.Color.fromBytes(131, 105, 30, 255);
+                    }
+                    if (entity.properties.A._value[0] === 'C'){
+                        entity.polygon.material = Cesium.Color.fromBytes(108, 140, 58, 255);
+                    }
+                    if (entity.properties.A._value[0] === 'D'){
+                        entity.polygon.material = Cesium.Color.fromBytes(52, 171, 116, 255);
+                    }
+                    if (entity.properties.A._value[0] === 'E'){
+                        entity.polygon.material = Cesium.Color.fromBytes(0, 199, 193, 255);
+                    }
+                    if (entity.properties.A._value[0] === 'F'){
+                        entity.polygon.material = Cesium.Color.fromBytes(71, 64, 99, 255);
+                    }
+                }
+            })
+
             viewer.scene.primitives.remove(googleTileset);
             viewer.scene.primitives.remove(OSMTileset);
             viewer.scene.primitives.remove(Wro3dTileset);
@@ -201,7 +226,7 @@ const showUPWRBuildings = async () => {
             upwrDataSource.entities.values.forEach(entity => {
                 if (entity.polygon) {
                     // np. 15m wysokości — możesz zmodyfikować wg właściwości
-                    entity.polygon.extrudedHeight = 165;
+                    entity.polygon.extrudedHeight = 172;
                     entity.polygon.height = 0;
                 }
             });
@@ -243,8 +268,9 @@ const showUPWRBuildings = async () => {
                     // Wyświetl informacje w konsoli lub w innym miejscu
                     popUpInfo.value.title = 'Budynek UPWr';
                     popUpInfo.value.description = `
-                        Numer budynku: ${properties.A} <br>
-                        Adres: ${properties.B} <br>
+                        Numer budynku: <b>${properties.A}</b> <br>
+                        Adres: <b>${properties.B}</b> <br><br>
+                        <b>Informacje dodatkowe:</b> <i>${properties.desc}</i> <br>
                     `;
                     popUpVisible.value = true;
                 }
