@@ -1,102 +1,134 @@
-<v-expansion-panels 
-        class="panels d-flex mr-0 position-absolute right-0" variant="popout"
+<v-navigation-drawer
+        v-model="drawer"
+        :rail="rail"
+        permanent
+        :width="320"
+        location="right"
+        elevation="12"
+        @click = "rail = false"
+        style="height: min-content; max-height: 80vh; overflow: hidden;"
+        class="m-2"
     >
-        <v-expansion-panel
-            class="layerPanel h-auto"
-            title="Nawigacja"
-            expand-icon="mdi-road-variant"
-            focusable="true"
-            >
+    <v-list-item prepend-icon="mdi-map" title="Menu"
+        @click.stop="rail = !rail"
+    >
+        <template v-slot:append>
+            <v-btn
+            icon="mdi-chevron-left"
+            variant="text"
+        
+            ></v-btn>
+        </template>
+    </v-list-item>
 
-            <v-expansion-panel-text>
-                <v-expansion-panels variant="popout">
-                    <v-expansion-panel
-                    title="Od użytkownika do budynku">
-                        <v-expansion-panel-text>
-                            <v-select
-                            v-model="selectedEndBuilding"
-                            class="userEndChoice"
-                            label="Wybierz budynek"
-                            :items="buildings"
-                            item-value="code"
-                            :item-title="item => `${item.code} - ${item.name}`"
-                            >
-                            </v-select>
-                            <v-radio-group v-model="selectedMode" name="userTransportTypeRadio">
-                                <v-radio label="Pieszo/Rowerem" value="bikeFoot" class="bikeFoot"></v-radio>
-                                <v-radio label="Samochodem" value="car" class="car"></v-radio>
-                            </v-radio-group>
-                            <v-btn @click="callUserRouteFinder" color="primary">Szukaj trasy</v-btn>
-                        </v-expansion-panel-text>
-                    </v-expansion-panel>
-                    <v-expansion-panel
-                    title="Od budynku do budynku">
-                        <v-expansion-panel-text>
-                            <v-select
-                            v-model="selectedStartBuilding"
-                            class="startChoice"
-                            label="Budynek początkowy"
-                            :items="buildings"
-                            item-value="code"
-                            :item-title="item => `${item.code} - ${item.name}`"
-                            >
-                            </v-select>
-                            <v-select
-                            v-model="selectedEndBuilding"
-                            class="endChoice"
-                            label="Budynek końcowy"
-                            :items="buildings"
-                            item-value="code"
-                            :item-title="item => `${item.code} - ${item.name}`"
-                            >
-                            </v-select>
-                            <v-radio-group v-model="selectedMode" name="transportTypeRadio">
-                                <v-radio label="Pieszo/Rowerem" value="bikeFoot" class="bikeFoot"></v-radio>
-                                <v-radio label="Samochodem" value="car" class="car"></v-radio>
-                            </v-radio-group>
-                            <v-btn @click="callRouteFinder" color="primary">Szukaj trasy</v-btn>
-                        </v-expansion-panel-text>
-                    </v-expansion-panel>
-                </v-expansion-panels>
-            </v-expansion-panel-text>
-            
-        </v-expansion-panel>
+    <v-expansion-panels v-if="!rail"
+    class="px-2 pb-2"
+    variant="popout">
         <v-expansion-panel
-            class="layerPanel h-auto"
-            title="Warstwy"
-            expand-icon="mdi-layers"
-            >
+        class="layerPanel h-auto pb-1"
+        title="Nawigacja"
+        expand-icon="mdi-road-variant"
+        focusable
+        >
             <v-expansion-panel-text>
-                <v-radio-group v-model="baseMapRadio">
-                    <v-radio @change="changeBasemap('BingMapsAerial')" label="Bing Maps Aerial" value="bma"></v-radio>
-                    <v-radio @change="changeBasemap('OSM')" label="OpenStreetMap" value="osm"></v-radio>
-                    <v-radio @change="changeBasemap('GoogleMaps')" label="Google Maps" value="googlemaps"></v-radio>
+            <v-expansion-panels variant="popout">
+            
+                <v-expansion-panel title="Od użytkownika do budynku">
+                <v-expansion-panel-text>
+                <v-select
+                v-model="selectedEndBuilding"
+                class="userEndChoice"
+                label="Wybierz budynek"
+                variant="underlined"
+                :items="buildings"
+                item-value="code"
+                :item-title="item => `${item.code} - ${item.name}`"
+                />
+                <v-radio-group v-model="selectedMode" name="userTransportTypeRadio">
+                <v-radio label="Pieszo/Rowerem" value="bikeFoot" class="bikeFoot" />
+                <v-radio label="Samochodem" value="car" class="car" />
                 </v-radio-group>
-            <v-divider></v-divider>
-                <v-checkbox @click="toggleGoogleLayer" id="3DBuildingsGoogle"
-                    v-model="layerCheckboxes.google" 
-                    class="layerCheckbox ma-0 pa-0" 
-                    color="info" 
-                    label="Budynki 3D Google">
-                </v-checkbox>
-                <v-checkbox @click="toggleOSMLayer" id="3DBuildingsOSM"
-                    v-model="layerCheckboxes.osm" 
-                    class="layerCheckbox ma-0 pa-0" 
-                    color="info" 
-                    label="Budynki OpenStreetMap">
-                </v-checkbox>
-                <v-checkbox @click="toggleWroLayer" id="3DBuildingsWRO" 
-                    v-model="layerCheckboxes.wroclaw"
-                    class="layerCheckbox ma-0 pa-0" 
-                    color="info" 
-                    label="Budynki 3D Wrocław LOD1">
-                </v-checkbox>
-                <v-checkbox @click="toggleUPWRLayer" id="3DBuildingsUPWR" 
-                    v-model="layerCheckboxes.upwr"
-                    class="layerCheckbox ma-0 pa-0" 
-                    color="info" 
-                    label="Budynki UPWr">
-                </v-checkbox>
+                <v-btn @click="callUserRouteFinder" color="primary">Szukaj trasy</v-btn>
             </v-expansion-panel-text>
-        </v-expansion-panel>
+            </v-expansion-panel>
+
+            <v-expansion-panel title="Od budynku do budynku">
+            <v-expansion-panel-text>
+                <v-select
+                v-model="selectedStartBuilding"
+                class="startChoice"
+                label="Budynek początkowy"
+                variant="underlined"
+                :items="buildings"
+                item-value="code"
+                :item-title="item => `${item.code} - ${item.name}`"
+                />
+                <v-select
+                v-model="selectedEndBuilding"
+                class="endChoice"
+                label="Budynek końcowy"
+                variant="underlined"
+                :items="buildings"
+                item-value="code"
+                :item-title="item => `${item.code} - ${item.name}`"
+                />
+                <v-radio-group v-model="selectedMode" name="transportTypeRadio">
+                <v-radio label="Pieszo/Rowerem" value="bikeFoot" class="bikeFoot" />
+                <v-radio label="Samochodem" value="car" class="car" />
+                </v-radio-group>
+                <v-btn @click="callRouteFinder" color="primary">Szukaj trasy</v-btn>
+            </v-expansion-panel-text>
+            </v-expansion-panel>
+        </v-expansion-panels>
+        </v-expansion-panel-text>
+    </v-expansion-panel>
+
+    <!-- Panel Warstwy -->
+    <v-expansion-panel
+        class="layerPanel h-auto pb-1"
+        title="Warstwy"
+        expand-icon="mdi-layers"
+    >
+        <v-expansion-panel-text>
+        <v-radio-group v-model="baseMapRadio">
+            <v-radio @change="changeBasemap('BingMapsAerial')" label="Bing Maps Aerial" value="bma" />
+            <v-radio @change="changeBasemap('OSM')" label="OpenStreetMap" value="osm" />
+            <v-radio @change="changeBasemap('GoogleMaps')" label="Google Maps" value="googlemaps" />
+        </v-radio-group>
+        <v-divider></v-divider>
+        <v-checkbox
+            @click="toggleGoogleLayer"
+            id="3DBuildingsGoogle"
+            v-model="layerCheckboxes.google"
+            class="layerCheckbox ma-0 pa-0"
+            color="info"
+            label="Budynki 3D Google"
+        />
+        <v-checkbox
+            @click="toggleOSMLayer"
+            id="3DBuildingsOSM"
+            v-model="layerCheckboxes.osm"
+            class="layerCheckbox ma-0 pa-0"
+            color="info"
+            label="Budynki OpenStreetMap"
+        />
+        <v-checkbox
+            @click="toggleWroLayer"
+            id="3DBuildingsWRO"
+            v-model="layerCheckboxes.wroclaw"
+            class="layerCheckbox ma-0 pa-0"
+            color="info"
+            label="Budynki 3D Wrocław LOD1"
+        />
+        <v-checkbox
+            @click="toggleUPWRLayer"
+            id="3DBuildingsUPWR"
+            v-model="layerCheckboxes.upwr"
+            class="layerCheckbox ma-0 pa-0"
+            color="info"
+            label="Budynki UPWr"
+        />
+        </v-expansion-panel-text>
+    </v-expansion-panel>
     </v-expansion-panels>
+</v-navigation-drawer>

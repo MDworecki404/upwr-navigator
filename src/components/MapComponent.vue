@@ -16,7 +16,8 @@
     import { homeView } from "../scripts/homeView";
     import { changeBasemap } from "../scripts/basemaps";
     import PopUpComponent from "./PopUpComponent.vue";
-    import { rail } from "../scripts/railVisible";
+    import { rail, rail2 } from "../scripts/railVisible";
+    import { watch } from "vue";
 
 
     export default {
@@ -26,13 +27,22 @@
         const selectedEndBuilding = ref('');
         const selectedMode = ref('bikeFoot');
         const drawer = ref(true)
+        const drawer2 = ref(true)
         const layerCheckboxes = ref({
             google: false,
             osm: false,
             wroclaw: false,
             upwr: false
         });
-        const baseMapRadio = ref('bma'); // Domyślnie Bing Maps Aerial
+        const baseMapRadio = ref('bma');
+
+        watch(rail, (newValue) => {
+            if(newValue === false) rail2.value = true
+        })
+        watch(rail2, (newValue) => {
+            if(newValue === false) rail.value = true
+        })
+
         onMounted(() => {
             initCesium("cesiumContainer");
         });
@@ -44,7 +54,9 @@
                 layerCheckboxes,
                 baseMapRadio,
                 drawer,
-                rail 
+                drawer2,
+                rail,
+                rail2
 
             }
         },
@@ -161,7 +173,8 @@
         style="height: min-content; max-height: 80vh; overflow: hidden;"
         class="m-2"
     >
-    <v-list-item prepend-icon="mdi-map" title="Menu"
+
+    <v-list-item prepend-icon="mdi-layers" title="Warstwy"
         @click.stop="rail = !rail"
     >
         <template v-slot:append>
@@ -172,18 +185,70 @@
             ></v-btn>
         </template>
     </v-list-item>
-
-    <v-expansion-panels v-if="!rail"
-    class="px-2 pb-2"
-    variant="popout">
-        <v-expansion-panel
-        class="layerPanel h-auto pb-1"
-        title="Nawigacja"
-        expand-icon="mdi-road-variant"
-        focusable
-        >
-            <v-expansion-panel-text>
-            <v-expansion-panels variant="popout">
+    <v-list-item v-if="!rail">
+    <v-radio-group v-model="baseMapRadio">
+            <v-radio @change="changeBasemap('BingMapsAerial')" label="Bing Maps Aerial" value="bma" />
+            <v-radio @change="changeBasemap('OSM')" label="OpenStreetMap" value="osm" />
+            <v-radio @change="changeBasemap('GoogleMaps')" label="Google Maps" value="googlemaps" />
+        </v-radio-group>
+        <v-divider></v-divider>
+        <v-checkbox
+            @click="toggleGoogleLayer"
+            id="3DBuildingsGoogle"
+            v-model="layerCheckboxes.google"
+            class="layerCheckbox ma-0 pa-0"
+            color="info"
+            label="Budynki 3D Google"
+        />
+        <v-checkbox
+            @click="toggleOSMLayer"
+            id="3DBuildingsOSM"
+            v-model="layerCheckboxes.osm"
+            class="layerCheckbox ma-0 pa-0"
+            color="info"
+            label="Budynki OpenStreetMap"
+        />
+        <v-checkbox
+            @click="toggleWroLayer"
+            id="3DBuildingsWRO"
+            v-model="layerCheckboxes.wroclaw"
+            class="layerCheckbox ma-0 pa-0"
+            color="info"
+            label="Budynki 3D Wrocław LOD1"
+        />
+        <v-checkbox
+            @click="toggleUPWRLayer"
+            id="3DBuildingsUPWR"
+            v-model="layerCheckboxes.upwr"
+            class="layerCheckbox ma-0 pa-0"
+            color="info"
+            label="Budynki UPWr"
+        />
+        </v-list-item>
+    </v-navigation-drawer>
+    <v-navigation-drawer
+        v-model="drawer2"
+        :rail="rail2"
+        permanent
+        :width="320"
+        location="right"
+        elevation="12"
+        @click = "rail2 = false"
+        style="height: min-content; max-height: 80vh; overflow: hidden;"
+        class="mr-6 mt-2"
+    >
+    <v-list-item prepend-icon="mdi-map-marker-path" title="Nawigacja"
+        @click.stop="rail2 = !rail2"
+    >
+        <template v-slot:append>
+            <v-btn
+            icon="mdi-chevron-left"
+            variant="text"
+        
+            ></v-btn>
+        </template>
+    </v-list-item>
+    <v-expansion-panels v-if="!rail2" variant="accordion">
             
                 <v-expansion-panel title="Od użytkownika do budynku">
                 <v-expansion-panel-text>
@@ -232,58 +297,7 @@
             </v-expansion-panel-text>
             </v-expansion-panel>
         </v-expansion-panels>
-        </v-expansion-panel-text>
-    </v-expansion-panel>
-
-    <!-- Panel Warstwy -->
-    <v-expansion-panel
-        class="layerPanel h-auto pb-1"
-        title="Warstwy"
-        expand-icon="mdi-layers"
-    >
-        <v-expansion-panel-text>
-        <v-radio-group v-model="baseMapRadio">
-            <v-radio @change="changeBasemap('BingMapsAerial')" label="Bing Maps Aerial" value="bma" />
-            <v-radio @change="changeBasemap('OSM')" label="OpenStreetMap" value="osm" />
-            <v-radio @change="changeBasemap('GoogleMaps')" label="Google Maps" value="googlemaps" />
-        </v-radio-group>
-        <v-divider></v-divider>
-        <v-checkbox
-            @click="toggleGoogleLayer"
-            id="3DBuildingsGoogle"
-            v-model="layerCheckboxes.google"
-            class="layerCheckbox ma-0 pa-0"
-            color="info"
-            label="Budynki 3D Google"
-        />
-        <v-checkbox
-            @click="toggleOSMLayer"
-            id="3DBuildingsOSM"
-            v-model="layerCheckboxes.osm"
-            class="layerCheckbox ma-0 pa-0"
-            color="info"
-            label="Budynki OpenStreetMap"
-        />
-        <v-checkbox
-            @click="toggleWroLayer"
-            id="3DBuildingsWRO"
-            v-model="layerCheckboxes.wroclaw"
-            class="layerCheckbox ma-0 pa-0"
-            color="info"
-            label="Budynki 3D Wrocław LOD1"
-        />
-        <v-checkbox
-            @click="toggleUPWRLayer"
-            id="3DBuildingsUPWR"
-            v-model="layerCheckboxes.upwr"
-            class="layerCheckbox ma-0 pa-0"
-            color="info"
-            label="Budynki UPWr"
-        />
-        </v-expansion-panel-text>
-    </v-expansion-panel>
-    </v-expansion-panels>
-</v-navigation-drawer>
+    </v-navigation-drawer>
 </template>
 
 <style lang="scss">

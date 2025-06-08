@@ -1,7 +1,7 @@
 import * as Cesium from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
 import { popUpVisible } from "./popUpVisible";
-import { rail } from "./railVisible";
+import { rail, rail2 } from "./railVisible";
 
 Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmY2Q0MDIzZC1iODVjLTQ0ODItYWY1Yi1kNWNmNzljNzNiNmQiLCJpZCI6Mjg2NDc0LCJpYXQiOjE3NDI1NzA0MTd9.3Pa6jje6WlfLT6Dm-fn2z2waSBsLDuEAmxcIT0oDZFc";
 
@@ -28,6 +28,7 @@ export async function initCesium(containerId) {
         handler.setInputAction(() => {
             popUpVisible.value = false;
             rail.value = true;
+            rail2.value = true;
         }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
     }
     

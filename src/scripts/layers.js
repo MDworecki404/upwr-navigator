@@ -17,8 +17,9 @@ const show3DBuildingsGoogle = async () => {
     const checkboxGoogle = document.getElementById('3DBuildingsGoogle');
     const checkboxOSM = document.getElementById('3DBuildingsOSM');
     const checkboxWRO = document.getElementById('3DBuildingsWRO');
+    const upwrCheckbox = document.getElementById('3DBuildingsUPWR');
     if (checkboxGoogle.checked) {
-        if (!googleTileset) { // Jeśli tileset jeszcze nie istnieje, tworzymy go
+        if (!googleTileset) {
             try {
                 viewer.scene.primitives.remove(OSMTileset)
                 viewer.scene.primitives.remove(Wro3dTileset)
@@ -27,9 +28,11 @@ const show3DBuildingsGoogle = async () => {
                 checkboxOSM.checked = false;
                 checkboxWRO.checked = false;
                 viewer.scene.primitives.add(googleTileset);
+                
             } catch (error) {
                 console.log(`Failed to load tileset: ${error}`);
             }
+            
         }
     } else {
         if (googleTileset) { // Jeśli tileset istnieje, usuwamy go
