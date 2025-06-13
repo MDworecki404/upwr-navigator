@@ -4,11 +4,7 @@
 
 <template>
   <v-app>
-    <v-main>
-      <v-container>
         <MapComponent></MapComponent>
-      </v-container>
-    </v-main>
   </v-app>
 </template>
 

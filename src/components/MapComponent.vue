@@ -234,8 +234,8 @@
         location="right"
         elevation="12"
         @click = "rail2 = false"
-        style="height: min-content; max-height: 80vh; overflow: hidden;"
-        class="mr-6 mt-2"
+        style="height: min-content; max-height: 80vh; overflow: visible;"
+        class="v-navigation-drawer mr-6 mt-2"
     >
     <v-list-item prepend-icon="mdi-map-marker-path" title="Nawigacja"
         @click.stop="rail2 = !rail2"
@@ -248,13 +248,14 @@
             ></v-btn>
         </template>
     </v-list-item>
-    <v-expansion-panels v-if="!rail2" variant="accordion">
+    <v-expansion-panels v-if="!rail2" variant="inset">
             
                 <v-expansion-panel title="Od użytkownika do budynku">
                 <v-expansion-panel-text>
                 <v-select
                 v-model="selectedEndBuilding"
                 class="userEndChoice"
+                attach="body"
                 label="Wybierz budynek"
                 variant="underlined"
                 :items="buildings"
@@ -274,6 +275,7 @@
                 <v-select
                 v-model="selectedStartBuilding"
                 class="startChoice"
+                attach="body"
                 label="Budynek początkowy"
                 variant="underlined"
                 :items="buildings"
@@ -283,6 +285,7 @@
                 <v-select
                 v-model="selectedEndBuilding"
                 class="endChoice"
+                attach="body"
                 label="Budynek końcowy"
                 variant="underlined"
                 :items="buildings"
@@ -340,6 +343,13 @@
         visibility: hidden;
         opacity: 0;
         
+    }
+    #cesiumContainer {
+        z-index: 1;
+    }
+    .v-navigation-drawer {
+        overflow: visible !important;
+        z-index: 1000 !important;
     }
     
     
