@@ -14,6 +14,16 @@ const vuetify = createVuetify({
     theme: {
         defaultTheme: 'light',
     },
+    display: {
+    mobileBreakpoint: 'sm',
+    thresholds: {
+      xs: 0,
+      sm: 340,
+      md: 540,
+      lg: 800,
+      xl: 1280,
+    },
+  },
 })
 
 createApp(App).use(vuetify).mount('#app')

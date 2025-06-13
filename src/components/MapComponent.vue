@@ -229,12 +229,11 @@
     <v-navigation-drawer
         v-model="drawer2"
         :rail="rail2"
-        permanent
         :width="320"
         location="right"
         elevation="12"
         @click = "rail2 = false"
-        style="height: min-content; max-height: 80vh; overflow: visible;"
+        style="height: min-content; max-height: 80vh;"
         class="v-navigation-drawer mr-6 mt-2"
     >
     <v-list-item prepend-icon="mdi-map-marker-path" title="Nawigacja"
@@ -248,16 +247,14 @@
             ></v-btn>
         </template>
     </v-list-item>
-    <v-expansion-panels v-if="!rail2" variant="inset">
-            
+    <v-expansion-panels v-if="!rail2">
                 <v-expansion-panel title="Od użytkownika do budynku">
                 <v-expansion-panel-text>
                 <v-select
                 v-model="selectedEndBuilding"
-                class="userEndChoice"
+                class="formSelect userEndChoice"
                 attach="body"
                 label="Wybierz budynek"
-                variant="underlined"
                 :items="buildings"
                 item-value="code"
                 :item-title="item => `${item.code} - ${item.name}`"
@@ -274,7 +271,7 @@
             <v-expansion-panel-text>
                 <v-select
                 v-model="selectedStartBuilding"
-                class="startChoice"
+                class="formSelect startChoice"
                 attach="body"
                 label="Budynek początkowy"
                 variant="underlined"
@@ -284,7 +281,7 @@
                 />
                 <v-select
                 v-model="selectedEndBuilding"
-                class="endChoice"
+                class="formSelect endChoice"
                 attach="body"
                 label="Budynek końcowy"
                 variant="underlined"
@@ -344,11 +341,11 @@
         opacity: 0;
         
     }
-    #cesiumContainer {
-        z-index: 1;
-    }
     .v-navigation-drawer {
         overflow: visible !important;
+        z-index: 1000 !important;
+    }
+    .formSelect{
         z-index: 1000 !important;
     }
     
