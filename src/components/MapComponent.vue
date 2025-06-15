@@ -23,8 +23,8 @@
     export default {
         setup() {
         const buildings = ref(UniversityBuildings.buildings.flat()); // Używamy danych z importowanego JSON
-        const selectedStartBuilding = ref('');
-        const selectedEndBuilding = ref('');
+        const selectedStartBuilding = ref();
+        const selectedEndBuilding = ref();
         const selectedMode = ref('bikeFoot');
         const drawer = ref(true)
         const drawer2 = ref(true)
@@ -256,6 +256,7 @@
                 attach="body"
                 label="Wybierz budynek"
                 :items="buildings"
+                
                 item-value="code"
                 :item-title="item => `${item.code} - ${item.name}`"
                 />
